@@ -212,24 +212,6 @@ section{position:relative}
   translate:calc(var(--sh-x) * 1.6) calc(var(--sh-y) * 1.6);
 }
 
-/* ---- CUTOUT FIGURE ----
-   The founder photo ships as a real cutout with an alpha channel, so it
-   gets no frame: the figure stands on a flat colour block and the block
-   is the edge. Framing it would draw a hard border around empty pixels.
-   The image keeps its own 9:16 and is anchored to the bottom, so she
-   stands on the block rather than floating in it. ---- */
-.cutout{
-  display:flex;align-items:flex-end;justify-content:center;
-  background:var(--c-green);
-  border:var(--bd-hard);
-  box-shadow:var(--sh-x) var(--sh-y) 0 var(--c-ink);
-  aspect-ratio:4/5;overflow:hidden;
-}
-.cutout img{
-  width:auto;max-width:none;height:100%;
-  object-fit:contain;object-position:bottom center;
-}
-
 /* Square source photos (the about page ships three at 1:1) keep 1:1
    instead of the 5/4 the split media defaults to, so nothing is cropped.
    Both class names are needed: a single one ties on specificity with
