@@ -101,6 +101,10 @@ p{margin:0 0 1.1em}
 p:last-child{margin-bottom:0}
 
 .shell{max-width:var(--wide);margin-inline:auto;padding-inline:var(--gutter)}
+/* For a section whose content is one narrow column (the FAQ). Narrowing the
+   shell centres the heading and the column together, so they stay aligned with
+   each other instead of the column drifting away from its own heading. */
+.shell--narrow{max-width:calc(58rem + var(--gutter) * 2)}
 .prose{max-width:var(--measure)}
 .stack>*+*{margin-top:var(--s,1.5rem)}
 
