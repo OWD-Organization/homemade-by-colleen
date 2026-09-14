@@ -88,6 +88,14 @@ img{display:block;max-width:100%;height:auto}
 a{color:inherit}
 :focus-visible{outline:3px solid var(--c-green-deep);outline-offset:3px}
 
+/* Visible to a screen reader only. The star row is decorative markup, so
+   the rating still needs to be readable as text. */
+.sr-only{
+  position:absolute;width:1px;height:1px;
+  padding:0;margin:-1px;overflow:hidden;
+  clip-path:inset(50%);white-space:nowrap;border:0;
+}
+
 h1,h2,h3{
   font-family:var(--font-display);
   font-weight:800;
@@ -217,6 +225,36 @@ section{position:relative}
    Both class names are needed: a single one ties on specificity with
    .split-media img, which is declared later and would win. */
 .split-media.split-media--square img{aspect-ratio:1/1}
+
+/* ---- GOOGLE REVIEWS ----
+   The whole card is the link, so there is no separate "open this one"
+   affordance to hunt for, and the lift on hover is the same gesture the
+   buttons use. Truncated quotes keep the ellipsis they arrive with: the
+   rest of the review lives on Google, which is where the card goes. */
+.greviews{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-items:start;gap:clamp(1.25rem,2.5vw,2rem);margin-top:clamp(2.25rem,4vw,3.25rem)}
+.greviews-col{display:grid;align-content:start;gap:clamp(1.25rem,2.5vw,2rem)}
+.greview{
+  display:block;text-decoration:none;color:inherit;
+  border:var(--bd-hard);box-shadow:-5px 5px 0 var(--c-ink);
+  background:var(--c-paper);
+  padding:clamp(1.15rem,2vw,1.6rem);
+  transition:translate 140ms var(--ease-out-expo),
+             box-shadow 140ms var(--ease-out-expo),
+             background-color 160ms var(--ease-out-expo);
+}
+.greview:hover{translate:1px -2px;box-shadow:-7px 8px 0 var(--c-ink);background:var(--c-yellow-pale)}
+.greview .stars{display:block;font-size:var(--step-1);line-height:1}
+.greview p{margin:0.85rem 0 0}
+.greview-by{
+  display:flex;flex-wrap:wrap;align-items:baseline;gap:0.25rem 0.7rem;
+  margin-top:1.15rem;padding-top:0.9rem;border-top:var(--bd-hair);
+}
+.greview-by b{font-family:var(--font-display);font-weight:800;font-size:var(--step-0)}
+.greview-by span{font-size:var(--step--1);color:var(--fg-muted)}
+.greviews-col:nth-child(2) .greview:first-child{background:var(--c-yellow-pale)}
+.greviews-col:nth-child(3) .greview:first-child{background:var(--c-cream-2)}
+@media (max-width:70rem){ .greviews{grid-template-columns:repeat(2,minmax(0,1fr))} }
+@media (max-width:48rem){ .greviews{grid-template-columns:1fr} }
 
 /* ---- TEAM ----
    All three portraits are 1:1, so the grid is three even columns and each
