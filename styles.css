@@ -1,5 +1,5 @@
 /* ============================================================
-   HOMEMADE BY COLLEEN — shared design system, warm neobrutalism
+   HOMEMADE BY COLLEEN: shared design system, warm neobrutalism
    Token architecture inherited from nicepest.com:
    3-layer oklch color, semantic tracking, per-component
    namespaces, hard offset shadow via pseudo-element.
@@ -361,7 +361,7 @@ section{position:relative}
 .seal span{font-size:0.6rem;letter-spacing:var(--tr-label);text-transform:uppercase;margin-top:0.3em;display:block}
 
 /* =========================================================
-   HOW IT WORKS — steps
+   HOW IT WORKS: steps
    ========================================================= */
 .section-head{max-width:46ch}
 .section-head h2{font-size:var(--step-3)}
@@ -403,7 +403,7 @@ section{position:relative}
 .step:nth-child(4){background:var(--c-cream)}
 
 /* =========================================================
-   TRUST — three claims, stencil numerals inside the phrase
+   TRUST: three claims, stencil numerals inside the phrase
    ========================================================= */
 .claims{
   display:grid;
@@ -462,7 +462,7 @@ section{position:relative}
 .split h2{font-size:var(--step-3)}
 
 /* =========================================================
-   REVIEWS — deliberately unequal, not a card grid
+   REVIEWS: deliberately unequal, not a card grid
    ========================================================= */
 .reviews{
   display:grid;
@@ -494,7 +494,7 @@ section{position:relative}
 .review-by .stars{color:var(--c-green-deep)}
 
 /* =========================================================
-   WHY — asymmetric feature layout, not four equal cards
+   WHY: asymmetric feature layout, not four equal cards
    ========================================================= */
 .whys{
   display:grid;
@@ -525,7 +525,7 @@ section{position:relative}
 .why--cream{background:var(--c-cream)}
 
 /* =========================================================
-   OFFER — drenched yellow
+   OFFER: drenched yellow
    ========================================================= */
 .offer{background:var(--c-yellow);border-bottom:var(--bd-hard);text-align:center}
 .offer-kick{

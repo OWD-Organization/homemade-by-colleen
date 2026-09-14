@@ -13,12 +13,12 @@
 <link rel="stylesheet" href="styles.css">
 <style>
 /* ============================================================
-   HOMEMADE BY COLLEEN — meal prep delivery service page
+   HOMEMADE BY COLLEEN: meal prep delivery service page
    Loads styles.css (shared design system: primitives, buttons,
    labels, flowers, nav/utility bar, hero, faq, reviews, pills,
-   newsletter, footer). Below: this page's own components only —
+   newsletter, footer). Below: this page's own components only:
    numbered card grids, pricing table, day cards,
-   before/now split, order-journey rail, sign-up note, map frame —
+   before/now split, order-journey rail, sign-up note, map frame,
    plus the handful of shared-selector overrides this page needs
    (wider headings, stacked stat numerals, two-column FAQ).
    ============================================================ */
@@ -861,7 +861,7 @@ a.pill:hover{background:var(--c-green);translate:0 -3px;box-shadow:-4px 5px 0 va
   </div>
 </section>
 
-<!-- ===================== 15 DELIVERY AREAS — SOUTH HILLS ===================== -->
+<!-- ===================== 15 DELIVERY AREAS: SOUTH HILLS ===================== -->
 <section class="seam-host band band--paper pad" id="areas">
   <span class="seam-flower" style="right:clamp(1.5rem,11vw,11rem)" aria-hidden="true"><img src="build-assets/flower-b.svg" alt="" width="120" height="120"></span>
   <div class="shell split" style="display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,0.9fr);gap:clamp(2rem,4vw,3.5rem);align-items:start">
@@ -962,7 +962,7 @@ a.pill:hover{background:var(--c-green);translate:0 -3px;box-shadow:-4px 5px 0 va
   var els = document.querySelectorAll('.reveal');
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   // arriving via a link to a #section (nav, another page) jumps straight
-  // there before the fade-in can run, so the target looks blank — skip
+  // there before the fade-in can run, so the target looks blank, so skip
   // the animation entirely whenever the page loads with a hash
   if (reduce || !('IntersectionObserver' in window) || location.hash) {
     els.forEach(function(el){ el.classList.add('in'); });
