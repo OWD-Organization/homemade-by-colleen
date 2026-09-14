@@ -208,6 +208,16 @@ section{position:relative}
 }
 .videoframe iframe{display:block;width:100%;height:100%;border:0}
 
+/* ---- MAP FRAME ----
+   Same treatment as the framed photo and the video embed, so a Google
+   Maps iframe reads as one more object in the system. The aspect-ratio
+   box overrides the iframe's own width/height attributes. ---- */
+.mapbox{
+  border:var(--bd-hard);box-shadow:var(--sh-x) var(--sh-y) 0 var(--c-ink);
+  overflow:hidden;aspect-ratio:4/3;background:var(--c-cream-2);
+}
+.mapbox iframe{width:100%;height:100%;border:0;display:block}
+
 /* ---- FLOWERS: decorative system ----
    Saturated yellow, the same as the buttons. Discipline rule:
    no flower sits next to a CTA, so it never competes with it. ---- */
