@@ -445,6 +445,11 @@ section{position:relative}
 }
 .split--flip>.split-media{order:-1}
 .split-media img{aspect-ratio:5/4}
+/* A portrait source (Colleen's is 9:16) would tower over the text column
+   at the default 5/4, so it squares off instead: same frame, same border
+   and shadow, just a taller crop. The offset keeps her face in view,
+   since a centred crop of a 9:16 original cuts the top of the head. */
+.split-media--portrait img{aspect-ratio:1/1;object-position:50% 18%}
 .split h2{font-size:var(--step-3)}
 
 /* =========================================================
