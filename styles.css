@@ -451,7 +451,7 @@ section{position:relative}
    line. The crop is anchored near the top because a centred crop of a 9:16
    original cuts off the top of the head. Stacked, there is no row to match,
    so it falls back to a square. */
-.split-media--portrait img{aspect-ratio:1/1;object-position:50% 0}
+.split-media--portrait img{aspect-ratio:4/5;object-position:50% 0}
 @media (min-width:60.01rem){
   .split-media--portrait{align-self:stretch;min-height:0}
   /* Absolute, so the photo does not size the grid row: the row is set by
