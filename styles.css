@@ -312,6 +312,50 @@ section{position:relative}
 .nav-links a:hover,.nav-links a[aria-current]{border-bottom-color:var(--c-green)}
 .nav-cta{flex:0 0 auto}
 
+/* ---- NAV DROPDOWN (Delivery areas) ----
+   No JavaScript: hover opens it on a pointer, :focus-within opens it from the
+   keyboard, and below 60rem it flattens into an indented inline list, because
+   hover does not exist on touch and the nav already wraps at that width. ---- */
+.nav-drop{position:relative;display:inline-flex}
+.nav-drop>a{display:inline-flex;align-items:center;gap:0.4em}
+.nav-drop>a::after{
+  content:"";width:0.4em;height:0.4em;
+  border-right:2px solid currentColor;border-bottom:2px solid currentColor;
+  rotate:45deg;translate:0 -0.15em;
+}
+/* invisible bridge across the gap, so the pointer can travel from the
+   link down to the panel without the hover dropping out on the way */
+.nav-drop::after{content:"";position:absolute;inset-inline:0;top:100%;height:0.95rem}
+.nav-menu{
+  position:absolute;left:0;top:calc(100% + 0.9rem);z-index:60;
+  display:grid;min-width:15rem;
+  background:var(--c-paper);
+  border:var(--bd-hard);
+  box-shadow:var(--sh-x) var(--sh-y) 0 var(--c-ink);
+  padding:0.3rem;
+  opacity:0;visibility:hidden;translate:0 -6px;
+  transition:opacity 150ms var(--ease-out-expo),
+             translate 150ms var(--ease-out-expo),
+             visibility 150ms;
+}
+.nav-drop:hover .nav-menu,.nav-drop:focus-within .nav-menu{opacity:1;visibility:visible;translate:0 0}
+.nav-menu a{padding:0.55em 0.75em;border-bottom:0;white-space:nowrap}
+.nav-menu a:hover,.nav-menu a[aria-current]{background:var(--c-yellow)}
+
+@media (max-width:60rem){
+  .nav-drop{display:block}
+  .nav-drop::after{content:none}
+  .nav-menu{
+    position:static;opacity:1;visibility:visible;translate:none;
+    display:flex;flex-wrap:wrap;gap:0 1.15rem;
+    min-width:0;padding:0.2rem 0 0 0.9rem;
+    background:none;border:0;box-shadow:none;
+    border-left:var(--bd-hair);
+  }
+  .nav-menu a{padding:0.35em 0}
+  .nav-menu a:hover,.nav-menu a[aria-current]{background:none;border-bottom:2.5px solid var(--c-green)}
+}
+
 /* =========================================================
    HERO
    ========================================================= */
@@ -602,6 +646,87 @@ section{position:relative}
   display:flex;flex-wrap:wrap;align-items:center;gap:1.25rem 2rem;
 }
 .areas-note p{max-width:46ch;margin:0}
+
+/* =========================================================
+   SERVICE AREA PAGES
+   Shared by the overview and by every town page, so they live here
+   rather than being repeated in each page's inline block.
+   ========================================================= */
+
+/* hero link row, also used by the how-it-works page */
+/* A town page's tagline is a full sentence, too long for the yellow
+   .hero-tag block used on the home page, where it is four words. */
+.hero-lead{
+  font-family:var(--font-display);font-weight:700;
+  font-size:var(--step-1);line-height:1.2;
+  letter-spacing:var(--tr-heading);
+  color:var(--fg-muted);max-width:28ch;margin:0;
+}
+
+.hero-links{display:flex;flex-wrap:wrap;gap:0.7rem 1.8rem;margin-top:0.3rem}
+.hero-links a{
+  display:inline-flex;align-items:baseline;gap:0.4em;
+  font-family:var(--font-display);font-weight:700;font-size:var(--step--1);
+  letter-spacing:var(--tr-nav);text-transform:uppercase;text-decoration:none;
+  border-bottom:var(--bd-hair);padding-bottom:0.1em;
+}
+.hero-links a:hover{background:var(--c-yellow)}
+
+/* ticked list: reasons to order, core services, what you get */
+.checks{
+  list-style:none;margin:clamp(1.25rem,2.5vw,1.75rem) 0 0;padding:0;
+  display:grid;gap:0.7rem;
+  grid-template-columns:repeat(auto-fit,minmax(17rem,1fr));
+}
+.checks li{
+  display:flex;align-items:flex-start;gap:0.7em;
+  border:var(--bd-hair);background:var(--c-paper);
+  padding:0.75em 0.9em;
+}
+.checks li::before{
+  content:"";flex:0 0 auto;
+  width:0.5em;height:0.85em;margin-top:0.15em;
+  border-right:3px solid var(--c-green-deep);
+  border-bottom:3px solid var(--c-green-deep);
+  rotate:45deg;
+}
+
+/* promise cards: a bold term followed by its explanation */
+.promises{
+  display:grid;gap:clamp(1.25rem,2.5vw,2rem);
+  grid-template-columns:repeat(auto-fit,minmax(18rem,1fr));
+  margin-top:clamp(2rem,3.5vw,2.75rem);
+}
+.promise{
+  border:var(--bd-hard);box-shadow:var(--sh-x) var(--sh-y) 0 var(--c-ink);
+  background:var(--c-paper);padding:clamp(1.25rem,2.2vw,1.85rem);
+}
+.promise:nth-child(even){background:var(--c-yellow-pale)}
+.promise h3{font-size:var(--step-1);margin-bottom:0.5rem}
+.promise p{color:var(--fg-muted);margin:0}
+
+/* ZIP codes: a short row of stencilled numerals */
+.zips{display:flex;flex-wrap:wrap;gap:0.9rem;margin-top:1.5rem;padding:0;list-style:none}
+.zips li{
+  font-family:var(--font-display);font-weight:800;
+  font-size:var(--step-2);letter-spacing:var(--tr-numeral);
+  border:var(--bd-hard);box-shadow:var(--sh-x) var(--sh-y) 0 var(--c-ink);
+  background:var(--c-yellow);padding:0.35em 0.7em;
+}
+
+/* sign-up note: Colleen's photo, her invitation and the button */
+.signote{
+  display:flex;flex-wrap:wrap;gap:clamp(1.5rem,3vw,2.5rem);align-items:center;
+  background:var(--c-yellow-pale);border:var(--bd-hard);
+  box-shadow:var(--sh-x) var(--sh-y) 0 var(--c-ink);
+  padding:clamp(1.5rem,3vw,2.5rem);margin-top:clamp(1.5rem,3vw,2rem);
+}
+.signote img{
+  width:clamp(6rem,10vw,8rem);height:clamp(6rem,10vw,8rem);
+  border-radius:50%;object-fit:cover;border:var(--bd-hard);flex:0 0 auto;
+}
+.signote .prose{flex:1 1 20rem;margin:0}
+.signote .btn{flex:0 0 auto}
 
 /* =========================================================
    NEWSLETTER

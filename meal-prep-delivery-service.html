@@ -25,17 +25,6 @@
 
 .hero h1{font-size:var(--step-5);max-width:18ch}
 
-.hero-links{display:flex;flex-wrap:wrap;gap:0.7rem 1.8rem;margin-top:0.3rem}
-
-.hero-links a{
-  display:inline-flex;align-items:baseline;gap:0.4em;
-  font-family:var(--font-display);font-weight:700;font-size:var(--step--1);
-  letter-spacing:var(--tr-nav);text-transform:uppercase;text-decoration:none;
-  border-bottom:var(--bd-hair);padding-bottom:0.1em;
-}
-
-.hero-links a:hover{background:var(--c-yellow)}
-
 /* ---- SECTION HEAD ---- */
 .section-head{max-width:52ch}
 
@@ -201,20 +190,6 @@ a.pill:hover{background:var(--c-green);translate:0 -3px;box-shadow:-4px 5px 0 va
 
 .faq-body ul{margin:0.7em 0 0;padding-left:1.15em;display:grid;gap:0.35em}
 
-/* ---- SIGN-UP NOTE ---- */
-.signote{
-  display:flex;flex-wrap:wrap;gap:clamp(1.5rem,3vw,2.5rem);align-items:center;
-  background:var(--c-yellow-pale);border:var(--bd-hard);
-  box-shadow:var(--sh-x) var(--sh-y) 0 var(--c-ink);
-  padding:clamp(1.5rem,3vw,2.5rem);margin-top:clamp(1.5rem,3vw,2rem);
-}
-
-.signote img{width:clamp(6rem,10vw,8rem);height:clamp(6rem,10vw,8rem);border-radius:50%;object-fit:cover;border:var(--bd-hard);flex:0 0 auto}
-
-.signote .prose{flex:1 1 20rem;margin:0}
-
-.signote .btn{flex:0 0 auto}
-
 /* ---- RESPONSIVE ---- */
 @media (max-width:60rem){
   .bn-arrow{rotate:90deg}
@@ -257,7 +232,14 @@ a.pill:hover{background:var(--c-green);translate:0 -3px;box-shadow:-4px 5px 0 va
       <a href="index.html">Home</a>
       <a href="https://homemadebycolleen.getprado.com/menu#/" target="_blank" rel="noopener noreferrer">Weekly menu</a>
       <a href="meal-prep-delivery-service.html" aria-current="page">How it works</a>
-      <a href="/service-areas/">Delivery areas</a>
+      <span class="nav-drop">
+        <a href="service-areas.html">Delivery areas</a>
+        <span class="nav-menu">
+        <a href="service-areas.html">Overview</a>
+        <a href="meal-prep-delivery-service-bridgeville-pennsylvania.html">Bridgeville, PA</a>
+        <a href="meal-prep-delivery-service-collier-township-pennsylvania.html">Collier Township, PA</a>
+        </span>
+      </span>
       <a href="/about-us/">About us</a>
       <a href="/blog/">Blog</a>
       <a href="/about-us/contact-us/">Contact us</a>
@@ -871,14 +853,14 @@ a.pill:hover{background:var(--c-green);translate:0 -3px;box-shadow:-4px 5px 0 va
         <p style="font-family:var(--font-display);font-weight:800;font-size:var(--step-1);letter-spacing:var(--tr-heading);text-transform:uppercase;margin-top:0.5rem">We deliver prepared meals in the South Hills of Pittsburgh, PA</p>
       </div>
       <ul class="pills">
-        <li><a class="pill" href="/service-areas/meal-prep-delivery-service-bridgeville-pennsylvania/">Bridgeville, PA</a></li>
-        <li><a class="pill" href="/service-areas/meal-prep-delivery-service-collier-township-pennsylvania/">Collier Township, PA</a></li>
-        <li><a class="pill" href="/service-areas/meal-prep-delivery-service-mcmurray-pennsylvania/">McMurray, PA</a></li>
-        <li><a class="pill" href="/service-areas/meal-prep-delivery-service-mt-lebanon-pennsylvania/">Mt. Lebanon, PA</a></li>
-        <li><a class="pill" href="/service-areas/meal-prep-delivery-service-oakmont-pennsylvania/">Oakmont, PA</a></li>
-        <li><a class="pill" href="/service-areas/meal-prep-delivery-service-peters-township-pennsylvania/">Peters Township, PA</a></li>
-        <li><a class="pill" href="/service-areas/meal-prep-delivery-service-south-fayette-pennsylvania/">South Fayette, PA</a></li>
-        <li><a class="pill" href="/service-areas/meal-prep-delivery-service-upper-st-clair-pennsylvania/">Upper St. Clair, PA</a></li>
+        <li><a class="pill" href="meal-prep-delivery-service-bridgeville-pennsylvania.html">Bridgeville, PA</a></li>
+        <li><a class="pill" href="meal-prep-delivery-service-collier-township-pennsylvania.html">Collier Township, PA</a></li>
+        <li><span class="pill">McMurray, PA</span></li>
+        <li><span class="pill">Mt. Lebanon, PA</span></li>
+        <li><span class="pill">Oakmont, PA</span></li>
+        <li><span class="pill">Peters Township, PA</span></li>
+        <li><span class="pill">South Fayette, PA</span></li>
+        <li><span class="pill">Upper St. Clair, PA</span></li>
       </ul>
       <div class="areas-note">
         <p>Note: Homemade by Colleen is constantly adding new delivery areas. Check if we deliver to your ZIP code yet.</p>
