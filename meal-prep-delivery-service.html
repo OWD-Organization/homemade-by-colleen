@@ -974,7 +974,10 @@ a.pill:hover{background:var(--c-green);translate:0 -3px;box-shadow:-4px 5px 0 va
 (function(){
   var els = document.querySelectorAll('.reveal');
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (reduce || !('IntersectionObserver' in window)) {
+  // arriving via a link to a #section (nav, another page) jumps straight
+  // there before the fade-in can run, so the target looks blank — skip
+  // the animation entirely whenever the page loads with a hash
+  if (reduce || !('IntersectionObserver' in window) || location.hash) {
     els.forEach(function(el){ el.classList.add('in'); });
     return;
   }
