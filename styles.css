@@ -445,11 +445,20 @@ section{position:relative}
 }
 .split--flip>.split-media{order:-1}
 .split-media img{aspect-ratio:5/4}
-/* A portrait source (Colleen's is 9:16) would tower over the text column
-   at the default 5/4, so it squares off instead: same frame, same border
-   and shadow, just a taller crop. The offset keeps her face in view,
-   since a centred crop of a 9:16 original cuts the top of the head. */
-.split-media--portrait img{aspect-ratio:1/1;object-position:50% 18%}
+/* A portrait source (Colleen's is 9:16) overhangs the text column badly
+   at any fixed ratio. Side by side it stretches to the row height instead,
+   so the frame ends flush with the copy beside it and the layout keeps its
+   line. The crop is anchored near the top because a centred crop of a 9:16
+   original cuts off the top of the head. Stacked, there is no row to match,
+   so it falls back to a square. */
+.split-media--portrait img{aspect-ratio:1/1;object-position:50% 0}
+@media (min-width:60.01rem){
+  .split-media--portrait{align-self:stretch;min-height:0}
+  /* Absolute, so the photo does not size the grid row: the row is set by
+     the copy, the frame stretches to it, and the photo fills the frame.
+     Left in flow it would feed its own 9:16 height back into the row. */
+  .split-media--portrait img{position:absolute;inset:0;height:100%;aspect-ratio:auto}
+}
 .split h2{font-size:var(--step-3)}
 
 /* =========================================================
