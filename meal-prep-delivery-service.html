@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<script>document.documentElement.className="js"</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pittsburgh Meal Delivery: Fresh Meals by Colleen (2025)</title>
+<meta name="description" content="Pittsburgh meal delivery by Homemade By Colleen: Fresh, healthy family meals prepared with love and delivered weekly. Order your gourmet meal prep today!">
+<link rel="preload" as="image" href="build-assets/weekly-trays.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Hanken+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+/* ============================================================
+   HOMEMADE BY COLLEEN — meal prep delivery service page
+   Loads styles.css (shared design system: primitives, buttons,
+   labels, flowers, nav/utility bar, hero, faq, reviews, pills,
+   newsletter, footer). Below: this page's own components only —
+   breadcrumb, numbered card grids, pricing table, day cards,
+   before/now split, order-journey rail, sign-up note, map frame —
+   plus the handful of shared-selector overrides this page needs
+   (wider headings, stacked stat numerals, two-column FAQ).
+   ============================================================ */
+
+.hero h1{font-size:var(--step-5);max-width:18ch}
+
+.hero-links{display:flex;flex-wrap:wrap;gap:0.7rem 1.8rem;margin-top:0.3rem}
+
+.hero-links a{
+  display:inline-flex;align-items:baseline;gap:0.4em;
+  font-family:var(--font-display);font-weight:700;font-size:var(--step--1);
+  letter-spacing:var(--tr-nav);text-transform:uppercase;text-decoration:none;
+  border-bottom:var(--bd-hair);padding-bottom:0.1em;
+}
+
+.hero-links a:hover{background:var(--c-yellow)}
+
+/* ---- BREADCRUMB ---- */
+.crumbs{background:var(--c-cream-2);border-bottom:var(--bd-hair);font-size:var(--step--1)}
+
+.crumbs .shell{padding-block:0.75rem;display:flex;flex-wrap:wrap;gap:0.4em;align-items:center}
+
+.crumbs a{text-decoration:none;border-bottom:1.5px solid transparent;font-weight:500}
+
+.crumbs a:hover{border-bottom-color:var(--c-green)}
+
+.crumbs .sep{color:var(--fg-muted)}
+
+.crumbs b{font-weight:700}
+
+/* ---- SECTION HEAD ---- */
+.section-head{max-width:52ch}
+
+/* ---- NUMBERED CARD GRIDS (reasons, benefits, steps) ---- */
+.numcards{display:grid;gap:clamp(1.25rem,2.5vw,2rem);margin-top:clamp(2.25rem,4vw,3.25rem)}
+
+.numcards.c3{grid-template-columns:repeat(3,minmax(0,1fr))}
+
+.numcards.c2{grid-template-columns:repeat(2,minmax(0,1fr))}
+
+.numcard{
+  border:var(--bd-hard);box-shadow:var(--sh-x) var(--sh-y) 0 var(--c-ink);
+  background:var(--c-paper);padding:clamp(1.25rem,2.2vw,1.85rem);
+  display:grid;gap:0.7rem;align-content:start;
+}
+
+.numcard-badge{
+  width:2.5rem;height:2.5rem;border-radius:50%;
+  background:var(--c-yellow);border:var(--bd-hair);
+  display:grid;place-content:center;
+  font-family:var(--font-display);font-weight:800;font-size:var(--step-0);
+}
+
+.numcard h3{font-size:var(--step-1)}
+
+.numcard p{color:var(--fg-muted);margin:0}
+
+.numcard ul{color:var(--fg-muted);margin:0;padding-left:1.15em;display:grid;gap:0.4em}
+
+.numcards.c3 .numcard:nth-child(3n+2),.numcards.c2 .numcard:nth-child(4n+2){background:var(--c-yellow-pale)}
+
+.numcards.c3 .numcard:nth-child(3n),.numcards.c2 .numcard:nth-child(4n+3){background:var(--c-cream-2)}
+
+/* ---- STAT ROW (reasons to order homemade) ---- */
+.claims{display:grid;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));gap:clamp(1.25rem,2.5vw,2rem);margin-top:clamp(2.25rem,4vw,3.25rem)}
+
+.claim{border:var(--bd-hard);box-shadow:var(--sh-x) var(--sh-y) 0 var(--c-ink);background:var(--c-paper);padding:clamp(1.15rem,2vw,1.6rem);font-family:var(--font-display);font-weight:700;font-size:var(--step-0);line-height:1.15;letter-spacing:var(--tr-heading);text-align:center}
+
+.claim em{font-style:normal;display:block;font-size:2em;font-weight:800;letter-spacing:var(--tr-numeral);line-height:0.95;margin-bottom:0.15em}
+
+.claim:nth-child(4){background:var(--c-yellow-pale)}
+
+.claim:nth-child(5){background:var(--c-cream-2)}
+
+/* ---- MAP FRAME ---- */
+.mapbox{border:var(--bd-hard);box-shadow:var(--sh-x) var(--sh-y) 0 var(--c-ink);overflow:hidden;aspect-ratio:4/3;background:var(--c-cream-2)}
+
+.mapbox iframe{width:100%;height:100%;border:0;display:block}
+
+a.pill:hover{background:var(--c-green);translate:0 -3px;box-shadow:-4px 5px 0 var(--c-ink)}
+
+/* ---- PRICING TABLE ---- */
+.pricewrap{margin-top:clamp(2rem,3.5vw,2.75rem);overflow-x:auto}
+
+.pricetable{width:100%;min-width:36rem;border-collapse:collapse;border:var(--bd-hard)}
+
+.pricetable th,.pricetable td{border:var(--bd-hair);padding:0.9em 1.1em;text-align:left;vertical-align:top}
+
+.pricetable thead th{
+  background:var(--c-ink);color:var(--fg-inverse);
+  font-family:var(--font-display);font-weight:700;letter-spacing:var(--tr-label);
+  text-transform:uppercase;font-size:var(--step--1);
+}
+
+.pricetable tbody tr:nth-child(odd){background:var(--c-paper)}
+
+.pricetable tbody tr:nth-child(even){background:var(--c-cream-2)}
+
+.pricetable td ul{margin:0;padding-left:1.1em;display:grid;gap:0.25em}
+
+.pricetable td b{font-family:var(--font-display)}
+
+.savings{margin-top:clamp(1.75rem,3vw,2.5rem)}
+
+.savings h3{font-size:var(--step-1);margin-bottom:0.9rem}
+
+/* ---- ORDER TIMELINE reuse of numcards.c3 with a connecting line ---- */
+.timeline{position:relative}
+
+.timeline::before{
+  content:"";position:absolute;top:1.9rem;left:8%;right:8%;height:2px;
+  background:color-mix(in oklab, var(--c-ink) 25%, transparent);z-index:0;
+}
+
+.timeline .numcards{position:relative;z-index:1}
+
+/* ---- DAY CARDS ---- */
+.daycards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(1.25rem,2.5vw,2rem);margin-top:clamp(2.25rem,4vw,3.25rem)}
+
+.daycard{border:var(--bd-hard);box-shadow:var(--sh-x) var(--sh-y) 0 var(--c-ink);background:var(--c-paper);padding:clamp(1.25rem,2.2vw,1.85rem)}
+
+.daycard:nth-child(2){background:var(--c-yellow-pale)}
+
+.daycard .lbl{margin-bottom:0.9rem}
+
+.daycard ul{margin:0;padding-left:1.1em;color:var(--fg-muted);display:grid;gap:0.45em}
+
+.tipbar{
+  margin-top:clamp(1.75rem,3vw,2.5rem);
+  border:var(--bd-hard);background:var(--c-cream-2);
+  padding:clamp(1rem,1.8vw,1.4rem) clamp(1.25rem,2.2vw,1.75rem);
+}
+
+.tipbar h3{font-size:var(--step-0);margin-bottom:0.6rem}
+
+.tipbar ul{margin:0;padding-left:1.1em;color:var(--fg-muted);display:grid;gap:0.4em}
+
+/* ---- BEFORE / NOW ---- */
+.bn{border:var(--bd-hard);box-shadow:var(--sh-x) var(--sh-y) 0 var(--c-ink);background:var(--c-paper);padding:clamp(1.5rem,2.6vw,2.1rem);margin-top:clamp(2.25rem,4vw,3.25rem)}
+
+.bn h3{font-size:var(--step-1);margin-bottom:0.4rem}
+
+.bn-grid{display:grid;grid-template-columns:1fr auto 1fr;gap:clamp(1.5rem,3vw,2.5rem);align-items:center;margin-top:1.1rem}
+
+.bn-col .lbl{margin-bottom:0.6rem;font-size:var(--step--1)}
+
+.bn-before p{color:var(--fg-muted)}
+
+.bn-arrow{font-family:var(--font-display);font-size:2.2rem;color:var(--c-green-deep);text-align:center}
+
+/* ---- ORDER JOURNEY (steps + pro-tips rail) ---- */
+.journey{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(1.25rem,2.5vw,2rem);margin-top:clamp(2.25rem,4vw,3.25rem)}
+
+.journey-tip{
+  grid-column:1 / -1;
+  border:var(--bd-hard);background:var(--c-yellow-pale);
+  box-shadow:var(--sh-x) var(--sh-y) 0 var(--c-ink);
+  padding:clamp(1.25rem,2.2vw,1.85rem);
+  display:grid;gap:1.25rem;
+  grid-template-columns:repeat(auto-fit,minmax(14rem,1fr));
+}
+
+.journey-tip-col h3{font-size:var(--step-0);margin-bottom:0.6rem}
+
+.journey-tip-col ul{margin:0;padding-left:1.1em;display:grid;gap:0.4em;font-size:var(--step--1)}
+
+.ministeps{list-style:none;margin:1.1rem 0 0;padding:0;display:flex;flex-wrap:wrap;gap:0.75rem;counter-reset:mini}
+
+.ministeps li{
+  counter-increment:mini;
+  border:var(--bd-hair);background:var(--c-paper);border-radius:999px;
+  padding:0.5em 1em 0.5em 0.4em;font-size:var(--step--1);
+  display:flex;align-items:center;gap:0.5em;
+}
+
+.ministeps li::before{
+  content:counter(mini);
+  width:1.6em;height:1.6em;border-radius:50%;background:var(--c-green);
+  border:var(--bd-hair);display:grid;place-content:center;
+  font-family:var(--font-display);font-weight:800;font-size:0.85em;flex:0 0 auto;
+}
+
+/* ---- FAQ ---- */
+.faq{max-width:none;margin-top:clamp(2rem,3.5vw,2.75rem);border-top:var(--bd-hard)}
+
+.faq-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 clamp(1.5rem,3vw,2.5rem)}
+
+.faq-grid details{border-bottom:var(--bd-hard);background:var(--c-paper);align-self:start}
+
+.faq-body ul{margin:0.7em 0 0;padding-left:1.15em;display:grid;gap:0.35em}
+
+/* ---- SIGN-UP NOTE ---- */
+.signote{
+  display:flex;flex-wrap:wrap;gap:clamp(1.5rem,3vw,2.5rem);align-items:center;
+  background:var(--c-yellow-pale);border:var(--bd-hard);
+  box-shadow:var(--sh-x) var(--sh-y) 0 var(--c-ink);
+  padding:clamp(1.5rem,3vw,2.5rem);margin-top:clamp(1.5rem,3vw,2rem);
+}
+
+.signote img{width:clamp(6rem,10vw,8rem);height:clamp(6rem,10vw,8rem);border-radius:50%;object-fit:cover;border:var(--bd-hard);flex:0 0 auto}
+
+.signote .prose{flex:1 1 20rem;margin:0}
+
+.signote .btn{flex:0 0 auto}
+
+/* ---- RESPONSIVE ---- */
+@media (max-width:60rem){
+  .bn-arrow{rotate:90deg}
+  .bn-grid{grid-template-columns:1fr}
+  .daycards{grid-template-columns:1fr}
+  .faq-grid{grid-template-columns:1fr}
+  .journey-tip{grid-column:1 / -1}
+  .journey{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .numcards.c3{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:48rem){
+  .journey{grid-template-columns:1fr}
+  .numcards.c3,.numcards.c2{grid-template-columns:1fr}
+}
+</style>
+
+</head>
+<body>
+
+<!-- ===================== UTILITY BAR ===================== -->
+<div class="util">
+  <div class="shell">
+    <span class="util-rate">Rated: 5.0. <span class="stars" aria-hidden="true">★★★★★</span></span>
+    <a href="/about-us/reviews/">Read our reviews »</a>
+    <div class="util-sep">
+      <span>300 Mt Lebanon Blvd, Pittsburgh, PA 15234</span>
+      <a class="util-tel" href="tel:412-998-8404">(412) 998-8404</a>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== NAV ===================== -->
+<header class="nav">
+  <div class="shell">
+    <a class="brand" href="/">
+      <b>Homemade</b>
+      <span>By Colleen · Pittsburgh</span>
+    </a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="/">Home</a>
+      <a href="https://homemadebycolleen.getprado.com/menu#/" target="_blank" rel="noopener noreferrer">Weekly menu</a>
+      <a href="/#how">How it works</a>
+      <a href="/meal-prep-delivery-service/" aria-current="page">Meal prep</a>
+      <a href="/service-areas/">Delivery areas</a>
+      <a href="/about-us/">About us</a>
+      <a href="/blog/">Blog</a>
+      <a href="/about-us/contact-us/">Contact us</a>
+    </nav>
+    <a class="btn nav-cta" href="/#offer">New order</a>
+  </div>
+</header>
+
+<!-- ===================== 01 HERO ===================== -->
+<section class="hero">
+  <div class="shell">
+    <div class="stack reveal" style="--s:1.5rem">
+      <span class="lbl">Pittsburgh's Most Loved Local Meal Prep Service</span>
+      <h1>Meal Prep Delivery Service in Pittsburgh, PA</h1>
+      <p class="hero-actions" style="margin:0">
+        <a class="btn btn--lg" href="/#offer">Get $15 off your first order</a>
+      </p>
+      <p class="hero-links">
+        <a href="https://homemadebycolleen.getprado.com/menu" target="_blank" rel="noopener">Open this week's fresh menu</a>
+        <a href="/#offer">Get $15 off your first order</a>
+        <a href="/about-us/contact-us/">Send a message to our team</a>
+      </p>
+    </div>
+    <div class="hero-shot shot reveal" style="--d:120ms">
+      <img src="build-assets/weekly-trays.jpg"
+           alt="Trays of this week's prepared meals lined up before delivery."
+           width="1000" height="800" fetchpriority="high" decoding="async">
+      <div class="seal" aria-hidden="true"><b>5.0</b><span>Rated by the Valley</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 02 PAGE TITLE BAR ===================== -->
+<nav class="crumbs" aria-label="Breadcrumb">
+  <div class="shell">
+    <a href="/">Home</a><span class="sep">»</span><b>Our Meal Prep Delivery Service in Pittsburgh, PA</b>
+  </div>
+</nav>
+
+<!-- ===================== 03 HOW IT WORKS ===================== -->
+<section class="band band--cream pad" id="how-it-works">
+  <div class="shell">
+    <div class="section-head reveal">
+      <h2>How Does Our Local Meal Prep Delivery Service Work in Pittsburgh, PA?</h2>
+    </div>
+    <div class="prose reveal" style="--d:80ms;margin-top:1.25rem">
+      <p>We've made getting wholesome, homemade meals as simple as opening your front door. Here's how we bring the comfort of home cooking to your table:</p>
+    </div>
+    <div class="numcards c3 reveal" style="--d:120ms">
+      <div class="numcard">
+        <h3>Fresh Weekly Menu That Excites</h3>
+        <p>Every week brings a new selection of seasonally-inspired dishes that keep your family looking forward to mealtime. Our menu features both light, healthy options and hearty, wholesome comfort foods that satisfy every craving.</p>
+      </div>
+      <div class="numcard">
+        <h3>Two Convenient Delivery Days</h3>
+        <ul>
+          <li>Sunday deliveries: perfect for starting your week strong</li>
+          <li>Wednesday deliveries: mid-week refresh of fresh, homemade goodness</li>
+          <li>Some special dishes are exclusive to each delivery day, giving you variety throughout the week</li>
+        </ul>
+      </div>
+      <div class="numcard">
+        <h3>Simple Ordering Process</h3>
+        <p>Place your order by Friday at 12 PM to receive your meals the following week. We prepare everything fresh after you order – just like you would at home.</p>
+      </div>
+    </div>
+    <p style="margin-top:clamp(2.25rem,4vw,3.25rem)" class="reveal">
+      <a class="btn" href="https://homemadebycolleen.getprado.com/menu" target="_blank" rel="noopener">Open this week's fresh menu</a>
+    </p>
+  </div>
+</section>
+
+<!-- ===================== 04 ZIP CODES WE DELIVER TO ===================== -->
+<section class="band band--paper pad">
+  <div class="shell split" style="display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,0.9fr);gap:clamp(2rem,4vw,3.5rem);align-items:start">
+    <div class="reveal">
+      <div class="section-head">
+        <h2>ZIP Codes we Deliver To in Pittsburgh, PA</h2>
+      </div>
+      <div class="prose" style="margin-top:1.25rem">
+        <p>We proudly serve the south hills of Pittsburgh, PA. Here are the ZIP codes we cover in this region. If you do not find your ZIP code, please <a class="btn-link" href="/about-us/contact-us/">contact us</a> or do a <a class="btn-link" href="https://homemadebycolleen.getprado.com/Menu?prompt=true" target="_blank" rel="noopener">quick zip code check</a> here to find out if we deliver in your area yet:</p>
+      </div>
+      <ul class="pills">
+        <li><span class="pill">15017</span></li>
+        <li><span class="pill">15057</span></li>
+        <li><span class="pill">15139</span></li>
+        <li><span class="pill">15142</span></li>
+        <li><span class="pill">15228</span></li>
+        <li><span class="pill">15234</span></li>
+        <li><span class="pill">15241</span></li>
+        <li><span class="pill">15317</span></li>
+      </ul>
+    </div>
+    <div class="mapbox reveal" style="--d:120ms">
+      <iframe loading="lazy" src="https://maps.google.com/maps?q=homemade%20by%20colleen&amp;t=m&amp;z=11&amp;output=embed&amp;iwloc=near" title="Homemade By Colleen delivery area map" aria-label="Homemade By Colleen delivery area map"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 05 WHY CHOOSE US ===================== -->
+<section class="band band--cream pad">
+  <div class="shell">
+    <div class="section-head reveal">
+      <h2>Why Choose Homemade By Colleen's Local Meal Prep Delivery?</h2>
+    </div>
+    <div class="prose reveal" style="--d:80ms;margin-top:1.25rem">
+      <p>Imagine opening your fridge to find restaurant-quality meals that taste like they're straight from your family's recipe book. Here's what makes our Pittsburgh meal prep service different:</p>
+    </div>
+    <div class="numcards c3 reveal" style="--d:120ms">
+      <div class="numcard"><span class="numcard-badge">1</span>
+        <h3>Fresh, Never Frozen – Just Like Your Own Kitchen</h3>
+        <p>Every meal is prepared fresh using ingredients from local farmers and markets. Unlike big box meal services, we don't believe in frozen meals or industrial suppliers. Your family deserves the same quality ingredients you'd choose yourself.</p>
+      </div>
+      <div class="numcard"><span class="numcard-badge">2</span>
+        <h3>Portions That Actually Satisfy</h3>
+        <p>Tired of "individual portions" that leave you hungry? Our generous servings are typically ⅓ larger than other meal prep services. Many customers tell us one meal often feeds two people comfortably – perfect for sharing or saving some for lunch the next day.</p>
+      </div>
+      <div class="numcard"><span class="numcard-badge">3</span>
+        <h3>A Menu That Keeps You Excited</h3>
+        <p>Each week brings new seasonal dishes inspired by three generations of family recipes. From light, healthy options to hearty comfort foods, our rotating menu means you'll never get bored with "the usual."</p>
+      </div>
+      <div class="numcard"><span class="numcard-badge">4</span>
+        <h3>The Love Shows in Every Bite</h3>
+        <p>Remember how you could always taste the difference in mom's cooking? That's because food made with care just tastes better. We bring that same devotion to every meal we prepare, using time-honored recipes and techniques passed down through generations.</p>
+      </div>
+      <div class="numcard"><span class="numcard-badge">5</span>
+        <h3>Local Heart, Local Ingredients</h3>
+        <p>We're proud to partner with Pittsburgh area farmers and markets instead of big box suppliers. When you choose our <a class="btn-link" href="/">healthy meal prep service</a>, you're not just feeding your family – you're supporting our local community.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 06 REASONS TO ORDER HOMEMADE ===================== -->
+<section class="band band--paper pad">
+  <div class="shell">
+    <div class="section-head reveal">
+      <h2>Reasons to Order Homemade</h2>
+    </div>
+    <div class="claims reveal" style="--d:80ms">
+      <p class="claim"><em>40+</em>Years of daily cooking experience</p>
+      <p class="claim"><em>30,000+</em>Meals prepared annually</p>
+      <p class="claim"><em>500+</em>Pittsburgh area families served</p>
+      <p class="claim"><em>3</em>Generations of authentic family recipes</p>
+      <p class="claim">Family kitchen guarantee for freshness &amp; taste</p>
+    </div>
+    <p class="reveal" style="margin-top:clamp(1.75rem,3vw,2.5rem)">Want to taste the difference home cooking makes? Call <a class="btn-link" href="tel:866-941-4129">866-941-4129</a> or order online today.</p>
+    <p class="reveal">
+      <a class="btn" href="https://homemadebycolleen.getprado.com/Menu" target="_blank" rel="noopener">Open this week's fresh menu</a>
+    </p>
+  </div>
+</section>
+
+<!-- ===================== 07 BENEFITS ===================== -->
+<section class="band band--cream pad">
+  <div class="shell">
+    <div class="section-head reveal">
+      <h2>What Benefits Can You Expect from Our Healthy Meal Prep Delivery?</h2>
+    </div>
+    <div class="prose reveal" style="--d:80ms;margin-top:1.25rem">
+      <p>Transform your daily dinner dash into peaceful family time. Here's how our Pittsburgh meal prep service changes lives:</p>
+    </div>
+    <div class="numcards c2 reveal" style="--d:120ms">
+      <div class="numcard"><span class="numcard-badge">1</span>
+        <h3>Reclaim Your Evenings</h3>
+        <ul>
+          <li>No more rushing through grocery stores after work</li>
+          <li>Skip the endless "what's for dinner?" debates</li>
+          <li>Say goodbye to sink full of dishes and post-dinner cleanup</li>
+          <li>Turn cooking time into quality time with your loved ones</li>
+        </ul>
+      </div>
+      <div class="numcard"><span class="numcard-badge">2</span>
+        <h3>Nourish Your Family, Effortlessly</h3>
+        <ul>
+          <li>Serve restaurant-quality meals without the restaurant prices</li>
+          <li>Know exactly what's going into your family's meals</li>
+          <li>Accommodate different dietary preferences with variety</li>
+          <li>Feel good about serving fresh, wholesome ingredients</li>
+        </ul>
+      </div>
+      <div class="numcard"><span class="numcard-badge">3</span>
+        <h3>Reduce Your Mental Load</h3>
+        <ul>
+          <li>Eliminate meal planning stress</li>
+          <li>Stop managing grocery lists</li>
+          <li>Free yourself from recipe hunting</li>
+          <li>End the constant kitchen cleanup cycle</li>
+        </ul>
+      </div>
+      <div class="numcard"><span class="numcard-badge">4</span>
+        <h3>Invest in What Matters</h3>
+        <ul>
+          <li>Spend more time helping with homework</li>
+          <li>Make it to every sports practice and game</li>
+          <li>Finally have energy for your own hobbies</li>
+          <li>Enjoy unhurried family dinners together</li>
+        </ul>
+      </div>
+    </div>
+    <p class="reveal" style="margin-top:clamp(2.25rem,4vw,3.25rem)">
+      <a class="btn" href="https://homemadebycolleen.getprado.com/Menu" target="_blank" rel="noopener">Open this week's fresh menu</a>
+    </p>
+  </div>
+</section>
+
+<!-- ===================== 08 PRICING ===================== -->
+<section class="band band--paper pad">
+  <div class="shell">
+    <div class="section-head reveal">
+      <h2>Our Clear &amp; Simple Meal Prep Delivery Pricing</h2>
+    </div>
+    <div class="pricewrap reveal" style="--d:80ms">
+      <table class="pricetable">
+        <thead>
+          <tr><th>Category</th><th>Meal Type</th><th>Price Range</th><th>Servings</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>Main Entrées</b></td>
+            <td><ul><li>Hearty meals</li><li>Light &amp; healthy options</li></ul></td>
+            <td>$8 – $17</td>
+            <td>1–2 people</td>
+          </tr>
+          <tr>
+            <td><b>Soups &amp; Sides</b></td>
+            <td><ul><li>Homemade soups</li><li>Side dishes</li></ul></td>
+            <td>$8 – $17</td>
+            <td><ul><li>1–2 people</li><li>2–3 people</li></ul></td>
+          </tr>
+          <tr>
+            <td><b>Breakfast</b></td>
+            <td><ul><li>Morning meals</li></ul></td>
+            <td>$8 – $17</td>
+            <td>1–2 people</td>
+          </tr>
+          <tr>
+            <td><b>Snacks</b></td>
+            <td><ul><li>Energy bites</li><li>Healthy snacks</li></ul></td>
+            <td>$8 – $17</td>
+            <td>2–4 servings</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="savings reveal" style="--d:120ms">
+      <h3>Special Savings Available</h3>
+      <ul class="pills">
+        <li><span class="pill">$15 off your first order</span></li>
+        <li><span class="pill">5% off orders of 5+ meals</span></li>
+        <li><span class="pill">10% off orders of 10+ meals</span></li>
+        <li><span class="pill">Weekly family bundles available</span></li>
+      </ul>
+    </div>
+    <div class="section-head reveal" style="margin-top:clamp(2.25rem,4vw,3.25rem)">
+      <h3 style="font-size:var(--step-2)">Making the Most of Your Meal Prep Budget</h3>
+      <p class="prose" style="margin-top:0.6rem">Here's what busy Pittsburgh families love about our pricing:</p>
+    </div>
+    <div class="numcards c3 reveal" style="--d:160ms">
+      <div class="numcard"><span class="numcard-badge">1</span>
+        <h3>Generous Portions That Go Further</h3>
+        <p>Many customers tell us they get two meals out of our single portions, effectively making each serving $8–$9 per person. Perfect for lunch the next day or sharing with a loved one!</p>
+      </div>
+      <div class="numcard"><span class="numcard-badge">2</span>
+        <h3>Real Value for Real Families</h3>
+        <p>Every meal includes:</p>
+        <ul>
+          <li>Premium, locally-sourced ingredients</li>
+          <li>Convenient delivery to your door</li>
+          <li>Restaurant-quality food at take-out prices</li>
+          <li>Zero waste – no unused ingredients</li>
+          <li>No hidden fees or subscription requirements</li>
+        </ul>
+      </div>
+      <div class="numcard"><span class="numcard-badge">3</span>
+        <h3>Smart Ordering Tips</h3>
+        <ul>
+          <li>Order 5+ meals to automatically save 5%</li>
+          <li>Split portions for multiple meals</li>
+          <li>Mix and match entrées with soups and sides</li>
+          <li>Stock up with 10+ meals for maximum savings</li>
+          <li>Share family bundles with neighbors</li>
+        </ul>
+      </div>
+    </div>
+    <p class="reveal" style="margin-top:clamp(2.25rem,4vw,3.25rem)">
+      <a class="btn" href="https://homemadebycolleen.getprado.com/Menu" target="_blank" rel="noopener">Open this week's fresh menu</a>
+    </p>
+  </div>
+</section>
+
+<!-- ===================== 09 DELIVERY SCHEDULE ===================== -->
+<section class="band band--cream pad">
+  <div class="shell">
+    <div class="section-head reveal">
+      <h2>How Our Pittsburgh Meal Prep Delivery Schedule Works</h2>
+    </div>
+    <div class="prose reveal" style="--d:80ms;margin-top:1.25rem">
+      <p>We've designed our delivery schedule to keep your fridge stocked with fresh, homemade meals throughout the week.</p>
+    </div>
+
+    <h3 class="reveal" style="margin-top:clamp(2rem,3.5vw,2.75rem);font-size:var(--step-2)">Simple Ordering Timeline</h3>
+    <div class="timeline reveal" style="--d:100ms">
+      <div class="numcards c3">
+        <div class="numcard"><span class="numcard-badge">1</span><p>Place your order anytime before Friday at noon</p></div>
+        <div class="numcard"><span class="numcard-badge">2</span><p>Choose from our Sunday and Wednesday delivery options</p></div>
+        <div class="numcard"><span class="numcard-badge">3</span><p>Enjoy fresh meals delivered by 3 PM on your chosen day</p></div>
+      </div>
+    </div>
+
+    <h3 class="reveal" style="margin-top:clamp(2.5rem,4vw,3.25rem);font-size:var(--step-2)">Two Fresh Delivery Days</h3>
+    <div class="daycards reveal" style="--d:100ms">
+      <div class="daycard">
+        <span class="lbl lbl--paper">Sunday delivery</span>
+        <ul>
+          <li>Perfect for starting your week strong</li>
+          <li>Healthy &amp; light meals are available</li>
+          <li>Includes our signature hearty family meals</li>
+          <li>Stock up for busy weekday dinners</li>
+          <li>Special Sunday-only menu items available</li>
+        </ul>
+      </div>
+      <div class="daycard">
+        <span class="lbl">Wednesday delivery</span>
+        <ul>
+          <li>Mid-week refresh of fresh meals</li>
+          <li>Lighter, healthy prep options</li>
+          <li>Perfect for finishing the week strong</li>
+          <li>Unique Wednesday-only specialties</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="reveal" style="margin-top:clamp(2.5rem,4vw,3.25rem);font-size:var(--step-2)">Why Two Delivery Days?</h3>
+    <div class="prose reveal" style="margin-top:0.8rem">
+      <p>Just like you wouldn't cook all your meals for the week on Sunday, we prepare our meals in smaller batches to ensure maximum freshness. This means:</p>
+    </div>
+    <div class="tipbar reveal" style="--d:80ms">
+      <ul>
+        <li>Your meals are always fresh, never frozen</li>
+        <li>Food tastes like it just came from the kitchen</li>
+        <li>More variety throughout your week</li>
+        <li>Flexible options for your changing schedule</li>
+      </ul>
+    </div>
+
+    <h3 class="reveal" style="margin-top:clamp(2.5rem,4vw,3.25rem);font-size:var(--step-2)">Storage Tips for Maximum Freshness</h3>
+    <div class="tipbar reveal" style="--d:80ms">
+      <ul>
+        <li>Refrigerate meals promptly upon delivery</li>
+        <li>Most meals stay fresh for 4–5 days</li>
+        <li>Check individual labels for specific storage guidelines</li>
+      </ul>
+    </div>
+
+    <p class="reveal" style="margin-top:clamp(2.25rem,4vw,3.25rem)">
+      <a class="btn" href="https://homemadebycolleen.getprado.com/Menu" target="_blank" rel="noopener">Open this week's fresh menu</a>
+    </p>
+  </div>
+</section>
+
+<!-- ===================== 10 TRANSFORM YOUR DAILY LIFE ===================== -->
+<section class="band band--paper pad">
+  <div class="shell">
+    <div class="section-head reveal">
+      <h2>How Our Local Meal Prep Service Can Transform Your Daily Life</h2>
+    </div>
+    <div class="prose reveal" style="--d:80ms;margin-top:1.25rem">
+      <p>Imagine coming home to find dinner already taken care of – not just for tonight, but for days to come. Here's how our Pittsburgh families are experiencing life differently with Homemade By Colleen:</p>
+    </div>
+
+    <div class="bn reveal" style="--d:120ms">
+      <div style="display:flex;align-items:center;gap:0.8rem"><span class="numcard-badge">1</span><h3 style="margin:0">Turn Chaos into Calm</h3></div>
+      <div class="bn-grid">
+        <div class="bn-col bn-before">
+          <span class="lbl lbl--paper">Before</span>
+          <p>Racing through traffic to grab groceries, throwing together last-minute meals, and facing a sink full of dishes every night.</p>
+        </div>
+        <span class="bn-arrow" aria-hidden="true">→</span>
+        <div class="bn-col">
+          <span class="lbl lbl--green">Now</span>
+          <p>Walking through your door knowing a homemade meal is minutes away from being on your table.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="numcards c3 reveal" style="--d:160ms">
+      <div class="numcard"><span class="numcard-badge">2</span>
+        <h3>Quality Time Returns</h3>
+        <ul>
+          <li>Watch your child's entire soccer practice instead of leaving early to cook</li>
+          <li>Help with homework without constantly checking the stove</li>
+          <li>Actually sit down for family dinner instead of eating in shifts</li>
+          <li>Find time for your own self-care and hobbies</li>
+        </ul>
+      </div>
+      <div class="numcard"><span class="numcard-badge">3</span>
+        <h3>Health &amp; Happiness Align</h3>
+        <ul>
+          <li>Serve balanced, nutritious meals without the prep work</li>
+          <li>Say goodbye to guilty take-out decisions</li>
+          <li>Know exactly what's in every meal your family eats</li>
+          <li>Feel energized by fresh, wholesome ingredients</li>
+        </ul>
+      </div>
+      <div class="numcard"><span class="numcard-badge">4</span>
+        <h3>Peace of Mind Becomes Reality</h3>
+        <ul>
+          <li>End the mental load of constant meal planning</li>
+          <li>Stop worrying about forgotten ingredients</li>
+          <li>Free yourself from recipe hunting and grocery lists</li>
+          <li>Release the guilt of serving rushed dinners</li>
+        </ul>
+      </div>
+    </div>
+    <p class="reveal" style="margin-top:clamp(2.25rem,4vw,3.25rem)">
+      <a class="btn" href="https://homemadebycolleen.getprado.com/Menu" target="_blank" rel="noopener">Open this week's fresh menu</a>
+    </p>
+  </div>
+</section>
+
+<!-- ===================== 11 EXPERIENCE HOW EASY IT IS ===================== -->
+<section class="band band--cream pad">
+  <div class="shell">
+    <div class="section-head reveal">
+      <h2>Experience Just How Easy Healthy Meal Prep Can Be</h2>
+    </div>
+    <div class="prose reveal" style="--d:80ms;margin-top:1.25rem">
+      <p>We've made getting fresh, homemade meals as simple as possible. Here's your journey to stress-free dining:</p>
+    </div>
+
+    <div class="journey reveal" style="--d:120ms">
+      <div class="numcard"><span class="numcard-badge">1</span>
+        <h3>Browse &amp; Order (By Friday 12 PM)</h3>
+        <ul>
+          <li>Explore our fresh weekly menu</li>
+          <li>Select your favorite meals</li>
+          <li>Choose Sunday or Wednesday delivery (or both!)</li>
+          <li>Place your order through our easy online system</li>
+        </ul>
+      </div>
+      <div class="numcard"><span class="numcard-badge">2</span>
+        <h3>Prepare for Delivery</h3>
+        <ul>
+          <li>Place your provided cooling box outside</li>
+          <li>We'll deliver your meals by 3 PM</li>
+          <li>No need to be home – we'll take care of everything</li>
+          <li>Get text updates about your delivery</li>
+        </ul>
+      </div>
+      <div class="numcard"><span class="numcard-badge">3</span>
+        <h3>Store &amp; Enjoy</h3>
+        <ul>
+          <li>Transfer meals to your refrigerator</li>
+          <li>Follow the simple heating instructions</li>
+          <li>Enjoy restaurant-quality meals in minutes</li>
+          <li>Reuse or return containers for your next order</li>
+        </ul>
+      </div>
+      <div class="journey-tip">
+        <div class="journey-tip-col">
+          <h3>Pro Tips from Our Regular Customers</h3>
+          <ul>
+            <li>Order for both Sunday and Wednesday to keep your menu exciting</li>
+            <li>Mix hearty and light options for variety</li>
+            <li>Save 5–10% by ordering multiple meals</li>
+            <li>Keep your cooling box in a shaded area</li>
+            <li>Store meals at eye-level in your fridge as a healthy reminder</li>
+          </ul>
+        </div>
+        <div class="journey-tip-col">
+          <h3>Getting Started Is Easy</h3>
+          <ol class="ministeps">
+            <li>Click "Start New Order" below</li>
+            <li>Create your free account</li>
+            <li>Select your first meals</li>
+            <li>Get ready for your first delivery of fresh, homemade goodness!</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <p class="reveal" style="margin-top:clamp(2.25rem,4vw,3.25rem)">
+      <a class="btn btn--lg" href="https://homemadebycolleen.getprado.com/Menu" target="_blank" rel="noopener">Start new order</a>
+    </p>
+  </div>
+</section>
+
+<!-- ===================== 12 FAQ ===================== -->
+<section class="band band--paper pad">
+  <div class="shell">
+    <h2 class="reveal" style="font-size:var(--step-3)">Frequently Asked Questions About Our Local Meal Prep Service</h2>
+    <div class="faq reveal" style="--d:80ms">
+      <div class="faq-grid">
+        <details open>
+          <summary>How do you keep everything so fresh? Other meal services I've tried seemed mass-produced...</summary>
+          <div class="faq-body"><p>Just like you would at home, we shop multiple times a week from local markets and suppliers. No big box suppliers here! Every meal is prepared fresh weekly in small batches – never frozen, never stockpiled. It's the same care you'd take cooking for your own family.</p></div>
+        </details>
+        <details>
+          <summary>Can you work around dietary restrictions and allergies?</summary>
+          <div class="faq-body"><p>Absolutely! Every family has different needs, and we're happy to accommodate them. Whether you need fewer carbs, extra veggies, or no cheese, just text me personally at <a class="btn-link" href="tel:412-515-6445">412-515-6445</a>. We'll work together to make sure everyone at your table can enjoy their meal.</p></div>
+        </details>
+        <details>
+          <summary>Why should I choose this over just going to the grocery store?</summary>
+          <div class="faq-body">
+            <p>Think of us as your family's personal chef and meal planner combined:</p>
+            <ul>
+              <li>We handle everything from planning to cleanup</li>
+              <li>No more wilted produce or forgotten ingredients</li>
+              <li>You get restaurant-quality meals without the restaurant prices</li>
+              <li>Every ingredient is thoughtfully sourced and freshly prepared</li>
+              <li>You save hours of shopping, cooking, and cleaning time</li>
+            </ul>
+          </div>
+        </details>
+        <details>
+          <summary>Is there a commitment? What if I need to skip a week?</summary>
+          <div class="faq-body"><p>No contracts, no obligations – just good food when you want it! Simply order when you need us and skip when you don't. Life gets busy, and we get that. We'll be here with fresh meals whenever you're ready to order again.</p></div>
+        </details>
+        <details>
+          <summary>What makes Homemade by Colleen different from other meal prep services?</summary>
+          <div class="faq-body">
+            <p>The difference is in the details:</p>
+            <ul>
+              <li>Three generations of family recipes and cooking wisdom</li>
+              <li>Local, seasonal ingredients (no big-box suppliers)</li>
+              <li>Weekly changing menu that keeps meals exciting</li>
+              <li>Portions generous enough to often feed two</li>
+              <li>Personal touch you can only get from a family-run kitchen</li>
+            </ul>
+          </div>
+        </details>
+        <details>
+          <summary>I've had bland meal prep before – how's the taste?</summary>
+          <div class="faq-body"><p>After 40 years of cooking for family and friends, I've learned one thing: food made with love just tastes different. Every dish is crafted with the same care I use cooking for my own family. Plus, our rotating menu keeps things exciting with new dishes every week. If anything ever isn't perfect, just let me know – your satisfaction matters to us!</p></div>
+        </details>
+        <details>
+          <summary>Do I need to be home for delivery?</summary>
+          <div class="faq-body"><p>Not at all! Just leave a cooler outside, and our friendly delivery team will carefully place your meals inside and text you once they're delivered. It's that simple!</p></div>
+        </details>
+        <details>
+          <summary>Can I try it out first?</summary>
+          <div class="faq-body"><p>Start with just two meals to get a taste of what we offer. While we don't provide free samples (we're a small, family-run business), our minimum order is low enough to let you try us out without a big commitment. Check out our customer reviews to see why families keep coming back!</p></div>
+        </details>
+        <details>
+          <summary>Those portions look generous – but are they really enough?</summary>
+          <div class="faq-body"><p>As an Italian mom, making sure everyone has enough to eat is in my DNA! Our portions are actually about ⅓ larger than most meal prep services. Many customers tell us they even get two meals out of one portion. Nobody leaves my kitchen hungry!</p></div>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 13 SIGN-UP NOTE ===================== -->
+<section class="seam-host band band--cream pad">
+  <span class="seam-flower" style="left:clamp(1.5rem,9vw,9rem)" aria-hidden="true"><img src="build-assets/flower-b.svg" alt="" width="120" height="120"></span>
+  <div class="shell">
+    <div class="section-head reveal">
+      <h2>Sign Up for Our Weekly Menu &amp; Get $15 Off Your First Order</h2>
+    </div>
+    <div class="signote reveal" style="--d:100ms">
+      <img src="build-assets/colleen-bio.webp" alt="Colleen, smiling in her home kitchen." width="540" height="540">
+      <p class="prose">My name is Colleen and I would love to prepare fresh, healthy &amp; homemade food for you and your family… so that you have less stress in your day to day and more time for the truly nourishing things in life – your family, your hobbies and yourself!</p>
+      <a class="btn btn--green" href="/#offer">Sign up now</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 14 REVIEWS ===================== -->
+<section class="band band--alt pad" id="reviews">
+  <div class="shell">
+    <div class="section-head reveal">
+      <span class="lbl lbl--pale">Healthy Prepared Meals Pittsburgh, PA</span>
+      <h2>What Our Customers' Tastebuds Are Saying</h2>
+    </div>
+    <div class="reviews">
+      <div class="reviews-col">
+        <figure class="review review--pale reveal">
+          <p>"Colleen's food is filled with love and flavor. Colleen creates amazing food each week that fits so many different ppls needs and budgets! I have been using her service for 3 years and have always been pleased with the serving size, menu variety, and professionalism. Thank you, Colleen Ps- her pasta sauce is 10/10 🤌"</p>
+          <figcaption class="review-by"><span class="stars" aria-hidden="true">★★★★★</span> Eli M.</figcaption>
+        </figure>
+      </div>
+      <div class="reviews-col">
+        <figure class="review reveal">
+          <p>"Homemade by Colleen is exactly what I was looking for! I travel regularly for work, which makes (healthy) homemade meals a challenge when I don't have the time to shop and prepare. Everything I've tasted from Colleen is delicious, and the delivery option saves me even more time! Thank you for sharing your culinary gift with us!"</p>
+          <figcaption class="review-by"><span class="stars" aria-hidden="true">★★★★★</span> Jeanna</figcaption>
+        </figure>
+        <figure class="review review--cream reveal">
+          <p>"Colleen's food is absolutely fabulous! We have 4 very young kids and she provides delicious meals for me and my husband to eat - so we don't resort to cereal or take out! Very very thankful for her service."</p>
+          <figcaption class="review-by"><span class="stars" aria-hidden="true">★★★★★</span> Valerie A.</figcaption>
+        </figure>
+      </div>
+      <div class="reviews-col">
+        <figure class="review reveal">
+          <p>"Homemade By Colleen - What can I say besides the fact that it is simply the best! It feels like receiving a homemade meal from a family member who truly cares about your well-being. The convenience of having such high-quality, homemade food delivered to my door has been a game-changer. It's perfect for busy days when I want to eat healthily without compromising on taste or quality."</p>
+          <figcaption class="review-by"><span class="stars" aria-hidden="true">★★★★★</span> Maja M.</figcaption>
+        </figure>
+        <figure class="review review--pale reveal">
+          <p>"We have been ordering meals by Colleen for over a year now. It has been such a help to our family, our health and our budget. I can't recommend them enough. The food quality and portions are excellent. Some of the menu items, such as the chicken gyros and baked rigatoni have become family favorites. Ray, the driver, is always a delight!"</p>
+          <figcaption class="review-by"><span class="stars" aria-hidden="true">★★★★★</span> Sara L.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 15 DELIVERY AREAS — SOUTH HILLS ===================== -->
+<section class="seam-host band band--paper pad" id="areas">
+  <span class="seam-flower" style="right:clamp(1.5rem,11vw,11rem)" aria-hidden="true"><img src="build-assets/flower-b.svg" alt="" width="120" height="120"></span>
+  <div class="shell split" style="display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,0.9fr);gap:clamp(2rem,4vw,3.5rem);align-items:start">
+    <div class="reveal">
+      <div class="section-head">
+        <h2>Meal Prep Delivery Areas in Pittsburgh's South Hills</h2>
+        <p style="font-family:var(--font-display);font-weight:800;font-size:var(--step-1);letter-spacing:var(--tr-heading);text-transform:uppercase;margin-top:0.5rem">We deliver prepared meals in the South Hills of Pittsburgh, PA</p>
+      </div>
+      <ul class="pills">
+        <li><a class="pill" href="/service-areas/meal-prep-delivery-service-bridgeville-pennsylvania/">Bridgeville, PA</a></li>
+        <li><a class="pill" href="/service-areas/meal-prep-delivery-service-collier-township-pennsylvania/">Collier Township, PA</a></li>
+        <li><a class="pill" href="/service-areas/meal-prep-delivery-service-mcmurray-pennsylvania/">McMurray, PA</a></li>
+        <li><a class="pill" href="/service-areas/meal-prep-delivery-service-mt-lebanon-pennsylvania/">Mt. Lebanon, PA</a></li>
+        <li><a class="pill" href="/service-areas/meal-prep-delivery-service-oakmont-pennsylvania/">Oakmont, PA</a></li>
+        <li><a class="pill" href="/service-areas/meal-prep-delivery-service-peters-township-pennsylvania/">Peters Township, PA</a></li>
+        <li><a class="pill" href="/service-areas/meal-prep-delivery-service-south-fayette-pennsylvania/">South Fayette, PA</a></li>
+        <li><a class="pill" href="/service-areas/meal-prep-delivery-service-upper-st-clair-pennsylvania/">Upper St. Clair, PA</a></li>
+      </ul>
+      <div class="areas-note">
+        <p>Note: Homemade by Colleen is constantly adding new delivery areas. Check if we deliver to your ZIP code yet.</p>
+        <a class="btn btn--green" href="https://homemadebycolleen.getprado.com/Menu?prompt=true" target="_blank" rel="noopener">Check your ZIP code</a>
+      </div>
+    </div>
+    <div class="mapbox reveal" style="--d:120ms">
+      <iframe loading="lazy" src="https://maps.google.com/maps?q=homemade%20by%20colleen%20pittsburgh%20pa&amp;t=m&amp;z=11&amp;output=embed&amp;iwloc=near" title="Homemade By Colleen Pittsburgh service area map" aria-label="Homemade By Colleen Pittsburgh service area map"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 16 NEWSLETTER ===================== -->
+<section class="news pad flowers" style="overflow:hidden">
+  <div class="shell">
+    <div class="reveal">
+      <p class="news-kick">Homemade By Colleen</p>
+      <h2>Email newsletter</h2>
+      <div class="prose">
+        <p>Join our kitchen family and discover weekly homemade treasures delivered to your doorstep. Get exclusive recipes passed down through generations, early access to our seasonal menus, and helpful tips for making mealtime special without the stress. Plus, be the first to know about new dishes, family meal bundles, and our grandmother-inspired baked treats.</p>
+      </div>
+    </div>
+    <form class="reveal" style="--d:100ms" onsubmit="return false">
+      <label for="nl-email">Email</label>
+      <input id="nl-email" type="email" name="email" placeholder="you@example.com" autocomplete="email" required>
+      <button class="btn btn--paper" type="submit">Sign up for free</button>
+    </form>
+  </div>
+  <div class="garden" aria-hidden="true">
+    <img src="build-assets/flower-stem.svg" alt="" width="120" height="160">
+    <img src="build-assets/flower-stem.svg" alt="" width="120" height="160">
+    <img src="build-assets/flower-stem.svg" alt="" width="120" height="160">
+    <img src="build-assets/flower-stem.svg" alt="" width="120" height="160">
+    <img src="build-assets/flower-stem.svg" alt="" width="120" height="160">
+    <img src="build-assets/flower-stem.svg" alt="" width="120" height="160">
+    <img src="build-assets/flower-stem.svg" alt="" width="120" height="160">
+    <img src="build-assets/flower-stem.svg" alt="" width="120" height="160">
+    <img src="build-assets/flower-stem.svg" alt="" width="120" height="160">
+  </div>
+</section>
+
+<!-- ===================== 17 FOOTER ===================== -->
+<footer class="foot">
+  <div class="shell" style="padding-top:clamp(3rem,5vw,4.5rem)">
+    <p class="foot-top">Prepared Meal Delivery Areas in Pittsburgh's South Hills, PA</p>
+    <div class="foot-grid">
+      <div>
+        <h2>Contact info</h2>
+        <p>300 Mt. Lebanon Blvd, Suite 2216-B, Pittsburgh, PA, 15234, United States</p>
+        <p>Tel: <a href="tel:412-998-8404">(412) 998-8404</a><br>
+           Email: <a href="mailto:colleen@homemadebycolleen.com">colleen@homemadebycolleen.com</a></p>
+      </div>
+      <div>
+        <h3>Office hours</h3>
+        <p>Monday - Friday: 9AM - 8PM<br>Saturday - Sunday: 9AM - 4PM</p>
+      </div>
+      <div>
+        <h3>Homemade By Colleen</h3>
+        <p>Homemade By Colleen is Pittsburgh's premier meal prep service, specializing in fresh, gourmet meals crafted from cherished family recipes and local ingredients.</p>
+        <div class="foot-social">
+          <a href="#">Google</a><a href="#">Facebook</a><a href="#">Instagram</a>
+        </div>
+      </div>
+      <div>
+        <h3>Helpful Links</h3>
+        <div class="foot-links">
+          <a class="btn" href="/#offer">Get $15 off first order</a>
+          <a class="btn btn--green" href="https://homemadebycolleen.getprado.com/Menu" target="_blank" rel="noopener">Start new order</a>
+          <a class="btn btn--paper" href="/about-us/">Learn more about us</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="shell foot-legal" style="margin-top:clamp(2.5rem,4vw,3.5rem)">
+    © 2025 Homemade By Colleen | All Rights Reserved.
+  </div>
+</footer>
+
+<script>
+(function(){
+  var els = document.querySelectorAll('.reveal');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce || !('IntersectionObserver' in window)) {
+    els.forEach(function(el){ el.classList.add('in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
+  els.forEach(function(el){ io.observe(el); });
+})();
+</script>
+</body>
+</html>
