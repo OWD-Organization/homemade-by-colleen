@@ -192,6 +192,18 @@ section{position:relative}
   translate:calc(var(--sh-x) * 1.6) calc(var(--sh-y) * 1.6);
 }
 
+/* ---- EMBEDDED VIDEO ----
+   Same hard border and offset shadow as the framed photo, so an embed
+   reads as one more object in the system and not as a pasted widget.
+   The iframe's own width/height attributes are overridden by the
+   aspect-ratio box, which keeps it responsive down to phone width. ---- */
+.videoframe{
+  max-width:44rem;margin-inline:auto;
+  border:var(--bd-hard);box-shadow:var(--sh-x) var(--sh-y) 0 var(--c-ink);
+  background:var(--c-ink);aspect-ratio:16/9;
+}
+.videoframe iframe{display:block;width:100%;height:100%;border:0}
+
 /* ---- FLOWERS: decorative system ----
    Saturated yellow, the same as the buttons. Discipline rule:
    no flower sits next to a CTA, so it never competes with it. ---- */
