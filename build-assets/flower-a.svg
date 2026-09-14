@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-hidden="true">
+  <g transform="translate(60,60)">
+    <path d="M 0,-14 C 20,-26.6 15.0,-41.0 0,-50 C -15.0,-41.0 -20,-26.6 0,-14 Z" fill="#fbce01" stroke="#071728" stroke-width="5" stroke-linejoin="round" transform="rotate(0.0000)"/>
+    <path d="M 0,-14 C 20,-26.6 15.0,-41.0 0,-50 C -15.0,-41.0 -20,-26.6 0,-14 Z" fill="#fbce01" stroke="#071728" stroke-width="5" stroke-linejoin="round" transform="rotate(45.0000)"/>
+    <path d="M 0,-14 C 20,-26.6 15.0,-41.0 0,-50 C -15.0,-41.0 -20,-26.6 0,-14 Z" fill="#fbce01" stroke="#071728" stroke-width="5" stroke-linejoin="round" transform="rotate(90.0000)"/>
+    <path d="M 0,-14 C 20,-26.6 15.0,-41.0 0,-50 C -15.0,-41.0 -20,-26.6 0,-14 Z" fill="#fbce01" stroke="#071728" stroke-width="5" stroke-linejoin="round" transform="rotate(135.0000)"/>
+    <path d="M 0,-14 C 20,-26.6 15.0,-41.0 0,-50 C -15.0,-41.0 -20,-26.6 0,-14 Z" fill="#fbce01" stroke="#071728" stroke-width="5" stroke-linejoin="round" transform="rotate(180.0000)"/>
+    <path d="M 0,-14 C 20,-26.6 15.0,-41.0 0,-50 C -15.0,-41.0 -20,-26.6 0,-14 Z" fill="#fbce01" stroke="#071728" stroke-width="5" stroke-linejoin="round" transform="rotate(225.0000)"/>
+    <path d="M 0,-14 C 20,-26.6 15.0,-41.0 0,-50 C -15.0,-41.0 -20,-26.6 0,-14 Z" fill="#fbce01" stroke="#071728" stroke-width="5" stroke-linejoin="round" transform="rotate(270.0000)"/>
+    <path d="M 0,-14 C 20,-26.6 15.0,-41.0 0,-50 C -15.0,-41.0 -20,-26.6 0,-14 Z" fill="#fbce01" stroke="#071728" stroke-width="5" stroke-linejoin="round" transform="rotate(315.0000)"/>
+    <circle r="15" fill="#2e6813" stroke="#071728" stroke-width="5"/>
+  </g>
+</svg>

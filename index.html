@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<script>document.documentElement.className="js"</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Homemade By Colleen: Pittsburgh Meal Delivery Service</title>
+<meta name="description" content="Homemade By Colleen: Pittsburgh meal delivery. Fresh, healthy, home-cooked meals delivered to your door. Order gourmet meal prep now!">
+<link rel="preload" as="image" href="build-assets/hero-meals.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Hanken+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   HOMEMADE BY COLLEEN — home page, warm neobrutalism
+   Token architecture inherited from nicepest.com:
+   3-layer oklch color, semantic tracking, per-component
+   namespaces, hard offset shadow via pseudo-element.
+   ============================================================ */
+
+/* ---- 1. PRIMITIVES ---- */
+:root{
+  --c-ink:          oklch(20.0% 0.040 252);
+  --c-ink-soft:     oklch(42.0% 0.030 252);
+  --c-cream:        oklch(97.4% 0.014 84.6);
+  --c-cream-2:      oklch(94.5% 0.022 84.6);
+  --c-paper:        oklch(99.5% 0.004 84.6);
+  --c-green:        oklch(75.9% 0.209 131.7);
+  --c-green-deep:   oklch(46.0% 0.130 138);
+  --c-yellow:       oklch(86.5% 0.177 92.8);
+  --c-yellow-pale:  oklch(95.5% 0.070 92.8);
+
+  /* ---- 2. SEMANTICS ---- */
+  --surface:        var(--c-cream);
+  --surface-raised: var(--c-paper);
+  --surface-alt:    var(--c-cream-2);
+  --fg:             var(--c-ink);
+  --fg-muted:       var(--c-ink-soft);
+  --fg-inverse:     var(--c-cream);
+  --edge:           var(--c-ink);
+
+  /* type */
+  --font-display: "Bricolage Grotesque", "Arial Black", system-ui, sans-serif;
+  --font-body:    "Hanken Grotesk", ui-sans-serif, system-ui, sans-serif;
+
+  --tr-display: -0.03em;
+  --tr-heading: -0.015em;
+  --tr-label:    0.12em;
+  --tr-button:   0.05em;
+  --tr-nav:      0.02em;
+  --tr-numeral: -0.05em;
+
+  --step--1: clamp(0.86rem, 0.83rem + 0.15vw, 0.94rem);
+  --step-0:  clamp(1rem, 0.96rem + 0.2vw, 1.12rem);
+  --step-1:  clamp(1.28rem, 1.18rem + 0.5vw, 1.55rem);
+  --step-2:  clamp(1.62rem, 1.42rem + 1vw, 2.15rem);
+  --step-3:  clamp(2.05rem, 1.68rem + 1.85vw, 3rem);
+  --step-4:  clamp(2.6rem, 1.95rem + 3.2vw, 4.2rem);
+  --step-5:  clamp(3.1rem, 2rem + 5.4vw, 6rem);
+
+  /* structure */
+  --bd-hard: 3px solid var(--edge);
+  --bd-hair: 1.5px solid var(--edge);
+  --sh-x: -6px;  --sh-y: 6px;
+  --gutter: clamp(1.15rem, 3vw, 3.5rem);
+  --measure: 68ch;
+  --wide: 82rem;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* button namespace */
+  --btn-sh-x: -5px; --btn-sh-y: 5px;
+  --btn-x: 0px;     --btn-y: 0px;
+  --btn-lift-dur: 140ms;
+  --btn-press-dur: 70ms;
+
+  /* label (kitchen label sticker) namespace */
+  --lbl-rot: -2.2deg;
+  --lbl-fill: var(--c-yellow);
+  --lbl-sh-x: -4px; --lbl-sh-y: 4px;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--surface);
+  color:var(--fg);
+  font-family:var(--font-body);
+  font-size:var(--step-0);
+  line-height:1.6;
+  letter-spacing:0.005em;
+  overflow-x:hidden;
+}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--c-green-deep);outline-offset:3px}
+
+h1,h2,h3{
+  font-family:var(--font-display);
+  font-weight:800;
+  line-height:1.02;
+  letter-spacing:var(--tr-display);
+  margin:0;
+  text-wrap:balance;
+}
+h3{font-weight:700;line-height:1.12;letter-spacing:var(--tr-heading)}
+p{margin:0 0 1.1em}
+p:last-child{margin-bottom:0}
+
+.shell{max-width:var(--wide);margin-inline:auto;padding-inline:var(--gutter)}
+.prose{max-width:var(--measure)}
+.stack>*+*{margin-top:var(--s,1.5rem)}
+
+/* ---- SECTION SKELETON ---- */
+section{position:relative}
+.band{border-bottom:var(--bd-hard)}
+.band--cream{background:var(--c-cream)}
+.band--alt{background:var(--c-cream-2)}
+.band--green{background:var(--c-green)}
+.band--paper{background:var(--c-paper)}
+.pad{padding-block:clamp(3.25rem,7vw,7rem)}
+
+/* ---- KITCHEN LABEL (named system: carries the source's repeated section labels) ---- */
+.lbl{
+  display:inline-block;
+  position:relative;
+  font-family:var(--font-display);
+  font-weight:700;
+  font-size:var(--step--1);
+  letter-spacing:var(--tr-label);
+  text-transform:uppercase;
+  padding:0.45em 0.85em;
+  background:var(--lbl-fill);
+  color:var(--c-ink);
+  border:var(--bd-hair);
+  rotate:var(--lbl-rot);
+  margin-bottom:1.4rem;
+  box-shadow:var(--lbl-sh-x) var(--lbl-sh-y) 0 var(--c-ink);
+}
+.lbl--green{--lbl-fill:var(--c-green);--lbl-rot:1.8deg}
+.lbl--pale{--lbl-fill:var(--c-yellow-pale);--lbl-rot:-1.4deg}
+.lbl--paper{--lbl-fill:var(--c-paper);--lbl-rot:2.4deg}
+
+/* ---- BUTTONS ---- */
+.btn{
+  --btn-fill:var(--c-yellow);
+  position:relative;
+  display:inline-flex;align-items:center;gap:0.55em;
+  font-family:var(--font-display);
+  font-weight:700;
+  font-size:var(--step-0);
+  letter-spacing:var(--tr-button);
+  text-transform:uppercase;
+  text-decoration:none;
+  padding:0.85em 1.5em;
+  min-height:3rem;
+  background:var(--btn-fill);
+  color:var(--c-ink);
+  border:var(--bd-hard);
+  cursor:pointer;
+  translate:var(--btn-x) var(--btn-y);
+  box-shadow:var(--btn-sh-x) var(--btn-sh-y) 0 var(--c-ink);
+  transition:translate var(--btn-lift-dur) var(--ease-out-expo),
+             box-shadow var(--btn-lift-dur) var(--ease-out-expo),
+             background-color 160ms var(--ease-out-expo);
+}
+.btn:hover{--btn-x:1px;--btn-y:-2px;--btn-sh-x:-7px;--btn-sh-y:8px}
+.btn:active{
+  --btn-x:-4px;--btn-y:4px;--btn-sh-x:-1px;--btn-sh-y:1px;
+  transition-duration:var(--btn-press-dur);
+}
+.btn--lg{font-size:var(--step-1);padding:1em 1.75em}
+.btn--ghost{--btn-fill:transparent}
+.btn--ghost:hover{--btn-fill:var(--c-yellow-pale)}
+.btn--green{--btn-fill:var(--c-green)}
+.btn--paper{--btn-fill:var(--c-paper)}
+.btn-link{
+  display:inline-block;
+  font-family:var(--font-display);
+  font-weight:700;
+  font-size:var(--step-0);
+  letter-spacing:var(--tr-button);
+  text-transform:uppercase;
+  text-decoration:none;
+  color:inherit;
+  border-bottom:var(--bd-hair);
+  padding-bottom:0.15em;
+  transition:background-color 160ms var(--ease-out-expo);
+}
+.btn-link:hover{background:var(--c-yellow)}
+
+
+/* ---- FRAMED PHOTO ---- */
+.shot{position:relative;isolation:isolate}
+.shot img:not(.hero-flower){border:var(--bd-hard);width:100%;object-fit:cover}
+.shot::after{
+  content:"";position:absolute;inset:0;z-index:-1;
+  background:var(--c-ink);
+  translate:calc(var(--sh-x) * 1.6) calc(var(--sh-y) * 1.6);
+}
+
+/* ---- FLORES: sistema decorativo ----
+   Amarillo saturado, el mismo de los botones. Regla de disciplina:
+   ninguna flor se coloca junto a un CTA, para no competir con él. ---- */
+.flowers{position:relative}
+.flowers > .shell{position:relative;z-index:1}
+.seam-host{position:relative}
+.flower{
+  position:absolute;z-index:0;pointer-events:none;
+  width:auto;
+}
+.flower img{display:block;height:100%;width:auto}
+
+/* franja de jardín: se apoyan en el borde inferior de la banda */
+/* la banda del newsletter reserva sitio para el jardín;
+   sin esto las flores altas cruzaban por detrás del párrafo */
+.news.flowers{padding-bottom:clamp(8.5rem,15vw,12rem)}
+.garden{
+  position:absolute;left:0;right:0;bottom:0;z-index:0;
+  height:clamp(4.5rem,11vw,9rem);
+  display:flex;align-items:flex-end;justify-content:space-around;
+  padding-inline:clamp(0.5rem,3vw,3rem);
+  pointer-events:none;
+}
+.garden img{display:block;width:auto}
+.garden img:nth-child(odd){height:100%}
+.garden img:nth-child(even){height:72%}
+.garden img:nth-child(3n){height:86%}
+
+/* flor de costura: sola, sin tallo, a caballo sobre el borde superior
+   de la sección. Va en la sección de ABAJO para que se pinte por encima
+   de la banda anterior. */
+.seam-flower{
+  --sf: clamp(6.5rem, 11vw, 10.5rem);
+  position:absolute;z-index:2;pointer-events:none;
+  width:var(--sf);height:var(--sf);
+  top:calc(var(--sf) / -2);
+}
+.seam-flower img{display:block;width:100%;height:100%;
+  animation:sf-spin 34s linear infinite}
+@keyframes sf-spin{ from{rotate:0deg} to{rotate:360deg} }
+@media (prefers-reduced-motion:reduce){ .seam-flower img{animation:none} }
+@media (max-width:48rem){ .seam-flower{--sf:clamp(4.5rem,17vw,6.5rem)} }
+
+/* en móvil nueve flores se amontonan: se dejan cinco */
+@media (max-width:48rem){
+  .garden img:nth-child(2n){display:none}
+  .garden{height:clamp(3.6rem,13vw,5.5rem);padding-inline:0.25rem}
+}
+
+/* =========================================================
+   UTILITY BAR
+   ========================================================= */
+.util{
+  background:var(--c-ink);color:var(--fg-inverse);
+  font-size:var(--step--1);
+  border-bottom:var(--bd-hard);
+}
+.util .shell{
+  display:flex;flex-wrap:wrap;align-items:center;gap:0.5rem 1.5rem;
+  padding-block:0.6rem;
+}
+.util a{text-decoration:none;border-bottom:1.5px solid transparent}
+.util a:hover{border-bottom-color:var(--c-green)}
+.util-rate{
+  display:inline-flex;align-items:center;gap:0.4rem;
+  font-family:var(--font-display);font-weight:700;
+  letter-spacing:var(--tr-label);text-transform:uppercase;
+}
+.stars{color:var(--c-yellow);letter-spacing:0.08em}
+.util-sep{margin-left:auto;display:flex;flex-wrap:wrap;gap:0.5rem 1.5rem}
+.util-tel{font-family:var(--font-display);font-weight:700;color:var(--c-yellow)}
+
+/* =========================================================
+   NAV
+   ========================================================= */
+.nav{
+  position:sticky;top:0;z-index:50;
+  background:var(--c-cream);
+  border-bottom:var(--bd-hard);
+}
+.nav .shell{
+  display:flex;align-items:center;gap:clamp(0.75rem,2vw,2rem);
+  padding-block:0.85rem;
+}
+.brand{
+  font-family:var(--font-display);font-weight:800;
+  font-size:var(--step--1);line-height:1;
+  letter-spacing:0.02em;text-transform:uppercase;
+  text-decoration:none;
+  display:grid;gap:0.12em;
+  flex:0 0 auto;
+}
+.brand b{display:block;font-size:1.5em;letter-spacing:var(--tr-heading)}
+.brand span{color:var(--c-green-deep);font-size:0.78em;letter-spacing:var(--tr-label)}
+.nav-links{
+  display:flex;flex-wrap:wrap;align-items:center;gap:0.25rem 1.15rem;
+  margin-left:auto;
+  font-family:var(--font-body);font-weight:500;
+  font-size:var(--step--1);letter-spacing:var(--tr-nav);
+}
+.nav-links a{text-decoration:none;padding:0.35em 0;border-bottom:2.5px solid transparent}
+.nav-links a:hover,.nav-links a[aria-current]{border-bottom-color:var(--c-green)}
+.nav-cta{flex:0 0 auto}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+.hero{background:var(--c-cream);border-bottom:var(--bd-hard);overflow:hidden}
+.hero .shell{
+  display:grid;
+  grid-template-columns:minmax(0,1.05fr) minmax(0,0.95fr);
+  gap:clamp(2rem,5vw,4.5rem);
+  align-items:center;
+  padding-block:clamp(3rem,6vw,6rem);
+}
+.hero h1{font-size:var(--step-5);max-width:16ch}
+.hero-tag{
+  display:inline-block;
+  font-family:var(--font-display);font-weight:700;
+  font-size:var(--step-1);line-height:1.15;
+  letter-spacing:var(--tr-heading);text-transform:uppercase;
+  background:var(--c-yellow);
+  border:var(--bd-hair);
+  padding:0.35em 0.6em;
+  box-shadow:-4px 4px 0 var(--c-ink);
+  max-width:24ch;
+}
+.hero-actions{display:flex;flex-wrap:wrap;gap:1.6rem 1.5rem;align-items:center}
+.hero-shot{position:relative}
+.hero-shot img{aspect-ratio:4/5}
+.seal{
+  position:absolute;
+  right:-1.1rem;bottom:-1.4rem;
+  z-index:2;
+  width:clamp(6.5rem,12vw,9.5rem);
+  aspect-ratio:1;
+  display:grid;place-content:center;
+  text-align:center;
+  background:var(--c-green);
+  color:var(--c-ink);
+  border:var(--bd-hard);
+  border-radius:999px;
+  rotate:-9deg;
+  box-shadow:-5px 5px 0 var(--c-ink);
+  font-family:var(--font-display);font-weight:800;
+  line-height:1;
+}
+.hero-flower{
+  position:absolute;z-index:2;
+  left:-1.6rem;top:-1.8rem;
+  width:clamp(3.5rem,7vw,5.5rem);
+  rotate:-12deg;
+}
+.seal b{display:block;font-size:clamp(1.6rem,3.2vw,2.4rem);letter-spacing:var(--tr-numeral)}
+.seal span{font-size:0.6rem;letter-spacing:var(--tr-label);text-transform:uppercase;margin-top:0.3em;display:block}
+
+/* =========================================================
+   HOW IT WORKS — steps
+   ========================================================= */
+.section-head{max-width:46ch}
+.section-head h2{font-size:var(--step-3)}
+.steps{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(11rem,1fr));
+  gap:clamp(1.25rem,2.5vw,2rem);
+  margin-top:clamp(2.25rem,4vw,3.25rem);
+}
+.step{
+  position:relative;
+  border:var(--bd-hard);
+  box-shadow:var(--sh-x) var(--sh-y) 0 var(--c-ink);
+  background:var(--c-paper);
+  padding:1.4rem 1.25rem 1.25rem;
+  overflow:hidden;
+  min-height:9.5rem;
+  display:flex;align-items:flex-end;
+}
+
+.step-num{
+  position:absolute;top:-0.32em;right:0.1em;
+  font-family:var(--font-display);font-weight:800;
+  font-size:clamp(5rem,9vw,7.5rem);
+  letter-spacing:var(--tr-numeral);
+  line-height:1;
+  color:color-mix(in oklab, var(--c-ink) 12%, transparent);
+  pointer-events:none;
+}
+.step-word{
+  position:relative;
+  font-family:var(--font-display);font-weight:800;
+  font-size:var(--step-2);
+  letter-spacing:var(--tr-heading);
+  text-transform:uppercase;
+}
+.step:nth-child(2){background:var(--c-yellow-pale)}
+.step:nth-child(3){background:var(--c-yellow)}
+.step:nth-child(4){background:var(--c-cream)}
+
+/* =========================================================
+   TRUST — three claims, stencil numerals inside the phrase
+   ========================================================= */
+.claims{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));
+  gap:clamp(1.25rem,2.5vw,2rem);
+  margin-top:clamp(2.25rem,4vw,3.25rem);
+}
+.claim{
+  border:var(--bd-hard);
+  box-shadow:var(--sh-x) var(--sh-y) 0 var(--c-ink);
+  background:var(--c-paper);
+  padding:clamp(1.25rem,2.2vw,1.85rem);
+  font-family:var(--font-display);font-weight:700;
+  font-size:var(--step-1);line-height:1.1;
+  letter-spacing:var(--tr-heading);
+  position:relative;
+}
+
+.claim em{
+  font-style:normal;
+  display:inline-block;
+  font-size:2.05em;
+  font-weight:800;
+  letter-spacing:var(--tr-numeral);
+  line-height:0.85;
+  vertical-align:-0.12em;
+}
+.claim:nth-child(2){background:var(--c-green)}
+.claim:nth-child(3){background:var(--c-yellow)}
+
+/* =========================================================
+   SPLIT (Colleen / on-demand / story)
+   ========================================================= */
+.split{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  gap:clamp(2rem,5vw,4.5rem);
+  align-items:center;
+}
+.split--flip>.split-media{order:-1}
+.split-media img{aspect-ratio:5/4}
+.split h2{font-size:var(--step-3)}
+
+/* =========================================================
+   REVIEWS — deliberately unequal, not a card grid
+   ========================================================= */
+.reviews{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  align-items:start;
+  gap:clamp(1.25rem,2.5vw,2rem);
+  margin-top:clamp(2.25rem,4vw,3.25rem);
+}
+.reviews-col{display:grid;align-content:start;gap:clamp(1.25rem,2.5vw,2rem)}
+.review{
+  border:var(--bd-hard);
+  box-shadow:-5px 5px 0 var(--c-ink);
+  background:var(--c-paper);
+  padding:clamp(1.15rem,2vw,1.6rem);
+  margin-bottom:clamp(1.25rem,2.5vw,2rem);
+  position:relative;
+}
+
+.review p{font-size:var(--step-0);margin-bottom:0.9em}
+.review--big p{font-size:var(--step-1);line-height:1.35;font-weight:500}
+.review--pale{background:var(--c-yellow-pale)}
+.review--cream{background:var(--c-cream)}
+.review-by{
+  font-family:var(--font-display);font-weight:700;
+  letter-spacing:var(--tr-label);text-transform:uppercase;
+  font-size:var(--step--1);
+  display:flex;align-items:center;gap:0.6rem;
+}
+.review-by .stars{color:var(--c-green-deep)}
+
+/* =========================================================
+   WHY — asymmetric feature layout, not four equal cards
+   ========================================================= */
+.whys{
+  display:grid;
+  align-items:start;
+  grid-template-columns:repeat(6,1fr);
+  gap:clamp(1.25rem,2.5vw,2rem);
+  margin-top:clamp(2.25rem,4vw,3.25rem);
+}
+.why{
+  grid-column:span 2;
+  border:var(--bd-hard);
+  box-shadow:var(--sh-x) var(--sh-y) 0 var(--c-ink);
+  background:var(--c-paper);
+  padding:clamp(1.25rem,2.2vw,1.85rem);
+  position:relative;
+}
+
+.why h3{font-size:var(--step-1);margin-bottom:0.6em}
+.why p{color:var(--fg-muted);margin:0}
+.why--wide{grid-column:span 4}
+.why--shot{
+  grid-column:span 2;padding:0;border:none;background:none;box-shadow:none;
+  display:flex;align-self:stretch;
+}
+.why--shot img{box-shadow:var(--sh-x) var(--sh-y) 0 var(--c-ink)}
+.why--shot img{border:var(--bd-hard);width:100%;height:100%;min-height:13rem;object-fit:cover;object-position:50% 60%}
+.why--pale{background:var(--c-yellow-pale)}
+.why--cream{background:var(--c-cream)}
+
+/* =========================================================
+   OFFER — drenched yellow
+   ========================================================= */
+.offer{background:var(--c-yellow);border-bottom:var(--bd-hard);text-align:center}
+.offer-kick{
+  font-family:var(--font-display);font-weight:700;
+  letter-spacing:var(--tr-label);text-transform:uppercase;
+  font-size:var(--step-0);
+}
+.offer h2{font-size:var(--step-4);margin:0.4em auto 1.1em;max-width:24ch}
+.offer-terms{font-size:var(--step--1);margin-top:1.5rem}
+.offer-terms a{font-weight:700}
+
+/* =========================================================
+   FAQ
+   ========================================================= */
+.faq{max-width:58rem;margin-top:clamp(2rem,3.5vw,2.75rem);border-top:var(--bd-hard)}
+.faq details{border-bottom:var(--bd-hard);background:var(--c-paper)}
+.faq details[open]{background:var(--c-yellow-pale)}
+.faq summary{
+  cursor:pointer;list-style:none;
+  display:flex;align-items:center;justify-content:space-between;gap:1.5rem;
+  padding:1.15rem clamp(1rem,2vw,1.5rem);
+  font-family:var(--font-display);font-weight:700;
+  font-size:var(--step-1);letter-spacing:var(--tr-heading);
+  line-height:1.2;
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{
+  content:"+";
+  flex:0 0 auto;
+  font-size:1.4em;line-height:1;
+  width:1.6em;height:1.6em;
+  display:grid;place-content:center;
+  border:var(--bd-hair);
+  background:var(--c-yellow);
+}
+.faq details[open] summary::after{content:"–";background:var(--c-green)}
+.faq-body{padding:0 clamp(1rem,2vw,1.5rem) 1.35rem;max-width:var(--measure)}
+
+/* =========================================================
+   DELIVERY AREAS
+   ========================================================= */
+.areas h2{font-size:var(--step-2)}
+.areas-sub{
+  font-family:var(--font-display);font-weight:800;
+  font-size:var(--step-3);letter-spacing:var(--tr-display);
+  line-height:1.05;margin:0.35em 0 0;max-width:30ch;
+  text-transform:uppercase;
+}
+.pills{
+  display:flex;flex-wrap:wrap;gap:0.75rem;
+  margin:clamp(1.75rem,3vw,2.5rem) 0 0;padding:0;list-style:none;
+}
+.pill{
+  display:inline-block;
+  font-family:var(--font-display);font-weight:700;
+  font-size:var(--step-0);letter-spacing:var(--tr-nav);
+  text-decoration:none;
+  padding:0.55em 1.1em;
+  background:var(--c-paper);
+  border:var(--bd-hard);
+  border-radius:999px;
+  box-shadow:-3px 3px 0 var(--c-ink);
+  transition:background-color 160ms var(--ease-out-expo),
+             box-shadow 160ms var(--ease-out-expo),
+             translate 160ms var(--ease-out-expo);
+}
+.pill:hover{background:var(--c-green);translate:0 -3px;box-shadow:-4px 5px 0 var(--c-ink)}
+.areas-note{
+  margin-top:clamp(1.75rem,3vw,2.5rem);
+  display:flex;flex-wrap:wrap;align-items:center;gap:1.25rem 2rem;
+}
+.areas-note p{max-width:46ch;margin:0}
+
+/* =========================================================
+   NEWSLETTER
+   ========================================================= */
+.news{background:var(--c-green);border-bottom:var(--bd-hard)}
+.news .shell{
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,0.85fr);
+  gap:clamp(2rem,4vw,4rem);align-items:center;
+}
+.news-kick{
+  font-family:var(--font-display);font-weight:700;
+  letter-spacing:var(--tr-label);text-transform:uppercase;font-size:var(--step--1);
+}
+.news h2{font-size:var(--step-3);margin:0.3em 0 0.8em;text-transform:uppercase}
+.news form{display:grid;gap:1rem;justify-items:start}
+.news label{justify-self:start}
+.news label{
+  font-family:var(--font-display);font-weight:700;
+  letter-spacing:var(--tr-label);text-transform:uppercase;font-size:var(--step--1);
+}
+.news input{
+  font-family:var(--font-body);font-size:var(--step-1);
+  padding:0.75em 0.85em;
+  background:var(--c-paper);color:var(--c-ink);
+  border:var(--bd-hard);
+  width:100%;
+  box-shadow:-5px 5px 0 var(--c-ink);
+}
+.news input::placeholder{color:var(--fg-muted)}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+.foot{background:var(--c-ink);color:var(--fg-inverse)}
+.foot a{text-decoration:none;border-bottom:1.5px solid transparent}
+.foot a:hover{border-bottom-color:var(--c-green)}
+.foot-top{
+  font-family:var(--font-display);font-weight:800;
+  font-size:var(--step-2);letter-spacing:var(--tr-display);
+  line-height:1.05;max-width:34ch;
+  padding-bottom:clamp(2rem,4vw,3rem);
+}
+.foot-grid{
+  border-top:1.5px solid color-mix(in oklab, var(--c-cream) 25%, transparent);
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(14rem,1fr));
+  gap:clamp(2rem,3.5vw,3rem);
+  padding-top:clamp(2rem,4vw,3rem);
+}
+.foot h2,.foot h3{
+  font-size:var(--step--1);font-weight:700;
+  letter-spacing:var(--tr-label);text-transform:uppercase;
+  color:var(--c-green);
+  margin-bottom:0.9rem;
+}
+.foot p,.foot li{font-size:var(--step--1);line-height:1.65}
+.foot ul{list-style:none;margin:0;padding:0;display:grid;gap:0.5rem}
+.foot-social{display:flex;gap:0.6rem;margin-top:1rem;flex-wrap:wrap}
+.foot-social a{
+  font-family:var(--font-display);font-weight:700;font-size:0.72rem;
+  letter-spacing:var(--tr-label);text-transform:uppercase;
+  padding:0.5em 0.8em;border:1.5px solid var(--c-cream);border-bottom-width:1.5px;
+}
+.foot-social a:hover{background:var(--c-green);color:var(--c-ink);border-color:var(--c-green)}
+.foot-links{display:grid;gap:0.9rem}
+.foot-links .btn{font-size:var(--step--1);padding:0.7em 1em;min-height:0}
+.foot-legal{
+  padding-block:1.25rem;
+  border-top:1.5px solid color-mix(in oklab, var(--c-cream) 25%, transparent);
+  font-size:var(--step--1);
+}
+
+/* =========================================================
+   ENTRANCE MOTION
+   ========================================================= */
+.js .reveal{opacity:0;translate:0 18px}
+.js .reveal.in{
+  opacity:1;translate:0 0;
+  transition:opacity 620ms var(--ease-out-expo),
+             translate 620ms var(--ease-out-expo);
+  transition-delay:var(--d,0ms);
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media (max-width:60rem){
+  .hero .shell,.split,.news .shell{grid-template-columns:1fr}
+  .split--flip>.split-media{order:0}
+  .hero-shot img{aspect-ratio:5/4}
+  .whys{grid-template-columns:1fr}
+  .why,.why--wide,.why--shot{grid-column:auto}
+  .why--shot img{aspect-ratio:16/9}
+  .reviews{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:48rem){
+  :root{--sh-x:-4px;--sh-y:4px;--btn-sh-x:-4px;--btn-sh-y:4px;--bd-hard:2.5px solid var(--edge)}
+  .nav .shell{flex-wrap:wrap}
+  .nav-links{order:3;width:100%;margin-left:0;padding-top:0.6rem;border-top:var(--bd-hair)}
+  .nav-cta{margin-left:auto}
+  .util-sep{margin-left:0;width:100%}
+  .reviews{grid-template-columns:1fr}
+  .hero h1{max-width:none}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation-duration:0.01ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:0.01ms !important;
+    scroll-behavior:auto !important;
+  }
+  .js .reveal{opacity:1;translate:none}
+  .btn:hover,.btn:active,.pill:hover{translate:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ===================== UTILITY BAR ===================== -->
+<div class="util">
+  <div class="shell">
+    <span class="util-rate">Rated: 5.0. <span class="stars" aria-hidden="true">★★★★★</span></span>
+    <a href="/about-us/reviews/">Read our reviews »</a>
+    <div class="util-sep">
+      <span>300 Mt Lebanon Blvd, Pittsburgh, PA 15234</span>
+      <a class="util-tel" href="tel:412-998-8404">(412) 998-8404</a>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== NAV ===================== -->
+<header class="nav">
+  <div class="shell">
+    <a class="brand" href="/">
+      <b>Homemade</b>
+      <span>By Colleen · Pittsburgh</span>
+    </a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="/" aria-current="page">Home</a>
+      <a href="/meal-prep-delivery-service/">Weekly menu</a>
+      <a href="#how">How it works</a>
+      <a href="/service-areas/">Delivery areas</a>
+      <a href="/about-us/">About us</a>
+      <a href="/blog/">Blog</a>
+      <a href="/about-us/contact-us/">Contact us</a>
+    </nav>
+    <a class="btn nav-cta" href="#offer">New order</a>
+  </div>
+</header>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero">
+  <div class="shell">
+    <div class="stack reveal" style="--s:1.75rem">
+      <h1>Best Meal Prep Delivery Service in Pittsburgh, PA</h1>
+      <p class="hero-tag">Homemade &amp; healthy meals, cooked with love</p>
+      <div class="hero-actions">
+        <a class="btn btn--lg" href="#offer">Get $15 off your first order</a>
+        <a class="btn-link" href="/meal-prep-delivery-service/">See this week's menu</a>
+      </div>
+    </div>
+    <div class="hero-shot shot reveal" style="--d:120ms">
+      <img src="build-assets/hero-meals.jpg"
+           alt="A spread of freshly cooked family dishes, portioned and ready to be packed for delivery."
+           width="1100" height="1375" fetchpriority="high" decoding="async">
+      <div class="seal" aria-hidden="true"><b>5.0</b><span>Rated by the Valley</span></div>
+      <img class="hero-flower" src="build-assets/flower-b.svg" alt="" width="120" height="120" aria-hidden="true">
+    </div>
+  </div>
+</section>
+
+<!-- ===================== HOW IT WORKS ===================== -->
+<section class="band band--green pad" id="how">
+  <div class="shell">
+    <div class="section-head reveal">
+      <span class="lbl lbl--paper">Healthy Meal Prep Pittsburgh, PA</span>
+      <h2>Eat Healthy Without The Stress</h2>
+    </div>
+    <div class="prose reveal" style="--d:80ms;margin-top:1.5rem">
+      <p>Stop spending precious hours meal planning, grocery shopping, and cleaning up the kitchen. With our lovingly prepared, gourmet meals delivered right to your door, you just chill, heat, and enjoy food that tastes like it came from grandma’s kitchen – giving you back time for what matters most.</p>
+    </div>
+    <ol class="steps" style="list-style:none;padding:0">
+      <li class="step reveal"><span class="step-num" aria-hidden="true">1</span><span class="step-word">Chill</span></li>
+      <li class="step reveal" style="--d:70ms"><span class="step-num" aria-hidden="true">2</span><span class="step-word">Heat</span></li>
+      <li class="step reveal" style="--d:140ms"><span class="step-num" aria-hidden="true">3</span><span class="step-word">Eat</span></li>
+      <li class="step reveal" style="--d:210ms"><span class="step-num" aria-hidden="true">4</span><span class="step-word">Repeat</span></li>
+    </ol>
+    <p style="margin-top:clamp(2.25rem,4vw,3.25rem)" class="reveal">
+      <a class="btn btn--paper" href="/meal-prep-delivery-service/">Explore this weeks fresh menu</a>
+    </p>
+  </div>
+</section>
+
+<!-- ===================== TRUST ===================== -->
+<section class="band band--cream pad">
+  
+  <div class="shell">
+    <div class="section-head reveal">
+      <span class="lbl">Healthy Prepared Meals Pittsburgh, PA</span>
+      <h2>Enjoy healthy food, cooked with love, minus the stress</h2>
+    </div>
+    <div class="claims">
+      <p class="claim reveal"><em>40+</em> Years Of Meal Prep Experience</p>
+      <p class="claim reveal" style="--d:70ms">Preparing <em>30,000+</em> Meals/Year</p>
+      <p class="claim reveal" style="--d:140ms"><em>3</em> Generations Of Family Recipes</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== COLLEEN ===================== -->
+<section class="seam-host band band--paper pad">
+  <span class="seam-flower" style="right:clamp(1.5rem,9vw,9rem)" aria-hidden="true"><img src="build-assets/flower-b.svg" alt="" width="120" height="120"></span>
+  
+  <div class="shell split">
+    <div class="stack reveal" style="--s:1.4rem">
+      <div>
+        <span class="lbl lbl--green">Healthy Family Meals in Pittsburgh, PA</span>
+        <h2>Hey Momma, YOU Don't have to do it all alone...</h2>
+      </div>
+      <div class="prose">
+        <p>… let me help you do the shopping, cooking &amp; clean up. Because doing the chores, planning meals, cooking and cleaning up the kitchen is a lot. Especially as a mom who is running the whole show at home, getting the kids to sports and taking care of herself and her family all at once.</p>
+        <p>My name is Colleen and I would love to prepare fresh, healthy &amp; homemade food for you and your family… so that you have less stress in your day to day and more time for the truly nourishing things in life – your family, your hobbies and yourself!</p>
+      </div>
+      <p><a class="btn btn--ghost" href="/about-us/">Learn more about us</a></p>
+    </div>
+    <div class="split-media shot reveal" style="--d:120ms">
+      <img src="build-assets/colleen-stirring.jpg"
+           alt="Colleen stirring a pot with a wooden spoon in her home kitchen."
+           width="1000" height="800" loading="lazy" decoding="async">
+    </div>
+  </div>
+</section>
+
+<!-- ===================== REVIEWS ===================== -->
+<section class="band band--alt pad" id="reviews">
+  <div class="shell">
+    <div class="section-head reveal">
+      <span class="lbl lbl--pale">Healthy Prepared Meals Pittsburgh, PA</span>
+      <h2>What our customers tastebuds are saying</h2>
+    </div>
+    <div class="reviews">
+      <div class="reviews-col">
+        <figure class="review review--big reveal">
+        <p>"Colleen’s food is filled with love and flavor. Colleen creates amazing food each week that fits so many different ppls needs and budgets! I have been using her service for 3 years and have always been pleased with the serving size, menu variety, and professionalism. Thank you, Colleen Ps- her pasta sauce is 10/10 🤌"</p>
+        <figcaption class="review-by"><span class="stars" aria-hidden="true">★★★★★</span> Eli M.</figcaption>
+      </figure>
+      </div>
+      <div class="reviews-col">
+        <figure class="review review--pale reveal">
+        <p>“Colleen’s food is absolutely fabulous! We have 4 very young kids and she provides delicious meals for me and my husband to eat - so we don’t resort to cereal or take out! Very very thankful for her service.”</p>
+        <figcaption class="review-by"><span class="stars" aria-hidden="true">★★★★★</span> Valerie A.</figcaption>
+      </figure>
+        <figure class="review reveal">
+        <p>“Homemade By Colleen - What can I say besides the fact that it is simply the best ! It feels like receiving a homemade meal from a family member who truly cares about your well-being.The convenience of having such high-quality, homemade food delivered to my door has been a game-changer. It’s perfect for busy days when I want to eat healthily without compromising on taste or quality."</p>
+        <figcaption class="review-by"><span class="stars" aria-hidden="true">★★★★★</span> Maja M.</figcaption>
+      </figure>
+      </div>
+      <div class="reviews-col">
+        <figure class="review reveal">
+        <p>“Homemade by Colleen is exactly what I was looking for! I travel regularly for work, which makes (healthy) homemade meals a challenge when I don’t have the time to shop and prepare. Everything I’ve tasted from Colleen is delicious, and the delivery option saves me even more time! Thank you for sharing your culinary gift with us!"</p>
+        <figcaption class="review-by"><span class="stars" aria-hidden="true">★★★★★</span> Jeanna</figcaption>
+      </figure>
+        <figure class="review review--cream reveal">
+        <p>"We have been ordering meals by Colleen for over a year now. It has been such a help to our family, our health and our budget. I can't recommend them enough. The food quality and portions are excellent. Some of the menu items, such as the chicken gyros and baked rigatoni have become family favorites. Ray, the driver, is always a delight!"</p>
+        <figcaption class="review-by"><span class="stars" aria-hidden="true">★★★★★</span> Sara L.</figcaption>
+      </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ON DEMAND ===================== -->
+<section class="seam-host band band--cream pad">
+  <span class="seam-flower" style="left:clamp(1.5rem,9vw,9rem)" aria-hidden="true"><img src="build-assets/flower-b.svg" alt="" width="120" height="120"></span>
+  <div class="shell split split--flip">
+    <div class="stack reveal" style="--s:1.4rem">
+      <div>
+        <span class="lbl">Healthy Pittsburgh Meal Prep Service</span>
+        <h2>Order When You Need To, Not Have To</h2>
+      </div>
+      <div class="prose">
+        <p>I have been a mom for the better part of my life. And if I have learned one thing, it’s that family life is unpredictable! Some weeks are packed, others are relaxed. At Homemade by Colleen, we understand that your meal needs change just like your schedule. That’s why we offer on-demand ordering, putting you in control.</p>
+        <p>Get delicious, homemade meals only when you want them – choose the meals your family craves each week, adjust quantities, or skip a week with zero hassle or surprise charges. We believe in the freedom to nourish your family on your terms, without the pressure of a subscription.</p>
+        <p>We make it simple, so your family’s always happy and well-fed.</p>
+      </div>
+      <p><a class="btn" href="/meal-prep-delivery-service/">Explore this weeks fresh menu</a></p>
+    </div>
+    <div class="split-media shot reveal" style="--d:120ms">
+      <img src="build-assets/weekly-trays.jpg"
+           alt="Trays of this week's prepared meals lined up before delivery."
+           width="1000" height="800" loading="lazy" decoding="async">
+    </div>
+  </div>
+</section>
+
+<!-- ===================== WHY ===================== -->
+<section class="band band--paper pad">
+  <div class="shell">
+    <div class="section-head reveal">
+      <span class="lbl lbl--green">Healthy Prepared Meals Pittsburgh, PA</span>
+      <h2>Every Meal - A culinary experience rooted in family tradition</h2>
+    </div>
+    <div class="whys">
+      <div class="why why--wide reveal">
+        <h3>Always fresh &amp; never frozen</h3>
+        <p>We don't compromise on the ingredients of our prepared meals. Unlike most meal prep services, we source our ingredients as local and fresh as possible - instead of receiving them from big box companies like Sysco.</p>
+      </div>
+      <div class="why why--pale reveal" style="--d:70ms">
+        <h3>Food That Tastes Like Moms'</h3>
+        <p>Moms' food has something special to it. She cooks her food with love to nourish her children’s bodies and souls. Colleen has been a mom to many for over 40 years. Not only to her children, but to many families in Pittsburgh.</p>
+      </div>
+      <div class="why reveal" style="--d:140ms">
+        <h3>A menu that is seasonally inspired</h3>
+        <p>Every week the same? That's not fun! Our fresh weekly menu of prepared meals is changing with the seasons to satisfy the cravings of your soul. Nourishing and healthy food for you and your family.</p>
+      </div>
+      <div class="why why--cream reveal" style="--d:210ms">
+        <h3>Healthy meals that excite the pallet</h3>
+        <p>Healthy meals don't have to taste bland. We believe that every meal can be healthy and exciting to the pallet. We combine traditional recipes with healthy foods to create meals that your family loves.</p>
+      </div>
+      <div class="why why--shot reveal" style="--d:280ms">
+        <img src="build-assets/portioned-veg.jpg"
+             alt="Four containers of fresh vegetables portioned for the week."
+             width="760" height="325" loading="lazy" decoding="async">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== STORY ===================== -->
+<section class="seam-host band band--alt pad">
+  <span class="seam-flower" style="right:clamp(1.5rem,13vw,13rem)" aria-hidden="true"><img src="build-assets/flower-b.svg" alt="" width="120" height="120"></span>
+  
+  <div class="shell split">
+    <div class="stack reveal" style="--s:1.4rem">
+      <div>
+        <span class="lbl lbl--pale">Healthy Pittsburgh Meal Delivery</span>
+        <h2>Food that nourishes Your body, mind and soul</h2>
+      </div>
+      <div class="prose">
+        <p>Homemade food that nourishes body, mind and soul lives within my DNA. From a young age my mother, grandmother &amp; grandfather taught me how to cook &amp; bake for the people that I love. Today I am cooking for over 500 families in Pittsburgh and have never felt that purposeful and fulfilled in my life. Every day of the week I am showing up for my family of customers, cooking with love and dedication.</p>
+        <p>I am not a big business that has an industrial kitchen and orders their supplies from big box food supply companies like Sysco. My team and I source our ingredients as fresh and locally as possible, ensuring we deliver premium quality for the best price. After serving my customers for over 8 years, I understand what kind of a difference my homemade food meal prep service makes in Pittsburgh. From stressed Moms, over to busy singles and retirees that love good food – my meals change lives.</p>
+        <p>If you’re curious what they say about the healthy, fresh &amp; homemade food that we are delivering each week to their doorstep, check out their testimonials and stories.</p>
+      </div>
+      <p><a class="btn btn--ghost" href="/about-us/reviews/">Read customer stories &amp; reviews</a></p>
+    </div>
+    <div class="split-media shot reveal" style="--d:120ms">
+      <img src="build-assets/colleen-produce.jpg"
+           alt="Colleen at the counter with fresh produce, lifting the lid off a pot."
+           width="1000" height="800" loading="lazy" decoding="async">
+    </div>
+  </div>
+</section>
+
+<!-- ===================== OFFER ===================== -->
+<section class="offer pad" id="offer">
+  <div class="shell">
+    <p class="offer-kick reveal">For a limited time only</p>
+    <h2 class="reveal" style="--d:60ms">Save up to $15 on your first order with us</h2>
+    <p class="reveal" style="--d:120ms"><a class="btn btn--lg btn--paper" href="#">Redeem coupon</a></p>
+    <p class="offer-terms reveal" style="--d:180ms">
+      Terms &amp; Conditions Apply. Call <a href="tel:8669414129">866-941-4129</a> For More Details.
+    </p>
+  </div>
+</section>
+
+<!-- ===================== FAQ ===================== -->
+<section class="band band--cream pad">
+  <div class="shell">
+    <h2 class="reveal" style="font-size:var(--step-3)">Frequently Asked Questions</h2>
+    <div class="faq reveal" style="--d:80ms">
+      <details open>
+        <summary>Who owns Homemade by Colleen?</summary>
+        <div class="faq-body"><p>Homemade by Colleen is a family-owned meal prep and delivery business based in Mt. Lebanon, Pittsburgh, PA. Colleen and her family run every part of the business personally.</p></div>
+      </details>
+      <details>
+        <summary>Is Homemade by Colleen a local Pittsburgh business?</summary>
+        <div class="faq-body"><p>Yes. We are based at 300 Mt Lebanon Blvd, Pittsburgh PA 15234 and proudly serve families across the South Hills of Pittsburgh.</p></div>
+      </details>
+      <details>
+        <summary>How long has Homemade by Colleen been serving Pittsburgh?</summary>
+        <div class="faq-body"><p>We have been making and delivering fresh homemade meals to Pittsburgh families for years, building a reputation for quality, care, and consistency.</p></div>
+      </details>
+      <details>
+        <summary>Why choose a family-run meal prep service over a national company?</summary>
+        <div class="faq-body"><p>With Homemade by Colleen you get real homemade food made by a local family — not a factory. Every meal is made fresh with ingredients you can trust, by people who care about your family as much as their own.</p></div>
+      </details>
+      <details>
+        <summary>Do you have good reviews?</summary>
+        <div class="faq-body"><p>Yes — Homemade by Colleen has hundreds of five-star reviews from happy customers across the South Hills of Pittsburgh.</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== AREAS ===================== -->
+<section class="seam-host band band--paper pad areas" id="areas">
+  <span class="seam-flower" style="left:clamp(1.5rem,11vw,11rem)" aria-hidden="true"><img src="build-assets/flower-b.svg" alt="" width="120" height="120"></span>
+  
+  <div class="shell">
+    <div class="reveal">
+      <h2>Our delivery areas</h2>
+      <p class="areas-sub">We deliver prepared meals in the South Hills of Pittsburgh, PA</p>
+    </div>
+    <ul class="pills reveal" style="--d:80ms">
+      <li><a class="pill" href="/service-areas/meal-prep-delivery-service-bridgeville-pennsylvania/">Bridgeville, PA</a></li>
+      <li><a class="pill" href="/service-areas/meal-prep-delivery-service-collier-township-pennsylvania/">Collier Township, PA</a></li>
+      <li><a class="pill" href="/service-areas/meal-prep-delivery-service-mcmurray-pennsylvania/">McMurray, PA</a></li>
+      <li><a class="pill" href="/service-areas/meal-prep-delivery-service-mt-lebanon-pennsylvania/">Mt. Lebanon, PA</a></li>
+      <li><a class="pill" href="/service-areas/meal-prep-delivery-service-oakmont-pennsylvania/">Oakmont, PA</a></li>
+      <li><a class="pill" href="/service-areas/meal-prep-delivery-service-peters-township-pennsylvania/">Peters Township, PA</a></li>
+      <li><a class="pill" href="/service-areas/meal-prep-delivery-service-south-fayette-pennsylvania/">South Fayette, PA</a></li>
+      <li><a class="pill" href="/service-areas/meal-prep-delivery-service-upper-st-clair-pennsylvania/">Upper St. Clair, PA</a></li>
+    </ul>
+    <div class="areas-note reveal" style="--d:140ms">
+      <p>Note: Homemade by Colleen is constantly adding new delivery areas. Check if we deliver to your ZIP code yet.</p>
+      <a class="btn btn--green" href="/service-areas/">Check your ZIP code</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== NEWSLETTER ===================== -->
+<section class="news pad flowers" style="overflow:hidden">
+  <div class="shell">
+    <div class="reveal">
+      <p class="news-kick">Homemade By Colleen</p>
+      <h2>Email newsletter</h2>
+      <div class="prose">
+        <p>Join our kitchen family and discover weekly homemade treasures delivered to your doorstep. Get exclusive recipes passed down through generations, early access to our seasonal menus, and helpful tips for making mealtime special without the stress. Plus, be the first to know about new dishes, family meal bundles, and our grandmother-inspired baked treats.</p>
+      </div>
+    </div>
+    <form class="reveal" style="--d:100ms" onsubmit="return false">
+      <label for="nl-email">Email</label>
+      <input id="nl-email" type="email" name="email" placeholder="you@example.com" autocomplete="email" required>
+      <button class="btn btn--paper" type="submit">Sign up for free</button>
+    </form>
+  </div>
+  <div class="garden" aria-hidden="true">
+    <img src="build-assets/flower-stem.svg" alt="" width="120" height="160">
+    <img src="build-assets/flower-stem.svg" alt="" width="120" height="160">
+    <img src="build-assets/flower-stem.svg" alt="" width="120" height="160">
+    <img src="build-assets/flower-stem.svg" alt="" width="120" height="160">
+    <img src="build-assets/flower-stem.svg" alt="" width="120" height="160">
+    <img src="build-assets/flower-stem.svg" alt="" width="120" height="160">
+    <img src="build-assets/flower-stem.svg" alt="" width="120" height="160">
+    <img src="build-assets/flower-stem.svg" alt="" width="120" height="160">
+    <img src="build-assets/flower-stem.svg" alt="" width="120" height="160">
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="foot">
+  <div class="shell" style="padding-top:clamp(3rem,5vw,4.5rem)">
+    <p class="foot-top">Prepared Meal Delivery Areas in Pittsburgh’s South Hills, PA</p>
+    <div class="foot-grid">
+      <div>
+        <h2>Contact info</h2>
+        <p>300 Mt. Lebanon Blvd, Suite 2216-B, Pittsburgh, PA, 15234, United States</p>
+        <p>Tel: <a href="tel:412-998-8404">(412) 998-8404</a><br>
+           Email: <a href="mailto:colleen@homemadebycolleen.com">colleen@homemadebycolleen.com</a></p>
+      </div>
+      <div>
+        <h3>Office hours</h3>
+        <p>Monday - Friday: 9AM - 8PM<br>Saturday - Sunday: 9AM - 4PM</p>
+      </div>
+      <div>
+        <h3>Homemade By Colleen</h3>
+        <p>Homemade By Colleen is Pittsburgh’s premier meal prep service, specializing in fresh, gourmet meals crafted from cherished family recipes and local ingredients.</p>
+        <div class="foot-social">
+          <a href="#">Google</a><a href="#">Facebook</a><a href="#">Instagram</a>
+        </div>
+      </div>
+      <div>
+        <h3>Helpful Links</h3>
+        <div class="foot-links">
+          <a class="btn" href="#offer">Get $15 off first order</a>
+          <a class="btn btn--green" href="/meal-prep-delivery-service/">Start new order</a>
+          <a class="btn btn--paper" href="/about-us/">Learn more about us</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="shell foot-legal" style="margin-top:clamp(2.5rem,4vw,3.5rem)">
+    © 2025 Homemade By Colleen | All Rights Reserved.
+  </div>
+</footer>
+
+<script>
+(function(){
+  var els = document.querySelectorAll('.reveal');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce || !('IntersectionObserver' in window)) {
+    els.forEach(function(el){ el.classList.add('in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
+  els.forEach(function(el){ io.observe(el); });
+})();
+</script>
+</body>
+</html>

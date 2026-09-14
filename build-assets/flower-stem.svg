@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 160" role="img" aria-hidden="true">
+  <path d="M60,58 C60,90 58,110 58,150" fill="none" stroke="#071728" stroke-width="9" stroke-linecap="round"/><path d="M60,58 C60,90 58,110 58,150" fill="none" stroke="#7dca04" stroke-width="5" stroke-linecap="round"/><path d="M59,96 C40,88 30,96 26,108 C40,114 54,110 59,100 Z" fill="#7dca04" stroke="#071728" stroke-width="4.5" stroke-linejoin="round"/><path d="M59,120 C78,112 88,120 92,132 C78,138 64,134 59,124 Z" fill="#7dca04" stroke="#071728" stroke-width="4.5" stroke-linejoin="round"/>
+  <g transform="translate(60,44)">
+    <path d="M 0,-11 C 9,-21.15 6.75,-32.8 0,-40 C -6.75,-32.8 -9,-21.15 0,-11 Z" fill="#fbce01" stroke="#071728" stroke-width="3.4" stroke-linejoin="round" transform="rotate(0.0000)"/>
+    <path d="M 0,-11 C 9,-21.15 6.75,-32.8 0,-40 C -6.75,-32.8 -9,-21.15 0,-11 Z" fill="#fbce01" stroke="#071728" stroke-width="3.4" stroke-linejoin="round" transform="rotate(32.7273)"/>
+    <path d="M 0,-11 C 9,-21.15 6.75,-32.8 0,-40 C -6.75,-32.8 -9,-21.15 0,-11 Z" fill="#fbce01" stroke="#071728" stroke-width="3.4" stroke-linejoin="round" transform="rotate(65.4545)"/>
+    <path d="M 0,-11 C 9,-21.15 6.75,-32.8 0,-40 C -6.75,-32.8 -9,-21.15 0,-11 Z" fill="#fbce01" stroke="#071728" stroke-width="3.4" stroke-linejoin="round" transform="rotate(98.1818)"/>
+    <path d="M 0,-11 C 9,-21.15 6.75,-32.8 0,-40 C -6.75,-32.8 -9,-21.15 0,-11 Z" fill="#fbce01" stroke="#071728" stroke-width="3.4" stroke-linejoin="round" transform="rotate(130.9091)"/>
+    <path d="M 0,-11 C 9,-21.15 6.75,-32.8 0,-40 C -6.75,-32.8 -9,-21.15 0,-11 Z" fill="#fbce01" stroke="#071728" stroke-width="3.4" stroke-linejoin="round" transform="rotate(163.6364)"/>
+    <path d="M 0,-11 C 9,-21.15 6.75,-32.8 0,-40 C -6.75,-32.8 -9,-21.15 0,-11 Z" fill="#fbce01" stroke="#071728" stroke-width="3.4" stroke-linejoin="round" transform="rotate(196.3636)"/>
+    <path d="M 0,-11 C 9,-21.15 6.75,-32.8 0,-40 C -6.75,-32.8 -9,-21.15 0,-11 Z" fill="#fbce01" stroke="#071728" stroke-width="3.4" stroke-linejoin="round" transform="rotate(229.0909)"/>
+    <path d="M 0,-11 C 9,-21.15 6.75,-32.8 0,-40 C -6.75,-32.8 -9,-21.15 0,-11 Z" fill="#fbce01" stroke="#071728" stroke-width="3.4" stroke-linejoin="round" transform="rotate(261.8182)"/>
+    <path d="M 0,-11 C 9,-21.15 6.75,-32.8 0,-40 C -6.75,-32.8 -9,-21.15 0,-11 Z" fill="#fbce01" stroke="#071728" stroke-width="3.4" stroke-linejoin="round" transform="rotate(294.5455)"/>
+    <path d="M 0,-11 C 9,-21.15 6.75,-32.8 0,-40 C -6.75,-32.8 -9,-21.15 0,-11 Z" fill="#fbce01" stroke="#071728" stroke-width="3.4" stroke-linejoin="round" transform="rotate(327.2727)"/>
+    <circle r="12" fill="#2e6813" stroke="#071728" stroke-width="3.4"/>
+  </g>
+</svg>
