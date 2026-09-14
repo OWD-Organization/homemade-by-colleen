@@ -402,8 +402,17 @@ section{position:relative}
    keyboard, and below 60rem it flattens into an indented inline list, because
    hover does not exist on touch and the nav already wraps at that width. ---- */
 .nav-drop{position:relative;display:inline-flex}
-.nav-drop>a{display:inline-flex;align-items:center;gap:0.4em}
-.nav-drop>a::after{
+.nav-drop>a,.nav-drop>.nav-drop-toggle{display:inline-flex;align-items:center;gap:0.4em}
+/* The About parent has no page of its own, so it is a toggle, not a link.
+   A button rather than a bare span: it stays keyboard reachable, which is
+   what opens the panel through :focus-within with no JavaScript. */
+.nav-drop-toggle{
+  font:inherit;color:inherit;letter-spacing:inherit;
+  background:none;border:0;padding:0.35em 0;margin:0;cursor:pointer;
+  border-bottom:2.5px solid transparent;
+}
+.nav-drop:hover>.nav-drop-toggle,.nav-drop:focus-within>.nav-drop-toggle{border-bottom-color:var(--c-green)}
+.nav-drop>a::after,.nav-drop>.nav-drop-toggle::after{
   content:"";width:0.4em;height:0.4em;
   border-right:2px solid currentColor;border-bottom:2px solid currentColor;
   rotate:45deg;translate:0 -0.15em;
