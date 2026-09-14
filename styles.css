@@ -294,6 +294,17 @@ section{position:relative}
   grid-template-columns:minmax(0,16rem) minmax(0,70ch);
   gap:clamp(2rem,5vw,4.5rem);
 }
+/* An article title is a sentence, not a slogan, so it gets the wider half
+   of the hero and one step down from the home page's display size. */
+.post-hero .shell{grid-template-columns:minmax(0,1.2fr) minmax(0,0.8fr)}
+/* An article headline sits beside its own cover and reads like a headline,
+   not a billboard, so it drops a step and loses the 16ch cap the shared
+   .hero h1 imposes. Both class names are needed: a single one ties with
+   .hero h1, which is declared later and was winning, which is why the
+   title stayed at the poster size and at a third of its column. */
+.hero.post-hero h1{font-size:var(--step-3);max-width:none}
+@media (max-width:60rem){ .post-hero .shell{grid-template-columns:1fr} }
+
 .post-toc-stick{position:sticky;top:7.5rem}
 .post-toc-title{font-family:var(--font-display);font-weight:800;font-size:var(--step--1);letter-spacing:var(--tr-label);text-transform:uppercase;margin:0 0 0.9rem}
 .post-toc ol{list-style:none;margin:0;padding:0;display:grid;gap:0.55rem;counter-reset:toc}
