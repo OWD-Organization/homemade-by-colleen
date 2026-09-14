@@ -212,6 +212,61 @@ section{position:relative}
   translate:calc(var(--sh-x) * 1.6) calc(var(--sh-y) * 1.6);
 }
 
+/* ---- CUTOUT FIGURE ----
+   The founder photo ships as a real cutout with an alpha channel, so it
+   gets no frame: the figure stands on a flat colour block and the block
+   is the edge. Framing it would draw a hard border around empty pixels.
+   The image keeps its own 9:16 and is anchored to the bottom, so she
+   stands on the block rather than floating in it. ---- */
+.cutout{
+  display:flex;align-items:flex-end;justify-content:center;
+  background:var(--c-green);
+  border:var(--bd-hard);
+  box-shadow:var(--sh-x) var(--sh-y) 0 var(--c-ink);
+  aspect-ratio:4/5;overflow:hidden;
+}
+.cutout img{
+  width:auto;max-width:none;height:100%;
+  object-fit:contain;object-position:bottom center;
+}
+
+/* Square source photos (the about page ships three at 1:1) keep 1:1
+   instead of the 5/4 the split media defaults to, so nothing is cropped.
+   Both class names are needed: a single one ties on specificity with
+   .split-media img, which is declared later and would win. */
+.split-media.split-media--square img{aspect-ratio:1/1}
+
+/* Three paragraphs side by side. The source has no sub-headings here and
+   none are invented, so the columns carry the paragraphs as they are. */
+.prose-cols{
+  display:grid;gap:clamp(1.5rem,3vw,2.5rem);
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  margin-top:clamp(2rem,3.5vw,2.75rem);
+}
+.prose-cols p{color:var(--fg-muted);margin:0}
+@media (max-width:70rem){ .prose-cols{grid-template-columns:1fr 1fr} }
+@media (max-width:48rem){ .prose-cols{grid-template-columns:1fr} }
+
+/* A statement band: no photograph, one colour, the copy set large. It is
+   the breather between the photo-led sections. Two columns so the band is
+   filled, and the paragraph stays in the body face: set in display bold it
+   outshouted the heading above it. */
+.statement{
+  display:grid;align-items:start;
+  grid-template-columns:minmax(0,1fr) minmax(0,52ch);
+  gap:clamp(2rem,5vw,4.5rem);
+}
+.statement h2{font-size:var(--step-3)}
+.statement p{font-size:var(--step-1);line-height:1.5;margin:0}
+@media (max-width:60rem){ .statement{grid-template-columns:1fr} }
+
+/* This page's h1 runs long. One step down, plus a wider text column than
+   the cutout needs, so the headline stops breaking at the hyphen in
+   "Home-Cooked". The cutout is a 4:5 block and does not want half the page. */
+.about-hero h1{font-size:var(--step-4)}
+.about-hero .shell{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr)}
+@media (max-width:60rem){ .about-hero .shell{grid-template-columns:1fr} }
+
 /* ---- EMBEDDED VIDEO ----
    Same hard border and offset shadow as the framed photo, so an embed
    reads as one more object in the system and not as a pasted widget.
