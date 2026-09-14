@@ -226,6 +226,67 @@ section{position:relative}
    .split-media img, which is declared later and would win. */
 .split-media.split-media--square img{aspect-ratio:1/1}
 
+/* ---- BLOG ARCHIVE ----
+   Both covers are 16:9, so the cards share one ratio and the grid is even.
+   The card is the link, like the review cards. ---- */
+.posts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(1.75rem,3.5vw,3rem);margin-top:clamp(2.25rem,4vw,3.25rem)}
+.post-card{display:block;text-decoration:none;color:inherit}
+.post-card .shot img{aspect-ratio:16/9}
+.post-card h3{font-size:var(--step-2);margin-top:1.4rem}
+.post-card:hover h3{background:var(--c-yellow)}
+.post-card .post-meta{margin-top:0.7rem}
+.post-card p{color:var(--fg-muted);margin-top:0.9rem}
+@media (max-width:60rem){ .posts{grid-template-columns:1fr} }
+
+.post-meta{
+  font-family:var(--font-display);font-weight:700;font-size:var(--step--1);
+  letter-spacing:var(--tr-label);text-transform:uppercase;
+  color:var(--c-green-deep);margin:0;
+}
+
+/* ---- ARTICLE ----
+   A four thousand word piece with nine sections needs a way in, so the
+   headings become a contents rail that stays with the reader. The body
+   keeps a real reading measure rather than stretching to the shell, and
+   the pair is centred: widening the prose to fill the band would be the
+   opposite of what a long read needs. ---- */
+.post{
+  display:grid;justify-content:center;
+  grid-template-columns:minmax(0,16rem) minmax(0,70ch);
+  gap:clamp(2rem,5vw,4.5rem);
+}
+.post-toc-stick{position:sticky;top:7.5rem}
+.post-toc-title{font-family:var(--font-display);font-weight:800;font-size:var(--step--1);letter-spacing:var(--tr-label);text-transform:uppercase;margin:0 0 0.9rem}
+.post-toc ol{list-style:none;margin:0;padding:0;display:grid;gap:0.55rem;counter-reset:toc}
+.post-toc li{counter-increment:toc;display:flex;gap:0.6em;font-size:var(--step--1);line-height:1.35}
+.post-toc li::before{content:counter(toc,decimal-leading-zero);font-family:var(--font-display);font-weight:800;color:var(--c-green-deep)}
+.post-toc a{text-decoration:none;border-bottom:1.5px solid transparent}
+.post-toc a:hover{border-bottom-color:var(--c-green)}
+
+.post-body>*+*{margin-top:1.1em}
+.post-body h2{font-size:var(--step-2);margin-top:clamp(2.5rem,5vw,4rem);scroll-margin-top:7rem}
+.post-body h3{font-size:var(--step-1);margin-top:clamp(1.75rem,3vw,2.5rem)}
+.post-body p{margin-bottom:0}
+.post-body .checks{margin-top:1.25rem}
+.post-figure{margin-top:clamp(2rem,4vw,3rem)}
+.post-figure img{aspect-ratio:4/3}
+.post-cta{
+  margin-top:clamp(2rem,4vw,3rem);
+  border:var(--bd-hard);box-shadow:var(--sh-x) var(--sh-y) 0 var(--c-ink);
+  background:var(--c-yellow-pale);
+  padding:clamp(1.35rem,2.5vw,2rem);
+}
+.post-cta h3{font-size:var(--step-1);margin:0}
+.post-cta p{color:var(--fg-muted);margin:0.6rem 0 1.2rem}
+.post-cta .btn+.btn{margin-left:0.75rem}
+@media (max-width:70rem){
+  .post{grid-template-columns:1fr}
+  .post-toc-stick{position:static}
+  /* stacked, the body would otherwise stretch to the shell and lose its
+     reading measure, which is the one thing a long read cannot give up */
+  .post-body{max-width:70ch;margin-inline:auto}
+}
+
 /* ---- GOOGLE REVIEWS ----
    The whole card is the link, so there is no separate "open this one"
    affordance to hunt for, and the lift on hover is the same gesture the
