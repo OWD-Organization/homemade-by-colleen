@@ -226,6 +226,45 @@ section{position:relative}
    .split-media img, which is declared later and would win. */
 .split-media.split-media--square img{aspect-ratio:1/1}
 
+/* ---- CONTACT ----
+   The three ways to reach the kitchen are the page, so they are set large
+   and are the tap target themselves rather than a line of body copy with a
+   link buried in it. ---- */
+.contact-list{list-style:none;margin:0;padding:0;display:grid;gap:clamp(1.25rem,2.5vw,1.75rem)}
+.contact-list li{border-bottom:var(--bd-hair);padding-bottom:clamp(1rem,2vw,1.4rem)}
+.contact-label{
+  display:block;margin-bottom:0.45rem;
+  font-family:var(--font-display);font-weight:700;font-size:var(--step--1);
+  letter-spacing:var(--tr-label);text-transform:uppercase;color:var(--c-green-deep);
+}
+.contact-list a{
+  font-family:var(--font-display);font-weight:700;
+  font-size:var(--step-1);line-height:1.25;
+  letter-spacing:var(--tr-heading);
+  text-decoration:none;border-bottom:2.5px solid transparent;
+}
+.contact-list a:hover{border-bottom-color:var(--c-green);background:var(--c-yellow)}
+.hours h2{font-size:var(--step-1);margin-bottom:0.5rem}
+.hours p{color:var(--fg-muted);margin:0}
+
+.contact-form{
+  display:grid;gap:clamp(1rem,2vw,1.4rem);
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  margin-top:clamp(2rem,3.5vw,2.75rem);
+}
+.contact-form .field{margin:0;display:grid;gap:0.4rem}
+.contact-form .field--wide{grid-column:1 / -1;justify-items:start}
+.contact-form label{
+  font-family:var(--font-display);font-weight:700;font-size:var(--step--1);
+  letter-spacing:var(--tr-label);text-transform:uppercase;
+}
+.contact-form input{
+  font:inherit;padding:0.75em 0.9em;
+  background:var(--c-paper);color:var(--fg);
+  border:var(--bd-hard);border-radius:0;
+}
+@media (max-width:48rem){ .contact-form{grid-template-columns:1fr} }
+
 /* ---- BLOG ARCHIVE ----
    Both covers are 16:9, so the cards share one ratio and the grid is even.
    The card is the link, like the review cards. ---- */
@@ -476,16 +515,11 @@ section{position:relative}
   display:flex;align-items:center;gap:clamp(0.75rem,2vw,2rem);
   padding-block:0.85rem;
 }
-.brand{
-  font-family:var(--font-display);font-weight:800;
-  font-size:var(--step--1);line-height:1;
-  letter-spacing:0.02em;text-transform:uppercase;
-  text-decoration:none;
-  display:grid;gap:0.12em;
-  flex:0 0 auto;
+.brand{display:block;flex:0 0 auto;line-height:0}
+.brand img{
+  width:clamp(8.5rem,13vw,11rem);height:auto;
+  /* the mark is already green and yellow, so it carries no frame */
 }
-.brand b{display:block;font-size:1.5em;letter-spacing:var(--tr-heading)}
-.brand span{color:var(--c-green-deep);font-size:0.78em;letter-spacing:var(--tr-label)}
 .nav-links{
   display:flex;flex-wrap:wrap;align-items:center;gap:0.25rem 1.15rem;
   margin-left:auto;
