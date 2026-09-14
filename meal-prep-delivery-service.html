@@ -191,9 +191,13 @@ a.pill:hover{background:var(--c-green);translate:0 -3px;box-shadow:-4px 5px 0 va
 /* ---- FAQ ---- */
 .faq{max-width:none;margin-top:clamp(2rem,3.5vw,2.75rem);border-top:var(--bd-hard)}
 
-.faq-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 clamp(1.5rem,3vw,2.5rem)}
+.faq-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 clamp(1.5rem,3vw,2.5rem);align-items:start}
 
-.faq-grid details{border-bottom:var(--bd-hard);background:var(--c-paper);align-self:start}
+/* Each column is its own stack, so opening an item in one column never
+   stretches the row and leaves a gap in the other (same idea as .reviews-col). */
+.faq-col{display:grid;align-content:start}
+
+.faq-grid details{border-bottom:var(--bd-hard);background:var(--c-paper)}
 
 .faq-body ul{margin:0.7em 0 0;padding-left:1.15em;display:grid;gap:0.35em}
 
@@ -741,60 +745,64 @@ a.pill:hover{background:var(--c-green);translate:0 -3px;box-shadow:-4px 5px 0 va
     <h2 class="reveal" style="font-size:var(--step-3)">Frequently Asked Questions About Our Local Meal Prep Service</h2>
     <div class="faq reveal" style="--d:80ms">
       <div class="faq-grid">
-        <details open>
-          <summary>How do you keep everything so fresh? Other meal services I've tried seemed mass-produced...</summary>
-          <div class="faq-body"><p>Just like you would at home, we shop multiple times a week from local markets and suppliers. No big box suppliers here! Every meal is prepared fresh weekly in small batches – never frozen, never stockpiled. It's the same care you'd take cooking for your own family.</p></div>
-        </details>
-        <details>
-          <summary>Can you work around dietary restrictions and allergies?</summary>
-          <div class="faq-body"><p>Absolutely! Every family has different needs, and we're happy to accommodate them. Whether you need fewer carbs, extra veggies, or no cheese, just text me personally at <a class="btn-link" href="tel:412-515-6445">412-515-6445</a>. We'll work together to make sure everyone at your table can enjoy their meal.</p></div>
-        </details>
-        <details>
-          <summary>Why should I choose this over just going to the grocery store?</summary>
-          <div class="faq-body">
-            <p>Think of us as your family's personal chef and meal planner combined:</p>
-            <ul>
-              <li>We handle everything from planning to cleanup</li>
-              <li>No more wilted produce or forgotten ingredients</li>
-              <li>You get restaurant-quality meals without the restaurant prices</li>
-              <li>Every ingredient is thoughtfully sourced and freshly prepared</li>
-              <li>You save hours of shopping, cooking, and cleaning time</li>
-            </ul>
-          </div>
-        </details>
-        <details>
-          <summary>Is there a commitment? What if I need to skip a week?</summary>
-          <div class="faq-body"><p>No contracts, no obligations – just good food when you want it! Simply order when you need us and skip when you don't. Life gets busy, and we get that. We'll be here with fresh meals whenever you're ready to order again.</p></div>
-        </details>
-        <details>
-          <summary>What makes Homemade by Colleen different from other meal prep services?</summary>
-          <div class="faq-body">
-            <p>The difference is in the details:</p>
-            <ul>
-              <li>Three generations of family recipes and cooking wisdom</li>
-              <li>Local, seasonal ingredients (no big-box suppliers)</li>
-              <li>Weekly changing menu that keeps meals exciting</li>
-              <li>Portions generous enough to often feed two</li>
-              <li>Personal touch you can only get from a family-run kitchen</li>
-            </ul>
-          </div>
-        </details>
-        <details>
-          <summary>I've had bland meal prep before – how's the taste?</summary>
-          <div class="faq-body"><p>After 40 years of cooking for family and friends, I've learned one thing: food made with love just tastes different. Every dish is crafted with the same care I use cooking for my own family. Plus, our rotating menu keeps things exciting with new dishes every week. If anything ever isn't perfect, just let me know – your satisfaction matters to us!</p></div>
-        </details>
-        <details>
-          <summary>Do I need to be home for delivery?</summary>
-          <div class="faq-body"><p>Not at all! Just leave a cooler outside, and our friendly delivery team will carefully place your meals inside and text you once they're delivered. It's that simple!</p></div>
-        </details>
-        <details>
-          <summary>Can I try it out first?</summary>
-          <div class="faq-body"><p>Start with just two meals to get a taste of what we offer. While we don't provide free samples (we're a small, family-run business), our minimum order is low enough to let you try us out without a big commitment. Check out our customer reviews to see why families keep coming back!</p></div>
-        </details>
-        <details>
-          <summary>Those portions look generous – but are they really enough?</summary>
-          <div class="faq-body"><p>As an Italian mom, making sure everyone has enough to eat is in my DNA! Our portions are actually about ⅓ larger than most meal prep services. Many customers tell us they even get two meals out of one portion. Nobody leaves my kitchen hungry!</p></div>
-        </details>
+        <div class="faq-col">
+          <details open>
+            <summary>How do you keep everything so fresh? Other meal services I've tried seemed mass-produced...</summary>
+            <div class="faq-body"><p>Just like you would at home, we shop multiple times a week from local markets and suppliers. No big box suppliers here! Every meal is prepared fresh weekly in small batches – never frozen, never stockpiled. It's the same care you'd take cooking for your own family.</p></div>
+          </details>
+          <details>
+            <summary>Can you work around dietary restrictions and allergies?</summary>
+            <div class="faq-body"><p>Absolutely! Every family has different needs, and we're happy to accommodate them. Whether you need fewer carbs, extra veggies, or no cheese, just text me personally at <a class="btn-link" href="tel:412-515-6445">412-515-6445</a>. We'll work together to make sure everyone at your table can enjoy their meal.</p></div>
+          </details>
+          <details>
+            <summary>Why should I choose this over just going to the grocery store?</summary>
+            <div class="faq-body">
+              <p>Think of us as your family's personal chef and meal planner combined:</p>
+              <ul>
+                <li>We handle everything from planning to cleanup</li>
+                <li>No more wilted produce or forgotten ingredients</li>
+                <li>You get restaurant-quality meals without the restaurant prices</li>
+                <li>Every ingredient is thoughtfully sourced and freshly prepared</li>
+                <li>You save hours of shopping, cooking, and cleaning time</li>
+              </ul>
+            </div>
+          </details>
+          <details>
+            <summary>Is there a commitment? What if I need to skip a week?</summary>
+            <div class="faq-body"><p>No contracts, no obligations – just good food when you want it! Simply order when you need us and skip when you don't. Life gets busy, and we get that. We'll be here with fresh meals whenever you're ready to order again.</p></div>
+          </details>
+          <details>
+            <summary>What makes Homemade by Colleen different from other meal prep services?</summary>
+            <div class="faq-body">
+              <p>The difference is in the details:</p>
+              <ul>
+                <li>Three generations of family recipes and cooking wisdom</li>
+                <li>Local, seasonal ingredients (no big-box suppliers)</li>
+                <li>Weekly changing menu that keeps meals exciting</li>
+                <li>Portions generous enough to often feed two</li>
+                <li>Personal touch you can only get from a family-run kitchen</li>
+              </ul>
+            </div>
+          </details>
+        </div>
+        <div class="faq-col">
+          <details>
+            <summary>I've had bland meal prep before – how's the taste?</summary>
+            <div class="faq-body"><p>After 40 years of cooking for family and friends, I've learned one thing: food made with love just tastes different. Every dish is crafted with the same care I use cooking for my own family. Plus, our rotating menu keeps things exciting with new dishes every week. If anything ever isn't perfect, just let me know – your satisfaction matters to us!</p></div>
+          </details>
+          <details>
+            <summary>Do I need to be home for delivery?</summary>
+            <div class="faq-body"><p>Not at all! Just leave a cooler outside, and our friendly delivery team will carefully place your meals inside and text you once they're delivered. It's that simple!</p></div>
+          </details>
+          <details>
+            <summary>Can I try it out first?</summary>
+            <div class="faq-body"><p>Start with just two meals to get a taste of what we offer. While we don't provide free samples (we're a small, family-run business), our minimum order is low enough to let you try us out without a big commitment. Check out our customer reviews to see why families keep coming back!</p></div>
+          </details>
+          <details>
+            <summary>Those portions look generous – but are they really enough?</summary>
+            <div class="faq-body"><p>As an Italian mom, making sure everyone has enough to eat is in my DNA! Our portions are actually about ⅓ larger than most meal prep services. Many customers tell us they even get two meals out of one portion. Nobody leaves my kitchen hungry!</p></div>
+          </details>
+        </div>
       </div>
     </div>
   </div>
