@@ -186,6 +186,22 @@ section{position:relative}
 }
 .btn-link:hover{background:var(--c-yellow)}
 
+/* Links inside running text keep the paragraph's own voice. .btn-link is
+   uppercase display type, meant for a link standing on its own line; used
+   mid-sentence it reads as a heading dropped into the paragraph. */
+.prose a:not(.btn):not(.btn-link){
+  color:inherit;
+  text-decoration:underline;
+  text-decoration-thickness:2px;
+  text-decoration-color:var(--c-green-deep);
+  text-underline-offset:0.18em;
+  transition:background-color 160ms var(--ease-out-expo);
+}
+.prose a:not(.btn):not(.btn-link):hover{
+  background:var(--c-yellow);
+  text-decoration-color:var(--c-ink);
+}
+
 
 /* ---- FRAMED PHOTO ---- */
 .shot{position:relative;isolation:isolate}
@@ -682,11 +698,55 @@ section{position:relative}
 }
 .hero-links a:hover{background:var(--c-yellow)}
 
+/* ---- EDITORIAL RAIL ----
+   Asymmetric section skeleton for long prose. The heading takes a narrow
+   left column and sticks while the body scrolls past it, which removes the
+   dead half these sections used to carry and gives the heading real weight.
+   The sticky element has to be a child of the grid item, not the item
+   itself: a stretched grid item is already the full row height, so it has
+   nowhere to travel. ---- */
+.rail{
+  display:grid;
+  /* the body column is sized by its own reading measure and the heading
+     takes whatever is left, so the two together fill the shell exactly
+     instead of the body hitting a max-width and leaving a strip behind */
+  grid-template-columns:minmax(0,1fr) minmax(0,62ch);
+  gap:clamp(2rem,5vw,4.5rem);
+}
+.rail-head-stick{position:sticky;top:7.5rem}
+.rail-body .prose{max-width:none}
+
+/* two subsections side by side inside a rail body */
+.subgrid{
+  display:grid;gap:clamp(1.5rem,3vw,2.5rem);
+  grid-template-columns:repeat(auto-fit,minmax(16rem,1fr));
+  margin-top:clamp(1.75rem,3vw,2.5rem);
+}
+.subgrid h3{font-size:var(--step-1);margin-bottom:0.5rem}
+.subgrid p{color:var(--fg-muted);margin:0}
+
+/* the ZIP codes are one sentence and one number, so they get a strip
+   rather than a full band of their own */
+.ziplane{padding-block:clamp(1.75rem,3vw,2.75rem)}
+.zipstrip{
+  display:flex;flex-wrap:wrap;align-items:center;
+  justify-content:space-between;gap:clamp(1.25rem,3vw,2.5rem);
+}
+.zipstrip h2{font-size:var(--step-1)}
+.zipstrip p{margin:0.45rem 0 0;color:var(--fg-muted);max-width:52ch}
+.zipstrip .zips{margin:0}
+
+@media (max-width:60rem){
+  .rail{grid-template-columns:1fr}
+  .rail-head-stick{position:static}
+  .rail-body{max-width:none}
+}
+
 /* ticked list: reasons to order, core services, what you get */
 .checks{
   list-style:none;margin:clamp(1.25rem,2.5vw,1.75rem) 0 0;padding:0;
   display:grid;gap:0.7rem;
-  grid-template-columns:repeat(auto-fit,minmax(17rem,1fr));
+  grid-template-columns:repeat(var(--cols,auto-fit),minmax(0,1fr));
 }
 .checks li{
   display:flex;align-items:flex-start;gap:0.7em;
@@ -852,3 +912,10 @@ section{position:relative}
   .js .reveal{opacity:1;translate:none}
   .btn:hover,.btn:active,.pill:hover{translate:none}
 }
+
+/* The per-list column count is set inline as --cols, and an inline style
+   beats a stylesheet rule, so these override grid-template-columns itself
+   rather than the variable. Overriding --cols here would never apply. */
+@media (max-width:75rem){ .checks{grid-template-columns:repeat(3,minmax(0,1fr))} }
+@media (max-width:60rem){ .checks{grid-template-columns:repeat(2,minmax(0,1fr))} }
+@media (max-width:40rem){ .checks{grid-template-columns:1fr} }
