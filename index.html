@@ -200,9 +200,9 @@ section{position:relative}
   translate:calc(var(--sh-x) * 1.6) calc(var(--sh-y) * 1.6);
 }
 
-/* ---- FLORES: sistema decorativo ----
-   Amarillo saturado, el mismo de los botones. Regla de disciplina:
-   ninguna flor se coloca junto a un CTA, para no competir con él. ---- */
+/* ---- FLOWERS: decorative system ----
+   Saturated yellow, the same as the buttons. Discipline rule:
+   no flower sits next to a CTA, so it never competes with it. ---- */
 .flowers{position:relative}
 .flowers > .shell{position:relative;z-index:1}
 .seam-host{position:relative}
@@ -212,9 +212,9 @@ section{position:relative}
 }
 .flower img{display:block;height:100%;width:auto}
 
-/* franja de jardín: se apoyan en el borde inferior de la banda */
-/* la banda del newsletter reserva sitio para el jardín;
-   sin esto las flores altas cruzaban por detrás del párrafo */
+/* garden strip: the flowers rest on the band's bottom edge */
+/* the newsletter band reserves room for the garden;
+   without this the tall flowers crossed behind the paragraph */
 .news.flowers{padding-bottom:clamp(8.5rem,15vw,12rem)}
 .garden{
   position:absolute;left:0;right:0;bottom:0;z-index:0;
@@ -228,9 +228,9 @@ section{position:relative}
 .garden img:nth-child(even){height:72%}
 .garden img:nth-child(3n){height:86%}
 
-/* flor de costura: sola, sin tallo, a caballo sobre el borde superior
-   de la sección. Va en la sección de ABAJO para que se pinte por encima
-   de la banda anterior. */
+/* seam flower: alone, no stem, straddling the section's top edge.
+   It lives in the section BELOW the seam so it paints on top of
+   the previous band. */
 .seam-flower{
   --sf: clamp(6.5rem, 11vw, 10.5rem);
   position:absolute;z-index:2;pointer-events:none;
@@ -243,7 +243,7 @@ section{position:relative}
 @media (prefers-reduced-motion:reduce){ .seam-flower img{animation:none} }
 @media (max-width:48rem){ .seam-flower{--sf:clamp(4.5rem,17vw,6.5rem)} }
 
-/* en móvil nueve flores se amontonan: se dejan cinco */
+/* on mobile nine flowers pile up on top of each other: keep five */
 @media (max-width:48rem){
   .garden img:nth-child(2n){display:none}
   .garden{height:clamp(3.6rem,13vw,5.5rem);padding-inline:0.25rem}
