@@ -17,7 +17,7 @@
    Loads styles.css (shared design system: primitives, buttons,
    labels, flowers, nav/utility bar, hero, faq, reviews, pills,
    newsletter, footer). Below: this page's own components only —
-   breadcrumb, numbered card grids, pricing table, day cards,
+   numbered card grids, pricing table, day cards,
    before/now split, order-journey rail, sign-up note, map frame —
    plus the handful of shared-selector overrides this page needs
    (wider headings, stacked stat numerals, two-column FAQ).
@@ -35,19 +35,6 @@
 }
 
 .hero-links a:hover{background:var(--c-yellow)}
-
-/* ---- BREADCRUMB ---- */
-.crumbs{background:var(--c-cream-2);border-bottom:var(--bd-hair);font-size:var(--step--1)}
-
-.crumbs .shell{padding-block:0.75rem;display:flex;flex-wrap:wrap;gap:0.4em;align-items:center}
-
-.crumbs a{text-decoration:none;border-bottom:1.5px solid transparent;font-weight:500}
-
-.crumbs a:hover{border-bottom-color:var(--c-green)}
-
-.crumbs .sep{color:var(--fg-muted)}
-
-.crumbs b{font-weight:700}
 
 /* ---- SECTION HEAD ---- */
 .section-head{max-width:52ch}
@@ -298,13 +285,6 @@ a.pill:hover{background:var(--c-green);translate:0 -3px;box-shadow:-4px 5px 0 va
     </div>
   </div>
 </section>
-
-<!-- ===================== 02 PAGE TITLE BAR ===================== -->
-<nav class="crumbs" aria-label="Breadcrumb">
-  <div class="shell">
-    <a href="index.html">Home</a><span class="sep">»</span><b>Our Meal Prep Delivery Service in Pittsburgh, PA</b>
-  </div>
-</nav>
 
 <!-- ===================== 03 HOW IT WORKS ===================== -->
 <section class="band band--cream pad" id="how-it-works">
