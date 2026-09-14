@@ -218,6 +218,28 @@ section{position:relative}
    .split-media img, which is declared later and would win. */
 .split-media.split-media--square img{aspect-ratio:1/1}
 
+/* ---- TEAM ----
+   All three portraits are 1:1, so the grid is three even columns and each
+   photo keeps its own ratio. No card box around them: the framed
+   photograph already carries the edge, and boxing it as well would flatten
+   the hierarchy into one more grid of identical tiles. */
+.team{
+  display:grid;gap:clamp(1.75rem,3.5vw,3rem);
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  margin-top:clamp(2.25rem,4vw,3.25rem);
+}
+.member .shot img{aspect-ratio:1/1}
+.member h3{font-size:var(--step-1);margin-top:1.4rem}
+.member .role{
+  display:block;margin-top:0.4rem;
+  font-family:var(--font-display);font-weight:700;font-size:var(--step--1);
+  letter-spacing:var(--tr-label);text-transform:uppercase;
+  color:var(--c-green-deep);
+}
+.member p{color:var(--fg-muted);margin:0.9rem 0 0}
+@media (max-width:70rem){ .team{grid-template-columns:repeat(2,minmax(0,1fr))} }
+@media (max-width:48rem){ .team{grid-template-columns:1fr} }
+
 /* Three paragraphs side by side. The source has no sub-headings here and
    none are invented, so the columns carry the paragraphs as they are. */
 .prose-cols{
