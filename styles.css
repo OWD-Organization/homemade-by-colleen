@@ -198,7 +198,7 @@ section{position:relative}
    The iframe's own width/height attributes are overridden by the
    aspect-ratio box, which keeps it responsive down to phone width. ---- */
 .videoframe{
-  max-width:44rem;margin-inline:auto;
+  width:100%;max-width:44rem;margin-inline:auto;
   border:var(--bd-hard);box-shadow:var(--sh-x) var(--sh-y) 0 var(--c-ink);
   background:var(--c-ink);aspect-ratio:16/9;
 }
