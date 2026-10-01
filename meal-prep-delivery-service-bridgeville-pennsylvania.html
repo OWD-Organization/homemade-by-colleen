@@ -39,7 +39,7 @@
     <span class="util-rate">Rated: 5.0. <span class="stars" aria-hidden="true">★★★★★</span></span>
     <a href="reviews.html">Read our reviews »</a>
     <div class="util-sep">
-      <span>300 Mt. Lebanon Blvd, Suite 2216-B, Pittsburgh, PA 15234</span>
+      <span class="util-addr">300 Mt. Lebanon Blvd, Suite 2216-B, Pittsburgh, PA 15234</span>
       <a class="util-tel" href="tel:412-998-8404">(412) 998-8404</a>
     </div>
   </div>
@@ -52,13 +52,18 @@
       <img src="build-assets/logo.webp" alt="Homemade by Colleen"
            width="540" height="199" fetchpriority="high" decoding="async">
     </a>
-    <nav class="nav-links" aria-label="Main">
-      <a href="index.html">Home</a>
-      <a href="https://homemadebycolleen.getprado.com/Menu#/" target="_blank" rel="noopener noreferrer">Weekly menu</a>
-      <a href="meal-prep-delivery-service.html">How it works</a>
+    <button class="nav-burger" type="button" aria-expanded="false" aria-controls="site-nav">
+      <span class="nav-burger-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+      <span class="nav-burger-label">Menu</span>
+    </button>
+    <nav class="nav-links" id="site-nav" aria-label="Main">
+      <a class="nav-item" href="index.html">Home</a>
+      <a class="nav-item" href="https://homemadebycolleen.getprado.com/Menu#/" target="_blank" rel="noopener noreferrer">Weekly menu</a>
+      <a class="nav-item" href="meal-prep-delivery-service.html">How it works</a>
       <span class="nav-drop">
-        <a href="service-areas.html" aria-current="page" aria-expanded="false" aria-haspopup="true">Delivery areas</a>
-        <span class="nav-menu">
+        <a class="nav-item" href="service-areas.html" aria-current="page" aria-expanded="false" aria-haspopup="true">Delivery areas</a>
+        <button class="nav-item nav-sub-toggle is-current" type="button" aria-expanded="false" aria-controls="menu-areas">Delivery areas</button>
+        <span class="nav-menu" id="menu-areas">
         <a href="service-areas.html">Overview</a>
         <a href="meal-prep-delivery-service-bridgeville-pennsylvania.html" aria-current="page">Bridgeville, PA</a>
         <a href="meal-prep-delivery-service-collier-township-pennsylvania.html">Collier Township, PA</a>
@@ -71,15 +76,15 @@
         </span>
       </span>
       <span class="nav-drop">
-        <button class="nav-drop-toggle" type="button" aria-expanded="false" aria-haspopup="true">About us</button>
-        <span class="nav-menu">
+        <button class="nav-item nav-drop-toggle" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="menu-about">About us</button>
+        <span class="nav-menu" id="menu-about">
         <a href="about-us.html">About us</a>
         <a href="about-us.html#team">Meet the team</a>
         <a href="reviews.html">Reviews</a>
         <a href="blog.html">Blog</a>
         </span>
       </span>
-      <a href="contact-us.html">Contact us</a>
+      <a class="nav-item" href="contact-us.html">Contact us</a>
     </nav>
     <a class="btn nav-cta" href="https://homemadebycolleen.getprado.com/Menu#/"
        target="_blank" rel="noopener noreferrer">New order</a>
@@ -463,15 +468,56 @@
 
 <script>
 (function(){
-  // The dropdowns open on hover and on focus in CSS. Mirror that state into
-  // aria-expanded so screen readers are told the menu opened, and let Escape
-  // close one that was opened from the keyboard.
+  // Desktop (above 60rem): the dropdowns open on hover and on focus in CSS.
+  // Mirror that state into aria-expanded so screen readers are told the menu
+  // opened, and let Escape close one that was opened from the keyboard.
+  // Mobile (60rem and below): the nav is a drawer behind the Menu button and
+  // each dropdown is a collapsible section opened by its toggle button.
+  var mobile = window.matchMedia('(max-width: 60rem)');
+  var header = document.querySelector('.nav');
+  var burger = document.querySelector('.nav-burger');
   var drops = document.querySelectorAll('.nav-drop');
+
+  function setDrawer(open){
+    if (!header || !burger) return;
+    if (open) {
+      // the drawer scrolls inside whatever height is left below the header
+      var room = window.innerHeight - header.getBoundingClientRect().bottom;
+      header.style.setProperty('--drawer-max', Math.max(room, 240) + 'px');
+    }
+    header.classList.toggle('is-open', open);
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    if (!open) closeSections();
+  }
+  function closeSections(except){
+    Array.prototype.forEach.call(drops, function(drop){
+      if (drop === except) return;
+      drop.classList.remove('is-open');
+      var t = drop.querySelector('.nav-sub-toggle, .nav-drop-toggle');
+      if (t && mobile.matches) t.setAttribute('aria-expanded', 'false');
+    });
+  }
+
+  if (burger) {
+    burger.addEventListener('click', function(){
+      setDrawer(burger.getAttribute('aria-expanded') !== 'true');
+    });
+  }
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && header && header.classList.contains('is-open')) {
+      setDrawer(false); burger.focus();
+    }
+  });
+  // Leaving the mobile layout resets the drawer, so desktop never inherits it.
+  var onChange = function(){ if (!mobile.matches) { setDrawer(false); } };
+  if (mobile.addEventListener) mobile.addEventListener('change', onChange); else mobile.addListener(onChange);
+
   Array.prototype.forEach.call(drops, function(drop){
-    var trigger = drop.querySelector('a, .nav-drop-toggle');
+    var trigger = drop.querySelector(':scope > a, :scope > .nav-drop-toggle');
+    var toggle = drop.querySelector(':scope > .nav-sub-toggle') || drop.querySelector(':scope > .nav-drop-toggle');
     var menu = drop.querySelector('.nav-menu');
     if (!trigger || !menu) return;
-    function set(open){ trigger.setAttribute('aria-expanded', open ? 'true' : 'false'); }
+    function set(open){ if (!mobile.matches) trigger.setAttribute('aria-expanded', open ? 'true' : 'false'); }
     drop.addEventListener('mouseenter', function(){ set(true); });
     drop.addEventListener('mouseleave', function(){ set(false); });
     drop.addEventListener('focusin', function(){ set(true); });
@@ -479,8 +525,17 @@
       if (!drop.contains(document.activeElement)) set(false);
     });
     drop.addEventListener('keydown', function(e){
-      if (e.key === 'Escape') { set(false); trigger.focus(); }
+      if (e.key === 'Escape' && !mobile.matches) { set(false); trigger.focus(); }
     });
+    if (toggle) {
+      toggle.addEventListener('click', function(){
+        if (!mobile.matches) return;
+        var open = !drop.classList.contains('is-open');
+        closeSections(drop);
+        drop.classList.toggle('is-open', open);
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    }
   });
 })();
 </script>

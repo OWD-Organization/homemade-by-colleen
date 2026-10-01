@@ -1186,3 +1186,108 @@ section{position:relative}
   flex-wrap:wrap;
   justify-content:center;
 }
+
+/* =========================================================
+   MOBILE NAV DRAWER (60rem and below)
+   The Menu button opens the nav as a panel under the sticky header. Delivery
+   areas and About us are collapsible sections inside it. Everything here is
+   scoped to .js, so without JavaScript the nav keeps its flattened inline
+   list instead of hiding behind a button that cannot open. Desktop is not
+   touched: the button and the mobile toggle are hidden above 60rem.
+   ========================================================= */
+.nav-burger,.nav-sub-toggle{display:none}
+
+@media (max-width:60rem){
+  .js .nav .shell{flex-wrap:nowrap}
+  .js .nav-cta{margin-left:auto;order:2}
+
+  .js .nav-burger{
+    order:3;flex:0 0 auto;
+    display:inline-flex;align-items:center;gap:0.55em;
+    min-height:3rem;min-width:3rem;padding:0.6em 0.85em;
+    font-family:var(--font-display);font-weight:700;font-size:var(--step--1);
+    letter-spacing:var(--tr-button);text-transform:uppercase;
+    color:var(--c-ink);background:var(--c-paper);
+    border:var(--bd-hard);cursor:pointer;
+  }
+  .js .nav-burger:hover{background:var(--c-yellow-pale)}
+  .js .nav-burger:focus-visible{outline:3px solid var(--c-green-deep);outline-offset:3px}
+  .nav-burger-icon{position:relative;display:inline-block;width:1.25rem;height:0.9rem}
+  .nav-burger-icon span{
+    position:absolute;left:0;right:0;height:2.5px;background:currentColor;
+    transition:translate 200ms var(--ease-out-expo),rotate 200ms var(--ease-out-expo),opacity 150ms;
+  }
+  .nav-burger-icon span:nth-child(1){top:0}
+  .nav-burger-icon span:nth-child(2){top:calc(50% - 1.25px)}
+  .nav-burger-icon span:nth-child(3){bottom:0}
+  .nav.is-open .nav-burger-icon span:nth-child(1){translate:0 calc(0.45rem - 1.25px);rotate:45deg}
+  .nav.is-open .nav-burger-icon span:nth-child(2){opacity:0}
+  .nav.is-open .nav-burger-icon span:nth-child(3){translate:0 calc(-0.45rem + 1.25px);rotate:-45deg}
+
+  /* the drawer */
+  .js .nav-links{
+    display:none;order:4;
+    position:absolute;top:100%;left:0;right:0;z-index:55;
+    flex-direction:column;flex-wrap:nowrap;align-items:stretch;gap:0;
+    width:auto;margin:0;
+    padding:0.25rem var(--gutter) 1.25rem;
+    background:var(--c-cream);
+    border-top:var(--bd-hard);border-bottom:var(--bd-hard);
+    max-height:var(--drawer-max,70vh);overflow-y:auto;overscroll-behavior:contain;
+    font-size:var(--step-0);
+  }
+  .js .nav.is-open .nav-links{display:flex}
+
+  /* every top-level row: same class, same size, 48px target, hairline rule */
+  .js .nav-links .nav-item{
+    display:flex;align-items:center;justify-content:space-between;
+    width:100%;min-height:3rem;padding:0.7rem 0;
+    border-bottom:var(--bd-hair);
+  }
+  .js .nav-links a.nav-item:hover,.js .nav-links a.nav-item[aria-current]{border-bottom:var(--bd-hair);text-decoration:underline;text-decoration-color:var(--c-green);text-decoration-thickness:2.5px;text-underline-offset:0.3em}
+  .js .nav-drop{display:block}
+  .js .nav-drop>a.nav-item{display:none}
+  .js .nav-sub-toggle{display:flex}
+  .nav-sub-toggle{
+    font:inherit;color:inherit;letter-spacing:inherit;
+    background:none;border:0;margin:0;cursor:pointer;text-align:left;
+  }
+  .js .nav-drop>.nav-sub-toggle,.js .nav-drop>.nav-drop-toggle{border-bottom:var(--bd-hair)}
+  .js .nav-sub-toggle.is-current{text-decoration:underline;text-decoration-color:var(--c-green);text-decoration-thickness:2.5px;text-underline-offset:0.3em}
+  .js .nav-drop:hover>.nav-drop-toggle,.js .nav-drop:focus-within>.nav-drop-toggle{border-bottom:var(--bd-hair)}
+  .js .nav-drop>.nav-sub-toggle::after,.js .nav-drop>.nav-drop-toggle::after{
+    content:"";width:0.5em;height:0.5em;margin-right:0.35em;
+    border-right:2.5px solid currentColor;border-bottom:2.5px solid currentColor;
+    rotate:45deg;translate:0 -0.2em;
+    transition:rotate 200ms var(--ease-out-expo),translate 200ms var(--ease-out-expo);
+  }
+  .js .nav-drop.is-open>.nav-sub-toggle::after,.js .nav-drop.is-open>.nav-drop-toggle::after{rotate:225deg;translate:0 0.15em}
+
+  /* collapsible sections */
+  .js .nav-menu{display:none}
+  .js .nav-drop.is-open .nav-menu{
+    display:grid;gap:0;
+    padding:0.25rem 0 0.5rem 1rem;margin:0;
+    border-left:0;border-bottom:var(--bd-hair);
+  }
+  .js .nav-menu a{display:flex;align-items:center;min-height:2.75rem;padding:0.4rem 0;border-bottom:0}
+  .js .nav-menu a:hover,.js .nav-menu a[aria-current]{background:none;border-bottom:0;text-decoration:underline;text-decoration-color:var(--c-green);text-decoration-thickness:2.5px;text-underline-offset:0.3em}
+}
+
+/* Phones: brand, New order and the Menu button share one row, so the button
+   drops its visible word (it stays the accessible name) and the row tightens. */
+@media (max-width:30rem){
+  .js .nav-burger{padding:0;width:3rem;justify-content:center}
+  .js .nav-burger-label{
+    position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+    clip-path:inset(50%);white-space:nowrap;border:0;
+  }
+  .js .nav-cta{padding-inline:1em}
+  .js .brand img{width:7.75rem}
+}
+
+/* Mobile banner: rating and phone only. The street address stays in the
+   footer and the contact page; on a phone it pushed the bar to three lines. */
+@media (max-width:48rem){
+  .util-addr{display:none}
+}
