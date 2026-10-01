@@ -1,3 +1,127 @@
 {
-  "cleanUrls": true
+  "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/about-us/contact-us",
+      "destination": "/contact-us",
+      "permanent": true
+    },
+    {
+      "source": "/about-us/reviews",
+      "destination": "/reviews",
+      "permanent": true
+    },
+    {
+      "source": "/about-us/meet-the-team",
+      "destination": "/about-us#team",
+      "permanent": true
+    },
+    {
+      "source": "/service-areas/meal-prep-delivery-service-bridgeville-pennsylvania",
+      "destination": "/meal-prep-delivery-service-bridgeville-pennsylvania",
+      "permanent": true
+    },
+    {
+      "source": "/service-areas/meal-prep-delivery-service-collier-township-pennsylvania",
+      "destination": "/meal-prep-delivery-service-collier-township-pennsylvania",
+      "permanent": true
+    },
+    {
+      "source": "/service-areas/meal-prep-delivery-service-mcmurray-pennsylvania",
+      "destination": "/meal-prep-delivery-service-mcmurray-pennsylvania",
+      "permanent": true
+    },
+    {
+      "source": "/service-areas/meal-prep-delivery-service-mt-lebanon-pennsylvania",
+      "destination": "/meal-prep-delivery-service-mt-lebanon-pennsylvania",
+      "permanent": true
+    },
+    {
+      "source": "/service-areas/meal-prep-delivery-service-oakmont-pennsylvania",
+      "destination": "/meal-prep-delivery-service-oakmont-pennsylvania",
+      "permanent": true
+    },
+    {
+      "source": "/service-areas/meal-prep-delivery-service-peters-township-pennsylvania",
+      "destination": "/meal-prep-delivery-service-peters-township-pennsylvania",
+      "permanent": true
+    },
+    {
+      "source": "/service-areas/meal-prep-delivery-service-south-fayette-pennsylvania",
+      "destination": "/meal-prep-delivery-service-south-fayette-pennsylvania",
+      "permanent": true
+    },
+    {
+      "source": "/service-areas/meal-prep-delivery-service-upper-st-clair-pennsylvania",
+      "destination": "/meal-prep-delivery-service-upper-st-clair-pennsylvania",
+      "permanent": true
+    },
+    {
+      "source": "/2025/10/10/flexible-meal-prep-in-pittsburgh-no-subscription-needed",
+      "destination": "/blog-flexible-meal-prep-in-pittsburgh-no-subscription-needed",
+      "permanent": true
+    },
+    {
+      "source": "/2025/10/13/why-our-fresh-meal-prep-stands-out-local-ingredients-matter",
+      "destination": "/blog-fresh-local-ingredients-for-meal-prep-in-pittsburgh",
+      "permanent": true
+    },
+    {
+      "source": "/category/colleens-kitchen-chronicles",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/cater",
+      "destination": "/contact-us",
+      "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "(?<sub>.*)\\.vercel\\.app"
+        }
+      ],
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    },
+    {
+      "source": "/build-assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=63072000; includeSubDomains; preload"
+        }
+      ]
+    }
+  ]
 }

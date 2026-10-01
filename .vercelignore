@@ -1,2 +1,12 @@
 scrape/
 AGENTS.md
+*.csv
+build-assets/favicon-src.png
+build-assets/home-made-logo.png
+build-assets/colleen-founder.webp
+build-assets/colleen-produce.jpg
+build-assets/colleen-stirring.jpg
+build-assets/flower-a.svg
+build-assets/flower-bud.svg
+build-assets/flower-c.svg
+audit-evidence/

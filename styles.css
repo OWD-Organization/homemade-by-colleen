@@ -1131,3 +1131,58 @@ section{position:relative}
 @media (max-width:75rem){ .checks{grid-template-columns:repeat(3,minmax(0,1fr))} }
 @media (max-width:60rem){ .checks{grid-template-columns:repeat(2,minmax(0,1fr))} }
 @media (max-width:40rem){ .checks{grid-template-columns:1fr} }
+
+/* ===================== ACCESSIBILITY ===================== */
+
+/* Skip link: off-screen until it takes focus, then it lands as a solid
+   block in the top-left corner so keyboard users can jump past the nav. */
+.skip-link{
+  position:absolute;
+  left:-9999px;
+  top:0;
+  z-index:999;
+  background:var(--c-yellow);
+  color:var(--c-ink);
+  font-family:var(--font-display);
+  font-weight:700;
+  letter-spacing:var(--tr-button);
+  text-transform:uppercase;
+  padding:0.85rem 1.25rem;
+  border:var(--bd-hard);
+  text-decoration:none;
+}
+.skip-link:focus{left:0.5rem;top:0.5rem}
+
+/* WCAG 2.5.8 target size. These links sit on their own rather than inside a
+   sentence, so they need a 44px hit area. A pseudo-element grows the target
+   without changing the visual size or the surrounding layout. Links inside
+   running copy are exempt from the rule and are deliberately left alone. */
+.util a,
+.foot-social a,
+.foot-contact a{position:relative}
+.util a::before,
+.foot-social a::before,
+.foot-contact a::before{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  top:50%;
+  height:44px;
+  translate:0 -50%;
+}
+
+/* Table-of-contents entries and the 404 link list are standalone navigation,
+   not links inside a sentence, so WCAG 2.5.8 applies to them too. Padding is
+   safe here because both already sit in their own block. */
+.post-toc ol a,
+.err-links a{display:inline-block;padding-block:0.4rem}
+.err-links{
+  list-style:none;
+  padding:0;
+  margin-top:3rem;
+  display:flex;
+  gap:0.75rem 2rem;
+  flex-wrap:wrap;
+  justify-content:center;
+}
