@@ -1,0 +1,22 @@
+Homemade By Colleen - post-fix static audit
+Generated after all tracker items were applied
+
+page                                                       title desc can og tw main skip drop  schema
+404.html                                                      36  104   0  0  0    1    1    2  n/a
+about-us.html                                                 61  126   1  8  4    1    1    2  FoodEstablishment+WebPage+WebSite
+blog-flexible-meal-prep-in-pittsburgh-no-subscription-ne      56  155   1  8  4    1    1    2  Article+FoodEstablishment+Person+WebPage+WebSite
+blog-fresh-local-ingredients-for-meal-prep-in-pittsburgh      51  157   1  8  4    1    1    2  Article+FoodEstablishment+Person+WebPage+WebSite
+blog.html                                                     54  109   1  8  4    1    1    2  FoodEstablishment+WebPage+WebSite
+contact-us.html                                               53  115   1  8  4    1    1    2  FoodEstablishment+WebPage+WebSite
+index.html                                                    53  133   1  8  4    1    1    2  FAQPage+FoodEstablishment+WebPage+WebSite
+meal-prep-delivery-service-bridgeville-pennsylvania.html      59  142   1  8  4    1    1    2  FoodEstablishment+Service+WebPage+WebSite
+meal-prep-delivery-service-collier-township-pennsylvania      60  147   1  8  4    1    1    2  FoodEstablishment+Service+WebPage+WebSite
+meal-prep-delivery-service-mcmurray-pennsylvania.html         54  139   1  8  4    1    1    2  FoodEstablishment+Service+WebPage+WebSite
+meal-prep-delivery-service-mt-lebanon-pennsylvania.html       54  142   1  8  4    1    1    2  FAQPage+FoodEstablishment+Service+WebPage+WebSite
+meal-prep-delivery-service-oakmont-pennsylvania.html          58  138   1  8  4    1    1    2  FoodEstablishment+Service+WebPage+WebSite
+meal-prep-delivery-service-peters-township-pennsylvania.      58  146   1  8  4    1    1    2  FoodEstablishment+Service+WebPage+WebSite
+meal-prep-delivery-service-south-fayette-pennsylvania.ht      59  144   1  8  4    1    1    2  FoodEstablishment+Service+WebPage+WebSite
+meal-prep-delivery-service-upper-st-clair-pennsylvania.h      54  135   1  8  4    1    1    2  FoodEstablishment+Service+WebPage+WebSite
+meal-prep-delivery-service.html                               55  153   1  8  4    1    1    2  FAQPage+FoodEstablishment+Service+WebPage+WebSite
+reviews.html                                                  59  111   1  8  4    1    1    2  FoodEstablishment+WebPage+WebSite
+service-areas.html                                            57  141   1  8  4    1    1    2  FoodEstablishment+WebPage+WebSite

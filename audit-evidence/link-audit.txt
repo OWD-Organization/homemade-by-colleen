@@ -1,0 +1,33 @@
+Homemade By Colleen - link audit
+Generated after all fixes were applied
+
+INTERNAL LINKS
+  694 relative internal links checked against the filesystem
+    0 broken
+    0 in-page anchors pointing at a missing id
+    0 absolute internal links remaining in body copy
+    0 href="#" dead links remaining
+
+EXTERNAL LINKS  (live HTTP requests)
+  200  https://homemadebycolleen.getprado.com/Menu
+  200  https://homemadebycolleen.getprado.com/Menu#/
+  200  https://homemadebycolleen.getprado.com/Menu?prompt=true
+  200  https://www.instagram.com/homemade_by_colleen/
+  200  https://www.google.com/maps?q=300+Mt+Lebanon+Blvd,+Pittsburgh,+PA+15234
+  200  https://fonts.googleapis.com/css2?family=Bricolage+Grotesque...
+  302  https://share.google/DifJssfzDBywgl6zi
+         resolves to the Google Business Profile panel for
+         "Homemade By Colleen - Meal Prep & Meal Delivery Service Pittsburgh"
+  400  https://www.facebook.com/homemadebycolleen/
+         NOT A VERIFIED FAILURE. Facebook returns 400 to every automated
+         request regardless of whether the page exists. Needs a manual
+         check in a browser.
+
+INBOUND INTERNAL LINKS PER PAGE
+  17  every core, service and service area page
+  17  blog index
+   2  blog-flexible-meal-prep-in-pittsburgh-no-subscription-needed
+   2  blog-fresh-local-ingredients-for-meal-prep-in-pittsburgh
+   0  404 (intentionally unlinked and noindex)
+
+  The two blog posts are the weak point: tracker item 38.

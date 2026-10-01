@@ -1,0 +1,46 @@
+Link Target,Type,Scheme,Found On,Occurrences,HTTP Status,Resolves,Issue Found,Action Taken,Status,Verified How
+https://www.homemadebycolleen.com/meal-prep-delivery-service/,"Internal, was absolute",https,blog-fresh-local-ingredients-for-meal-prep-in-pittsburgh.html,4,n/a,Was broken locally,Absolute URL with trailing slash in body copy. Breaks local navigation and costs an extra redirect hop with trailingSlash off. Violates AGENTS.md section 4.,Repointed to meal-prep-delivery-service.html,Fixed,Filesystem check after the change
+https://www.homemadebycolleen.com/about-us/,"Internal, was absolute",https,blog-fresh-local-ingredients-for-meal-prep-in-pittsburgh.html,1,n/a,Was broken locally,Same defect as the row above,Repointed to about-us.html,Fixed,Filesystem check after the change
+"<a href=""#""> Google, Facebook, Instagram, Redeem coupon",Dead link,fragment,17 pages,52,n/a,No,51 dead footer social links plus the Redeem coupon primary CTA on the home page,Repointed to the real profiles and the ordering menu,Fixed,"Rendered DOM: 0 href=""#"" across 18 pages"
+about-us.html,Internal,relative,18 pages,18,n/a,Yes,None,None needed,Pass,"Filesystem check, 694 links"
+about-us.html#team,Internal,relative,18 pages,18,n/a,Yes,None,None needed,Pass,"Filesystem check, 694 links"
+blog-flexible-meal-prep-in-pittsburgh-no-subscription-needed.html,Internal,relative,2 pages,2,n/a,Yes,None,None needed,Pass,"Filesystem check, 694 links"
+blog-fresh-local-ingredients-for-meal-prep-in-pittsburgh.html,Internal,relative,2 pages,2,n/a,Yes,None,None needed,Pass,"Filesystem check, 694 links"
+blog.html,Internal,relative,18 pages,18,n/a,Yes,None,None needed,Pass,"Filesystem check, 694 links"
+build-assets/apple-touch-icon.png,Internal,relative,18 pages,18,n/a,Yes,None,None needed,Pass,"Filesystem check, 694 links"
+build-assets/blog-flexible-hero.webp,Internal,relative,1 pages,1,n/a,Yes,None,None needed,Pass,"Filesystem check, 694 links"
+build-assets/blog-fresh-ingredients.jpg,Internal,relative,2 pages,2,n/a,Yes,None,None needed,Pass,"Filesystem check, 694 links"
+build-assets/colleen-profile.webp,Internal,relative,1 pages,1,n/a,Yes,None,None needed,Pass,"Filesystem check, 694 links"
+build-assets/colleen-walsh-2.webp,Internal,relative,1 pages,1,n/a,Yes,None,None needed,Pass,"Filesystem check, 694 links"
+build-assets/favicon-32.png,Internal,relative,18 pages,18,n/a,Yes,None,None needed,Pass,"Filesystem check, 694 links"
+build-assets/favicon.ico,Internal,relative,18 pages,18,n/a,Yes,None,None needed,Pass,"Filesystem check, 694 links"
+build-assets/hero-meals.jpg,Internal,relative,9 pages,9,n/a,Yes,None,None needed,Pass,"Filesystem check, 694 links"
+build-assets/weekly-trays.jpg,Internal,relative,2 pages,2,n/a,Yes,None,None needed,Pass,"Filesystem check, 694 links"
+contact-us.html,Internal,relative,18 pages,18,n/a,Yes,None,None needed,Pass,"Filesystem check, 694 links"
+index.html,Internal,relative,18 pages,18,n/a,Yes,None,None needed,Pass,"Filesystem check, 694 links"
+index.html#offer,Internal,relative,18 pages,18,n/a,Yes,None,None needed,Pass,"Filesystem check, 694 links"
+meal-prep-delivery-service-bridgeville-pennsylvania.html,Internal,relative,18 pages,18,n/a,Yes,None,None needed,Pass,"Filesystem check, 694 links"
+meal-prep-delivery-service-collier-township-pennsylvania.html,Internal,relative,18 pages,18,n/a,Yes,None,None needed,Pass,"Filesystem check, 694 links"
+meal-prep-delivery-service-mcmurray-pennsylvania.html,Internal,relative,18 pages,18,n/a,Yes,None,None needed,Pass,"Filesystem check, 694 links"
+meal-prep-delivery-service-mt-lebanon-pennsylvania.html,Internal,relative,18 pages,18,n/a,Yes,None,None needed,Pass,"Filesystem check, 694 links"
+meal-prep-delivery-service-oakmont-pennsylvania.html,Internal,relative,18 pages,18,n/a,Yes,None,None needed,Pass,"Filesystem check, 694 links"
+meal-prep-delivery-service-peters-township-pennsylvania.html,Internal,relative,18 pages,18,n/a,Yes,None,None needed,Pass,"Filesystem check, 694 links"
+meal-prep-delivery-service-south-fayette-pennsylvania.html,Internal,relative,18 pages,18,n/a,Yes,None,None needed,Pass,"Filesystem check, 694 links"
+meal-prep-delivery-service-upper-st-clair-pennsylvania.html,Internal,relative,18 pages,18,n/a,Yes,None,None needed,Pass,"Filesystem check, 694 links"
+meal-prep-delivery-service.html,Internal,relative,18 pages,18,n/a,Yes,None,None needed,Pass,"Filesystem check, 694 links"
+reviews.html,Internal,relative,18 pages,18,n/a,Yes,None,None needed,Pass,"Filesystem check, 694 links"
+service-areas.html,Internal,relative,18 pages,18,n/a,Yes,None,None needed,Pass,"Filesystem check, 694 links"
+styles.css,Internal,relative,18 pages,18,n/a,Yes,None,None needed,Pass,"Filesystem check, 694 links"
+https://fonts.googleapis.com,External,https,18 pages,18,n/a,Yes,None,preconnect hint only,Pass,Not a navigable link
+"https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Hanken+Grotesk:wght@400;500;700&display=swap",External,https,18 pages,18,200,Yes,None,None needed,Pass,Live HTTP request
+https://fonts.gstatic.com,External,https,18 pages,18,n/a,Yes,None,preconnect hint only,Pass,Not a navigable link
+https://homemadebycolleen.getprado.com/Menu,External,https,18 pages,18,200,Yes,"Two casing variants were in use, /menu and /Menu",Normalised all 98 to /Menu,Fixed,"Live HTTP request, both returned 200"
+https://homemadebycolleen.getprado.com/Menu#/,External,https,18 pages,18,200,Yes,None,None needed,Pass,Live HTTP request
+https://homemadebycolleen.getprado.com/Menu?prompt=true,External,https,1 pages,1,200,Yes,None,None needed,Pass,Live HTTP request
+https://share.google/DifJssfzDBywgl6zi,External,https,18 pages,18,302,Yes,"Shortlink, resolves to the Google Business Profile panel","Kept, same link the live site uses",Pass,Followed redirect to google.com/search knowledge panel
+https://www.facebook.com/homemadebycolleen/,External,https,18 pages,18,400,Unverified,Facebook returns 400 to all automated requests,Needs a manual browser check,Unverified,"Blocked by Facebook bot protection, not verifiable here"
+"https://www.google.com/maps?q=300+Mt+Lebanon+Blvd,+Pittsburgh,+PA+15234",External,https,1 pages,1,200,Yes,None,None needed,Pass,Live HTTP request
+https://www.instagram.com/homemade_by_colleen/,External,https,18 pages,18,200,Yes,None,None needed,Pass,Live HTTP request
+https://www.homemadebycolleen.com/... (canonical and og:url),Self reference,https,18 pages,18,n/a,Yes,"None, absolute is correct here",None needed,Pass,"17 canonicals, one per indexable page"
+mailto:colleen@homemadebycolleen.com,Contact,mailto/tel,18 pages,18,n/a,Yes,None,None needed,Pass,Single consistent value sitewide
+tel:412-998-8404,Contact,mailto/tel,18 pages,18,n/a,Yes,None,None needed,Pass,Single consistent value sitewide
