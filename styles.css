@@ -1398,19 +1398,25 @@ section{position:relative}
   padding:4.2% 8% 3.2%;
 }
 .gcard-logo img{width:min(70%, 22rem);height:auto}
-.gcard-stage{position:relative;min-height:0}
+.gcard-stage{
+  position:relative;min-height:0;
+  display:grid;
+  grid-template-columns:minmax(0,1.25fr) minmax(0,0.82fr);
+  align-items:stretch;
+}
 .gcard-word{
   position:relative;z-index:1;
-  margin:0;
-  padding:5% 42% 8% 2.5%;
+  margin:0;align-self:center;
+  padding:6% 4% 10% 5%;
   font-family:var(--font-display);font-weight:800;
-  font-size:clamp(2.6rem, 15.5cqi, 6.6rem);
-  line-height:0.78;
-  letter-spacing:-0.045em;
+  font-size:clamp(2.5rem, 18.4cqi, 7.2rem);
+  line-height:0.8;
+  letter-spacing:-0.04em;
   text-transform:uppercase;
 }
+.gcard-flowers{position:relative;min-height:0}
 .gcard-bloom,.gcard-stem{
-  position:absolute;z-index:2;pointer-events:none;height:auto;
+  position:absolute;pointer-events:none;height:auto;
 }
-.gcard-bloom{width:24%;right:6%;top:6%}
-.gcard-stem{width:33%;right:-1%;bottom:-3%}
+.gcard-bloom{width:62%;left:2%;top:0}
+.gcard-stem{width:100%;right:-2%;bottom:0}
