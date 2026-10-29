@@ -44,15 +44,47 @@
     height:auto;
     max-width:100%;
   }
-  body.opu-ed .opu-person a[href^="tel:"]{
+  body.opu-ed .opu-person a[href^="tel:"],
+  body.opu-ed .opu-faq-a a,
+  body.opu-ed .opu-steps a,
+  body.opu-ed .opu-callout a{
     color:var(--c-ink);
     font-weight:700;
     text-decoration-thickness:1px;
     text-decoration-color:var(--opu-gold);
     text-underline-offset:0.18em;
   }
+  body.opu-ed .opu-hero-note{
+    margin:1.15rem 0 0;
+    max-width:38ch;
+    font-size:1.08rem;
+    line-height:1.6;
+  }
+  body.opu-ed .opu-steps--list{
+    grid-template-columns:1fr;
+    max-width:40rem;
+    gap:0;
+  }
+  body.opu-ed .opu-steps--list li{
+    display:grid;
+    grid-template-columns:2.5rem minmax(0,1fr);
+    gap:0.35rem 0.75rem;
+    align-items:baseline;
+    padding:0.95rem 0;
+    border-top:1px solid var(--opu-line);
+  }
+  body.opu-ed .opu-steps--list li:last-child{border-bottom:1px solid var(--opu-line)}
+  body.opu-ed .opu-steps--list .opu-num{margin:0; font-size:1.7rem}
+  body.opu-ed .opu-callout{
+    margin-top:1.5rem;
+    max-width:40rem;
+    background:var(--c-yellow);
+    color:var(--c-ink);
+    padding:1rem 1.2rem;
+  }
+  body.opu-ed .opu-callout p{margin:0; font-weight:700}
 </style>
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["FoodEstablishment","LocalBusiness"],"@id":"https://www.homemadebycolleen.com/#business","name":"Homemade By Colleen","url":"https://www.homemadebycolleen.com/","logo":{"@type":"ImageObject","url":"https://www.homemadebycolleen.com/build-assets/logo.webp","width":540,"height":199},"image":"https://www.homemadebycolleen.com/build-assets/hero-meals.jpg","telephone":"+1-412-998-8404","address":{"@type":"PostalAddress","streetAddress":"300 Mt. Lebanon Blvd, Suite 2216-B","addressLocality":"Pittsburgh","addressRegion":"PA","postalCode":"15234","addressCountry":"US"},"servesCuisine":"American home cooking","priceRange":"$$","sameAs":["https://www.facebook.com/homemadebycolleen/","https://www.instagram.com/homemade_by_colleen/"],"areaServed":[{"@type":"City","name":"Bridgeville"},{"@type":"City","name":"Collier Township"},{"@type":"City","name":"McMurray"},{"@type":"City","name":"Mt. Lebanon"},{"@type":"City","name":"Oakmont"},{"@type":"City","name":"Peters Township"},{"@type":"City","name":"South Fayette"},{"@type":"City","name":"Upper St. Clair"},{"@type":"City","name":"Pittsburgh"}],"description":"Family-run meal prep and delivery service in the South Hills of Pittsburgh, PA. Fresh, never-frozen, home-cooked meals delivered weekly with no subscription required.","openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"20:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":["Saturday","Sunday"],"opens":"09:00","closes":"16:00"}]},{"@type":"WebPage","url":"https://www.homemadebycolleen.com/gift-cards","name":"Meal Gift Cards Pittsburgh | Homemade by Colleen","description":"Give the gift of homemade meals. Homemade by Colleen gift cards are perfect for new parents, busy families, and anyone who deserves a night off cooking.","isPartOf":{"@id":"https://www.homemadebycolleen.com/#website"},"about":{"@id":"https://www.homemadebycolleen.com/#business"},"inLanguage":"en-US"},{"@type":"Product","name":"Homemade by Colleen Gift Card","description":"A Homemade by Colleen gift card is a night off from cooking, a freezer full of comfort, and a reminder that someone's thinking of them.","brand":{"@type":"Brand","name":"Homemade by Colleen"},"offers":[{"@type":"Offer","name":"$50","priceCurrency":"USD","url":"https://www.homemadebycolleen.com/gift-cards","description":"Denomination listed for review only. Confirm the amount with Colleen before launch. No price is published yet."},{"@type":"Offer","name":"$75","priceCurrency":"USD","url":"https://www.homemadebycolleen.com/gift-cards","description":"Denomination listed for review only. Confirm the amount with Colleen before launch. No price is published yet."},{"@type":"Offer","name":"$100","priceCurrency":"USD","url":"https://www.homemadebycolleen.com/gift-cards","description":"Denomination listed for review only. Confirm the amount with Colleen before launch. No price is published yet."},{"@type":"Offer","name":"$150","priceCurrency":"USD","url":"https://www.homemadebycolleen.com/gift-cards","description":"Denomination listed for review only. Confirm the amount with Colleen before launch. No price is published yet."},{"@type":"Offer","name":"custom amount","priceCurrency":"USD","url":"https://www.homemadebycolleen.com/gift-cards","description":"Denomination listed for review only. Confirm the amount with Colleen before launch. No price is published yet."}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do gift cards work?","acceptedAnswer":{"@type":"Answer","text":"Your recipient gets a gift card code by [email / mail] that they can use at checkout on homemadebycolleen.com."}},{"@type":"Question","name":"Do gift cards expire?","acceptedAnswer":{"@type":"Answer","text":"[Confirm policy: in Pennsylvania, gift cards generally can't expire for at least five years; Colleen should confirm her policy.]"}},{"@type":"Question","name":"Can the recipient use it on care packages?","acceptedAnswer":{"@type":"Answer","text":"[Yes / No: confirm.]"}},{"@type":"Question","name":"Where do you deliver?","acceptedAnswer":{"@type":"Answer","text":"We deliver throughout [Pittsburgh delivery area] on Sundays and Wednesdays. Please make sure your recipient lives in our delivery area."}},{"@type":"Question","name":"Can I buy gift cards in bulk for my business?","acceptedAnswer":{"@type":"Answer","text":"Yes. [Contact us] for corporate and bulk gift card orders."}},{"@type":"Question","name":"Can they use the card over more than one order?","acceptedAnswer":{"@type":"Answer","text":"[Confirm: typically yes, the remaining balance stays on the card.]"}}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["FoodEstablishment","LocalBusiness"],"@id":"https://www.homemadebycolleen.com/#business","name":"Homemade By Colleen","url":"https://www.homemadebycolleen.com/","logo":{"@type":"ImageObject","url":"https://www.homemadebycolleen.com/build-assets/logo.webp","width":540,"height":199},"image":"https://www.homemadebycolleen.com/build-assets/hero-meals.jpg","telephone":"+1-412-998-8404","address":{"@type":"PostalAddress","streetAddress":"300 Mt. Lebanon Blvd, Suite 2216-B","addressLocality":"Pittsburgh","addressRegion":"PA","postalCode":"15234","addressCountry":"US"},"servesCuisine":"American home cooking","priceRange":"$$","sameAs":["https://www.facebook.com/homemadebycolleen/","https://www.instagram.com/homemade_by_colleen/"],"areaServed":[{"@type":"City","name":"Bridgeville"},{"@type":"City","name":"Collier Township"},{"@type":"City","name":"McMurray"},{"@type":"City","name":"Mt. Lebanon"},{"@type":"City","name":"Oakmont"},{"@type":"City","name":"Peters Township"},{"@type":"City","name":"South Fayette"},{"@type":"City","name":"Upper St. Clair"},{"@type":"City","name":"Pittsburgh"}],"description":"Family-run meal prep and delivery service in the South Hills of Pittsburgh, PA. Fresh, never-frozen, home-cooked meals delivered weekly with no subscription required.","openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"20:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":["Saturday","Sunday"],"opens":"09:00","closes":"16:00"}]},{"@type":"WebPage","url":"https://www.homemadebycolleen.com/gift-cards","name":"Meal Gift Cards Pittsburgh | Homemade by Colleen","description":"Give the gift of homemade meals. Homemade by Colleen gift cards are perfect for new parents, busy families, and anyone who deserves a night off cooking.","isPartOf":{"@id":"https://www.homemadebycolleen.com/#website"},"about":{"@id":"https://www.homemadebycolleen.com/#business"},"inLanguage":"en-US"},{"@type":"Product","name":"Homemade by Colleen Gift Card","description":"A Homemade by Colleen gift card is a night off from cooking, a fridge full of comfort, and a reminder that someone's thinking of them.","brand":{"@type":"Brand","name":"Homemade by Colleen"},"offers":[{"@type":"Offer","name":"Custom amount","url":"https://checkout.yourgift.cards/c24a4abc-fd29-4b2c-97d4-983b2c9ae40b","description":"Choose a custom amount. The recipient gets an email from Gift Up with their gift card and code."}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do gift cards work?","acceptedAnswer":{"@type":"Answer","text":"Your recipient gets a gift card code by email from Gift Up. They can use it at checkout on homemadebycolleen.com."}},{"@type":"Question","name":"Do gift cards expire?","acceptedAnswer":{"@type":"Answer","text":"Yes, 12 months after purchase. It won't take that long. Once people get their first meals, they are hooked. Most customers order 5 to 6 meals a week."}},{"@type":"Question","name":"Can the recipient use it on care packages?","acceptedAnswer":{"@type":"Answer","text":"Yes. Care packages are coming soon."}},{"@type":"Question","name":"Where do you deliver?","acceptedAnswer":{"@type":"Answer","text":"We deliver to most of Pittsburgh. To check your area, go to homemadebycolleen.com, click New Order, and enter your zip code. It'll tell you if we deliver there."}},{"@type":"Question","name":"Can I buy gift cards in bulk for my business?","acceptedAnswer":{"@type":"Answer","text":"Yes, you can buy gift cards in bulk for your business. Text or call (412) 998-8404 to ask about bulk orders."}},{"@type":"Question","name":"Can they use the card over more than one order?","acceptedAnswer":{"@type":"Answer","text":"Yes. The code keeps the remaining balance. Customers can check their remaining balance by entering their code on the gift card page: https://checkout.yourgift.cards/c24a4abc-fd29-4b2c-97d4-983b2c9ae40b"}}]}]}</script>
 </head>
 <body class="opu opu-ed">
 <a class="skip-link" href="#main">Skip to main content</a>
@@ -127,7 +159,8 @@
   <div class="shell"><div class="opu-hero-copy">
       <h1>Give the Gift of Homemade Meals</h1>
       <p class="opu-rule" aria-hidden="true"><span></span></p>
-      <p class="opu-sub">A Homemade by Colleen gift card is a night off from cooking, a freezer full of comfort, and a reminder that someone's thinking of them.</p>
+      <p class="opu-sub">A Homemade by Colleen gift card is a night off from cooking, a fridge full of comfort, and a reminder that someone's thinking of them.</p>
+      <p class="opu-hero-note">When I can't take them to dinner, or go to their house and cook them a week's worth of meals myself, a Homemade by Colleen gift card is the next best thing.</p>
       <p class="opu-cta"><a class="opu-btn" href="https://checkout.yourgift.cards/c24a4abc-fd29-4b2c-97d4-983b2c9ae40b" target="_blank" rel="noopener noreferrer">Buy a Gift Card →</a></p>
     </div><div class="opu-hero-visual"><figure class="gcard gcard--art">
   <img src="build-assets/gift-card.webp" width="2534" height="1972" alt="Homemade by Colleen gift card. Yellow card with the logo in a white panel, the words Gift Card, a small sunflower, and a taller sunflower with a stem and leaves." decoding="async">
@@ -151,18 +184,32 @@
 <article class="opu-person"><h3>Busy families.</h3><p>Give a weeknight back to the family that's always running between practice, work, and homework.</p></article>
 <article class="opu-person"><h3>Someone going through a hard time.</h3><p>When you don't know what to say, a gift card lets them order comfort on the day they need it most.</p></article>
 <article class="opu-person"><h3>Holidays, birthdays, and thank-yous.</h3><p>A thoughtful gift for teachers, coworkers, neighbors, and parents who have everything.</p></article>
-<article class="opu-person"><h3>Employers.</h3><p>Recognize your team or support an employee with a gift that feels personal. Ask about bulk orders: <a href="tel:+14129988404">(412) 998-8404</a></p></article></div>
+<article class="opu-person"><h3>Employers.</h3><p>Recognize your team or support an employee with a gift that feels personal. Text or call <a href="tel:+14129988404">(412) 998-8404</a> to ask about bulk orders.</p></article></div>
   </div>
 </section>
 <section class="opu-section" aria-labelledby="how">
   <div class="shell">
     <header class="opu-head"><h2 id="how">How Gift Cards Work</h2><p class="opu-rule" aria-hidden="true"><span></span></p></header>
     <ol class="opu-steps">
-      <li><span class="opu-num">1</span><p>Choose an amount: <span class="opu-todo">[$50 / $75 / $100 / $150, or a custom amount]</span>.</p></li>
+      <li><span class="opu-num">1</span><p>Choose a custom amount.</p></li>
       <li><span class="opu-num">2</span><p>Add a personal note and enter the recipient's email.</p></li>
-      <li><span class="opu-num">3</span><p>They order their favorites from our <a href="https://homemadebycolleen.getprado.com/Menu#/" target="_blank" rel="noopener noreferrer">weekly menu</a> and choose a Sunday or Wednesday delivery.</p></li>
+      <li><span class="opu-num">3</span><p>They get an email from Gift Up with their gift card and code.</p></li>
     </ol>
-    <p class="opu-note"><span class="opu-todo">[Confirm with Colleen: digital vs. physical card, whether cards can be scheduled for a future date, and whether they apply to care packages.]</span></p>
+  </div>
+</section>
+<section class="opu-section" aria-labelledby="use">
+  <div class="shell">
+    <header class="opu-head"><h2 id="use">How to Use Your Gift Card</h2><p class="opu-rule" aria-hidden="true"><span></span></p></header>
+    <ol class="opu-steps opu-steps--list">
+      <li><span class="opu-num">1</span><p>Go to <a href="https://www.homemadebycolleen.com/">homemadebycolleen.com</a>.</p></li>
+      <li><span class="opu-num">2</span><p>Click <a href="https://homemadebycolleen.getprado.com/Menu#/" target="_blank" rel="noopener noreferrer">New Order</a>.</p></li>
+      <li><span class="opu-num">3</span><p>Enter your zip code.</p></li>
+      <li><span class="opu-num">4</span><p>Add your meals.</p></li>
+      <li><span class="opu-num">5</span><p>At checkout, add your payment option. The gift card code goes in the gift card spot in the payment section.</p></li>
+    </ol>
+    <div class="opu-callout">
+      <p>The gift card code does not go in the discount or promo code box. That box will not take a gift card code.</p>
+    </div>
   </div>
 </section>
 <!-- Ready-made care packages section. Returns in a later pass.
@@ -180,27 +227,27 @@
     <header class="opu-head"><h2 id="faqs">Gift Card FAQs</h2><p class="opu-rule" aria-hidden="true"><span></span></p></header>
     <div class="opu-faq"><details>
         <summary><span class="opu-q">How do gift cards work?</span></summary>
-        <div class="opu-faq-a"><p>Your recipient gets a gift card code by <span class="opu-todo">[email / mail]</span> that they can use at checkout on homemadebycolleen.com.</p></div>
+        <div class="opu-faq-a"><p>Your recipient gets a gift card code by email from Gift Up. They can use it at checkout on homemadebycolleen.com.</p></div>
       </details>
 <details>
         <summary><span class="opu-q">Do gift cards expire?</span></summary>
-        <div class="opu-faq-a"><p><span class="opu-todo">[Confirm policy: in Pennsylvania, gift cards generally can't expire for at least five years; Colleen should confirm her policy.]</span></p></div>
+        <div class="opu-faq-a"><p>Yes, 12 months after purchase. It won't take that long. Once people get their first meals, they are hooked. Most customers order 5 to 6 meals a week.</p></div>
       </details>
 <details>
         <summary><span class="opu-q">Can the recipient use it on care packages?</span></summary>
-        <div class="opu-faq-a"><p><span class="opu-todo">[Yes / No: confirm.]</span></p></div>
+        <div class="opu-faq-a"><p>Yes. Care packages are coming soon.</p></div>
       </details>
 <details>
         <summary><span class="opu-q">Where do you deliver?</span></summary>
-        <div class="opu-faq-a"><p>We deliver throughout <span class="opu-todo">[Pittsburgh delivery area]</span> on Sundays and Wednesdays. Please make sure your recipient lives in our delivery area.</p></div>
+        <div class="opu-faq-a"><p>We deliver to most of Pittsburgh. To check your area, go to homemadebycolleen.com, click New Order, and enter your zip code. It'll tell you if we deliver there.</p></div>
       </details>
 <details>
         <summary><span class="opu-q">Can I buy gift cards in bulk for my business?</span></summary>
-        <div class="opu-faq-a"><p>Yes. <a class="opu-todo" href="contact-us.html">[Contact us]</a> for corporate and bulk gift card orders.</p></div>
+        <div class="opu-faq-a"><p>Yes, you can buy gift cards in bulk for your business. Text or call <a href="tel:+14129988404">(412) 998-8404</a> to ask about bulk orders.</p></div>
       </details>
 <details>
         <summary><span class="opu-q">Can they use the card over more than one order?</span></summary>
-        <div class="opu-faq-a"><p><span class="opu-todo">[Confirm: typically yes, the remaining balance stays on the card.]</span></p></div>
+        <div class="opu-faq-a"><p>Yes. The code keeps the remaining balance. Customers can check their remaining balance by entering their code on the <a href="https://checkout.yourgift.cards/c24a4abc-fd29-4b2c-97d4-983b2c9ae40b" target="_blank" rel="noopener noreferrer">gift card page</a>.</p></div>
       </details></div>
   </div>
 </section>
