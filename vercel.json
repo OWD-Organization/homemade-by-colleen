@@ -132,10 +132,6 @@
       "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }]
     },
     {
-      "source": "/catering-a",
-      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }]
-    },
-    {
       "source": "/catering-b",
       "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }]
     },
@@ -145,10 +141,6 @@
     },
     {
       "source": "/gift-cards-b.html",
-      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }]
-    },
-    {
-      "source": "/catering-a.html",
       "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }]
     },
     {
