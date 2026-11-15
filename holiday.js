@@ -17,7 +17,7 @@
       delayMs: 900,
       webp: "build-assets/colleen-christmas-party.webp",
       jpg: "build-assets/colleen-christmas-party.jpg",
-      reel: "https://www.instagram.com/reel/DfDDYyugFFU/"
+      page: "catering.html"
     }
   };
 
@@ -87,7 +87,7 @@
     root.innerHTML =
       '<div class="hol-pop-panel" role="dialog" aria-modal="true" aria-labelledby="hol-party-title" aria-describedby="hol-party-body">' +
         '<button type="button" class="hol-x" data-hol-close aria-label="Close">X</button>' +
-        '<a class="hol-pop-pic" href="' + CFG.popup.reel + '" target="_blank" rel="noopener noreferrer">' +
+        '<a class="hol-pop-pic" href="' + CFG.popup.page + '">' +
           '<picture>' +
             '<source srcset="' + CFG.popup.webp + '" type="image/webp">' +
             '<img src="' + CFG.popup.jpg + '" alt="Colleen inviting you to book your Christmas party" width="360" height="640" decoding="async">' +
@@ -98,7 +98,8 @@
           '<h2 id="hol-party-title">Hosting a holiday party this year?</h2>' +
           '<p id="hol-party-body">You deserve to enjoy your own party. Let me handle the food with the same love and care I\'d use for my own family\'s celebration. Every dish is made in small batches using the same Italian family recipes I\'ve perfected over 40+ years.</p>' +
           '<div class="hol-actions">' +
-            '<a class="hol-call" href="tel:+14129988404">Call Colleen: (412) 998-8404</a>' +
+            '<a class="hol-call" href="' + CFG.popup.page + '">Plan your holiday party</a>' +
+            '<a class="hol-tel" href="tel:+14129988404">Call Colleen: (412) 998-8404</a>' +
             '<button type="button" class="hol-no" data-hol-close>No thanks</button>' +
           '</div>' +
         '</div>' +

@@ -1658,25 +1658,6 @@ html.hol-banner-off .hol-banner{display:none}
   font-weight:500;
 }
 .hol-short{display:none}
-.hol-go{
-  flex:0 0 auto;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  min-height:2.75rem;
-  padding:0.4em 0.85em;
-  background:var(--c-ink);
-  color:var(--c-cream);
-  font-family:var(--font-display);
-  font-weight:700;
-  font-size:0.78rem;
-  letter-spacing:var(--tr-button);
-  text-transform:uppercase;
-  text-decoration:none;
-  border:var(--bd-hard);
-  box-shadow:-4px 4px 0 var(--c-ink);
-}
-.hol-go:hover{background:var(--c-green-deep)}
 .hol-x{
   position:absolute;
   top:0.2rem;
@@ -1781,6 +1762,13 @@ html.hol-banner-off .hol-banner{display:none}
   text-align:center;
 }
 .hol-call:hover{background:var(--c-yellow-pale)}
+.hol-tel{
+  color:var(--c-ink);
+  font-weight:700;
+  text-decoration:underline;
+  text-decoration-thickness:1.5px;
+  text-underline-offset:0.18em;
+}
 .hol-no{
   border:0;
   background:transparent;
